@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: crm-daron_development
+
+test:
+  <<: *default
+  database: crm-daron_test
+
+production:
+  <<: *default
+  database: crm-daron_production
+  username: crm-daron
+  password: <%= ENV['CRM-DARON_DATABASE_PASSWORD'] %>
