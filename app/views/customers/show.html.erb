@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @customer.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @customer.email %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @customer.phone %>
+</p>
+
+<p>
+  <strong>Le lost type:</strong>
+  <%= @customer.le_lost_type %>
+</p>
+
+<p>
+  <strong>Re lost type:</strong>
+  <%= @customer.re_lost_type %>
+</p>
+
+<p>
+  <strong>Le device type:</strong>
+  <%= @customer.le_device_type %>
+</p>
+
+<p>
+  <strong>Re device type:</strong>
+  <%= @customer.re_device_type %>
+</p>
+
+<%= link_to 'Edit', edit_customer_path(@customer) %> |
+<%= link_to 'Back', customers_path %>
