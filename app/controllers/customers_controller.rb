@@ -1,5 +1,4 @@
 class CustomersController < ApplicationController
-
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -19,7 +18,7 @@ class CustomersController < ApplicationController
 
     respond_to do |format|
       if @customer.save
-        redirect_to @customer, notice: I18n.t('controllers.messages.create')
+        redirect_to @customer, notice: I18n.t('controller.messages.created')
       else
         render :new
       end
@@ -29,7 +28,7 @@ class CustomersController < ApplicationController
   def update
     respond_to do |format|
       if @customer.update(customer_params)
-        redirect_to @customer, notice: I18n.t('controllers.messages.update')
+        redirect_to @customer, notice: I18n('controller.messages.update')
       else
         render :edit
       end
@@ -38,7 +37,9 @@ class CustomersController < ApplicationController
 
   def destroy
     @customer.destroy
-    redirect_to customers_url, notice: I18n.t('controllers.messages.destroy')
+    respond_to do |format|
+      redirect_to customers_url, notice: I18n('controller.messages.destroy')
+    end
   end
 
   private
