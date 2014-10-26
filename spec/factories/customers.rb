@@ -1,13 +1,25 @@
 FactoryGirl.define do
   factory :customer do
-    name Faker::Name.name
-    email Faker::Internet.email
+    name  { Faker::Name.name }
+    email { Faker::Internet.email }
     phone { Faker::PhoneNumber.phone_number }
     le_lost_type 'Moderada'
     re_lost_type 'Profunda'
     le_device_type 'CIC'
     re_device_type 'CIC'
     store 'Unidade I'
+  end
+
+  factory :person, parent: :customer, class: 'Person' do
+    rg '418757896' # fake rg: 41.875.789-6
+    cpf '85198228788' # fake cpf: 851.982.287-88
+    dob { Faker::Time.between(80.years.ago, 30.years.ago, :all) }
+    cellphone { Faker::PhoneNumber.cell_phone }
+  end
+
+  factory :company, parent: :customer, class: 'Company' do
+    cnpj '44837051000148' # fake cnpj: 44.837.051/0001-48
+    state_registration { Faker::Company.name }
   end
 
 end
