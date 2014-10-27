@@ -11,10 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141027000140) do
+ActiveRecord::Schema.define(version: 20141027020006) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "addresses", force: true do |t|
+    t.string   "street"
+    t.integer  "number"
+    t.string   "neighborhood"
+    t.string   "zipcode"
+    t.integer  "city_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "addresses", ["city_id"], name: "index_addresses_on_city_id", using: :btree
+
+  create_table "cities", force: true do |t|
+    t.string   "name"
+    t.integer  "state_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "cities", ["state_id"], name: "index_cities_on_state_id", using: :btree
 
   create_table "customers", force: true do |t|
     t.string   "name"
@@ -36,5 +57,15 @@ ActiveRecord::Schema.define(version: 20141027000140) do
     t.datetime "purchased_at"
     t.string   "type"
   end
+
+  create_table "states", force: true do |t|
+    t.string   "acronym"
+    t.string   "name"
+    t.integer  "capital_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "states", ["capital_id"], name: "index_states_on_capital_id", using: :btree
 
 end
