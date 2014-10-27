@@ -3,8 +3,8 @@ class Customer < ActiveRecord::Base
   DEVICE_TYPES = [ 'CIC', 'ITC', 'ITE' ]
   STORES       = [ 'Unidade I', 'Unidade II' ]
 
-  belongs_to :address
-  # TODO: accepts_nested_attributes
+  has_one :address
+  accepts_nested_attributes_for :address
 
   validates_presence_of :name, :store
   validates_format_of :phone, with: /[0-9]{2}?[0-9]{3,4}[0-9]{4}/

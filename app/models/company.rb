@@ -1,5 +1,9 @@
 class Company < Customer
   validates_presence_of :cnpj
+
+  def self.model_name
+    Customer.model_name
+  end
 end
 
 # == Schema Information

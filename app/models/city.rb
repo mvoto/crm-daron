@@ -1,5 +1,9 @@
 class City < ActiveRecord::Base
   belongs_to :state
+
+  def to_s
+    name
+  end
 end
 
 # == Schema Information

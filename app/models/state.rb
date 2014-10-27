@@ -1,6 +1,10 @@
 class State < ActiveRecord::Base
   has_many :cities
   belongs_to :capital, class_name: 'City'
+
+  def to_s
+    name
+  end
 end
 
 # == Schema Information

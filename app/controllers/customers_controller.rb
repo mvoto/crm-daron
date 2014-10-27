@@ -9,6 +9,7 @@ class CustomersController < ApplicationController
 
   def new
     @customer = Customer.new
+    @customer.address.build
   end
 
   def edit; end
@@ -16,22 +17,18 @@ class CustomersController < ApplicationController
   def create
     @customer = Customer.new(customer_params)
 
-    respond_to do |format|
-      if @customer.save
-        redirect_to @customer, notice: I18n.t('controller.messages.created')
-      else
-        render :new
-      end
+    if @customer.save
+      redirect_to customer_path(@customer), notice: I18n.t('controller.messages.created')
+    else
+      render :new
     end
   end
 
   def update
-    respond_to do |format|
-      if @customer.update(customer_params)
-        redirect_to @customer, notice: I18n('controller.messages.update')
-      else
-        render :edit
-      end
+    if @customer.update(customer_params)
+      redirect_to customer_path(@customer), notice: I18n.t('controller.messages.update')
+    else
+      render :edit
     end
   end
 
@@ -49,6 +46,8 @@ class CustomersController < ApplicationController
 
     def customer_params
       params.require(:customer).permit(:name, :email, :phone, :le_lost_type,
-        :re_lost_type, :le_device_type, :re_device_type)
+        :re_lost_type, :le_device_type, :re_device_type,
+        address_attributes: [:street, :number, :zipcode, :city_id])
+      # params.require(:address).permit!
     end
 end
