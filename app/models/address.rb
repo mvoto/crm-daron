@@ -16,7 +16,9 @@ end
 #  street       :string(255)
 #  number       :integer
 #  neighborhood :string(255)
+#  zipcode      :string(255)
 #  city_id      :integer
 #  created_at   :datetime
 #  updated_at   :datetime
+#  customer_id  :integer
 #
