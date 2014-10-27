@@ -35,5 +35,35 @@
   <%= @customer.re_device_type %>
 </p>
 
+<% if @customer.person? %>
+  <p>
+    <strong>Cpf:</strong>
+    <%= @customer.cpf %>
+  </p>
+  <p>
+    <strong>Rg:</strong>
+    <%= @customer.rg %>
+  </p>
+  <p>
+    <strong>Date of birth:</strong>
+    <%= to_date(@customer.dob) %>
+  </p>
+  <p>
+    <strong>Celphone:</strong>
+    <%= @customer.cellphone %>
+  </p>
+<% end %>
+
+<% if @customer.company? %>
+  <p>
+    <strong>Cnpj:</strong>
+    <%= @customer.cnpj %>
+  </p>
+  <p>
+    <strong>State Registration:</strong>
+    <%= @customer.state_registration %>
+  </p>
+<% end %>
+
 <%= link_to 'Edit', edit_customer_path(@customer) %> |
 <%= link_to 'Back', customers_path %>

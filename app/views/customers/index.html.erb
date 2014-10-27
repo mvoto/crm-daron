@@ -6,6 +6,8 @@
       <th>Name</th>
       <th>Email</th>
       <th>Phone</th>
+      <th>Store</th>
+      <th>Purchased At</th>
       <th>Le lost type</th>
       <th>Re lost type</th>
       <th>Le device type</th>
@@ -17,16 +19,19 @@
   <tbody>
     <% @customers.each do |customer| %>
       <tr>
-        <td><%= customer.name %></td>
+        <td><%= link_to customer.name, customer_path(customer.id) %></td>
         <td><%= customer.email %></td>
         <td><%= customer.phone %></td>
+        <td><%= customer.store %></td>
+        <td><%= to_date(customer.purchased_at) %></td>
         <td><%= customer.le_lost_type %></td>
         <td><%= customer.re_lost_type %></td>
         <td><%= customer.le_device_type %></td>
         <td><%= customer.re_device_type %></td>
-        <td><%= link_to 'Show', customer %></td>
+        <td><%= link_to 'Show', customer_path(customer) %></td>
         <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
-        <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', customer_path(customer), method: :delete,
+          data: { confirm: I18n.t('helpers.links.confirm') } %></td>
       </tr>
     <% end %>
   </tbody>
