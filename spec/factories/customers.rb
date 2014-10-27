@@ -23,4 +23,8 @@ FactoryGirl.define do
     state_registration { Faker::Company.name }
   end
 
+  trait :with_address do
+    address
+  end
+
 end

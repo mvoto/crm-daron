@@ -65,5 +65,28 @@
   </p>
 <% end %>
 
+<% if @customer.address.present? %>
+  <p>
+    <strong>Street:</strong>
+    <%= @customer.address.street %>
+  </p>
+  <p>
+    <strong>Number:</strong>
+    <%= @customer.address.number %>
+  </p>
+  <p>
+    <strong>Cep:</strong>
+    <%= @customer.address.zipcode %>
+  </p>
+  <p>
+    <strong>Estado:</strong>
+    <%= @customer.address.city.state %>
+  </p>
+  <p>
+    <strong>Cidade:</strong>
+    <%= @customer.address.city %>
+  </p>
+<% end %>
+
 <%= link_to 'Edit', edit_customer_path(@customer) %> |
 <%= link_to 'Back', customers_path %>
