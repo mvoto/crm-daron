@@ -5,3 +5,5 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+FactoryGirl.create_list(:person, 10)
+FactoryGirl.create_list(:company, 10)
