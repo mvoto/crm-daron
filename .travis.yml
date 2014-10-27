@@ -2,5 +2,5 @@ language: ruby
 rvm:
   - 2.1.1
 before_script:
-- cp -n spec/dummy/config/database.yml.sample spec/dummy/config/database.yml
+- cp -n config/database.yml.example spec/dummy/config/database.yml
 - bundle exec rake app:db:create app:db:schema:load
