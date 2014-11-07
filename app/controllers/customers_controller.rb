@@ -9,16 +9,15 @@ class CustomersController < ApplicationController
 
   def new
     @customer = Customer.new
-    @customer.address.build
+    @customer.build_address
   end
 
   def edit; end
 
   def create
     @customer = Customer.new(customer_params)
-
     if @customer.save
-      redirect_to customer_path(@customer), notice: I18n.t('controller.messages.created')
+      redirect_to customer_path(@customer), notice: I18n.t('controller.messages.create')
     else
       render :new
     end
@@ -42,12 +41,13 @@ class CustomersController < ApplicationController
   private
     def set_customer
       @customer = Customer.find(params[:id])
+      @states = State.order(:name)
     end
 
     def customer_params
       params.require(:customer).permit(:name, :email, :phone, :le_lost_type,
-        :re_lost_type, :le_device_type, :re_device_type,
+        :re_lost_type, :le_device_type, :re_device_type, :type, :cpf, :rg,
+        :dob, :cellphone, :cnpj, :state_registration, :store,
         address_attributes: [:street, :number, :zipcode, :city_id])
-      # params.require(:address).permit!
     end
 end

@@ -35,6 +35,29 @@
   <%= @customer.re_device_type %>
 </p>
 
+<% if @customer.address.present? %>
+  <p>
+    <strong>Street:</strong>
+    <%= @customer.address.street %>
+  </p>
+  <p>
+    <strong>Number:</strong>
+    <%= @customer.address.number %>
+  </p>
+  <p>
+    <strong>Cep:</strong>
+    <%= @customer.address.zipcode %>
+  </p>
+  <p>
+    <strong>Estado:</strong>
+    <%= @customer.address.state %>
+  </p>
+  <p>
+    <strong>Cidade:</strong>
+    <%= @customer.address.city %>
+  </p>
+<% end %>
+
 <% if @customer.person? %>
   <p>
     <strong>Cpf:</strong>
@@ -62,29 +85,6 @@
   <p>
     <strong>State Registration:</strong>
     <%= @customer.state_registration %>
-  </p>
-<% end %>
-
-<% if @customer.address.present? %>
-  <p>
-    <strong>Street:</strong>
-    <%= @customer.address.street %>
-  </p>
-  <p>
-    <strong>Number:</strong>
-    <%= @customer.address.number %>
-  </p>
-  <p>
-    <strong>Cep:</strong>
-    <%= @customer.address.zipcode %>
-  </p>
-  <p>
-    <strong>Estado:</strong>
-    <%= @customer.address.state %>
-  </p>
-  <p>
-    <strong>Cidade:</strong>
-    <%= @customer.address.city %>
   </p>
 <% end %>
 
