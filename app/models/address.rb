@@ -21,4 +21,5 @@ end
 #  created_at   :datetime
 #  updated_at   :datetime
 #  customer_id  :integer
+#  state_id     :integer
 #
