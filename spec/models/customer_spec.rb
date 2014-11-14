@@ -35,7 +35,7 @@ RSpec.describe Customer, type: :model do
         expect(customer).to_not allow_value('(011)4433-1122').for(:phone)
         expect(customer).to allow_value('1144331122').for(:phone)
         expect(customer).to_not allow_value('118').for(:phone)
-        expect(customer).to ensure_length_of(:phone).is_at_most(10)
+        expect(customer).to ensure_length_of(:phone).is_at_most(13)
       end
     end
   end
