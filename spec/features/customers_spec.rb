@@ -7,7 +7,7 @@ feature 'Managing customers', %q{
 
   let!(:customer) { create(:customer) }
   let!(:company) { create(:company) }
-  let!(:person) { create(:person) }
+  let!(:person) { create(:person, :with_address) }
 
   scenario 'displays expected columns' do
     visit customers_path
@@ -43,9 +43,33 @@ feature 'Managing customers', %q{
     expect(page).to have_content company.state_registration
   end
 
-  scenario 'creating person'
-  scenario 'creating company'
-  scenario 'updating person'
-  scenario 'updating company'
-  scenario 'destroying person'
+  scenario 'creating a customer', js: true do
+    visit customers_path
+
+    click_link('Novo')
+    fill_in('Name', with: 'Ronaldo Brito')
+    fill_in('Email', with: 'ronaldo.brito@hotmail.com')
+    fill_in('Phone', with: '11 976368299')
+    select('Unidade I', from: 'Store')
+
+    select('São Paulo', from: 'State')
+    click_button('Criar Customer')
+    expect(page).to have_content 'Criado com sucesso'
+  end
+
+  scenario 'updating a customer' do
+    visit customers_path
+
+    click_link('Editar', match: :first)
+    fill_in('Name', with: 'Ronaldo Brito')
+    click_button('Atualizar Customer')
+    expect(page).to have_content 'Alteração feita com sucesso'
+  end
+
+  scenario 'destroying a customer' do
+    visit customers_path
+
+    click_link('Excluir', match: :first)
+    expect(page).to have_content 'Excluído com sucesso'
+  end
 end

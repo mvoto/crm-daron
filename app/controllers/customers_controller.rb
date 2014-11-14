@@ -1,5 +1,5 @@
 class CustomersController < ApplicationController
-  before_action :set_customer, only: [:show, :edit, :update, :destroy]
+  before_action :set_customer, only: [:new, :show, :edit, :update, :destroy]
 
   def index
     @customers = Customer.all
@@ -33,14 +33,12 @@ class CustomersController < ApplicationController
 
   def destroy
     @customer.destroy
-    respond_to do |format|
-      redirect_to customers_url, notice: I18n('controller.messages.destroy')
-    end
+    redirect_to customers_url, notice: I18n.t('controller.messages.destroy')
   end
 
   private
     def set_customer
-      @customer = Customer.find(params[:id])
+      @customer = Customer.find(params[:id]) if params[:id].present?
       @states = State.order(:name)
     end
 

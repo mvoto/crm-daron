@@ -5,10 +5,6 @@ RSpec.describe Person, type: :model do
     context 'Validations:' do
       let(:person) { build(:person) }
 
-      it 'validates presence of cpf' do
-        expect(person).to validate_presence_of(:cpf)
-      end
-
       context 'given the cellphone' do
         let(:customer) { build(:person) }
 
