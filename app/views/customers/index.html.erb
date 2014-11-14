@@ -28,9 +28,9 @@
         <td><%= customer.re_lost_type %></td>
         <td><%= customer.le_device_type %></td>
         <td><%= customer.re_device_type %></td>
-        <td><%= link_to 'Show', customer_path(customer) %></td>
-        <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
-        <td><%= link_to 'Destroy', customer_path(customer), method: :delete,
+        <td><%= link_to I18n.t('helpers.links.details'), customer_path(customer) %></td>
+        <td><%= link_to I18n.t('helpers.links.edit'), edit_customer_path(customer) %></td>
+        <td><%= link_to I18n.t('helpers.links.destroy'), customer_path(customer), method: :delete,
           data: { confirm: I18n.t('helpers.links.confirm') } %></td>
       </tr>
     <% end %>
@@ -39,4 +39,4 @@
 
 <br>
 
-<%= link_to 'New Customer', new_customer_path %>
+<%= link_to I18n.t('helpers.links.new'), new_customer_path %>

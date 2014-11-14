@@ -221,6 +221,7 @@ pt-BR:
       submit: Salvar %{model}
       update: Atualizar %{model}
     links:
+      details: 'Ver'
       cancel: 'Cancelar'
       edit: 'Editar'
       new: 'Novo'
