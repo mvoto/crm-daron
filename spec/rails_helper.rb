@@ -46,6 +46,7 @@ RSpec.configure do |config|
 
   config.infer_spec_type_from_file_location!
 
+  config.include FactoryGirlHelper # adds methods such as find_or_create
   config.include FactoryGirl::Syntax::Methods # factory girl syntax sugar
 
   # config.include Devise::TestHelpers, type: :controller # devise helpers
