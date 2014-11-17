@@ -4,3 +4,6 @@ rvm:
 before_script:
 - cp -n config/database.yml.example config/database.yml
 - bundle exec rake db:create db:schema:load db:seed
+
+script:
+- xvfb-run bundle exec rspec
