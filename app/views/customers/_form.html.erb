@@ -1,0 +1,38 @@
+<%= simple_form_for(setup_customer(@customer)) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :email %>
+    <%= f.input :phone %>
+    <%= f.input :store, collection: Customer::STORES.map{ |val| [val, val] } %>
+    <%= f.input :le_device_type, collection: Customer::DEVICE_TYPES.map{ |val| [val, val] } %>
+    <%= f.input :re_device_type, collection: Customer::DEVICE_TYPES.map{ |val| [val, val] } %>
+    <%= f.input :le_lost_type,   collection: Customer::LOST_TYPES.map{ |val| [val, val] } %>
+    <%= f.input :re_lost_type,   collection: Customer::LOST_TYPES.map{ |val| [val, val] } %>
+    <%= f.input :purchased_at %>
+    <%= f.fields_for :address do |builder| %>
+      <%= render 'address_fields', f: builder %>
+    <% end %>
+
+    <fieldset>
+      <legend>Person</legend>
+      <%= f.input :cpf %>
+      <%= f.input :rg %>
+      <%= f.input :dob, as: :date, start_year: Date.today.year - 90,
+                              end_year: Date.today.year - 12, discard_day: true,
+                              order: [:month, :year] %>
+      <%= f.input :cellphone %>
+    </fieldset>
+
+    <fieldset>
+      <legend>Company</legend>
+      <%= f.input :cnpj %>
+      <%= f.input :state_registration %>
+    </fieldset>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

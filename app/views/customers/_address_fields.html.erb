@@ -1,0 +1,7 @@
+<fieldset>
+  <%= f.input :street %>
+  <%= f.input :number %>
+  <%= f.input :zipcode %>
+  <%= f.input :state_id, collection: @states %>
+  <%= f.input :city_id, collection: @states, as: :grouped_select, group_method: :cities %>
+</fieldset>
