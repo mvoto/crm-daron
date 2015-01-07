@@ -16,7 +16,7 @@
     <% end %>
 
     <fieldset>
-      <legend>Person</legend>
+      <legend><%= t("labels.person") %></legend>
       <%= f.input :cpf %>
       <%= f.input :rg %>
       <%= f.input :dob, as: :date, start_year: Date.today.year - 90,
@@ -26,7 +26,7 @@
     </fieldset>
 
     <fieldset>
-      <legend>Company</legend>
+      <legend><%= t("labels.company") %></legend>
       <%= f.input :cnpj %>
       <%= f.input :state_registration %>
     </fieldset>

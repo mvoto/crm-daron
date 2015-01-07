@@ -37,7 +37,7 @@ feature 'Managing customers', %q{
     visit customers_path
 
     click_link(person.name)
-    expect(page).to have_content 'Cpf'
+    expect(page).to have_content 'CPF'
     expect(page).to have_content person.name
     expect(page).to have_content person.rg
     expect(page).to have_content person.cpf
@@ -57,13 +57,13 @@ feature 'Managing customers', %q{
     visit customers_path
 
     click_link('Novo')
-    fill_in('Name', with: 'Ronaldo Brito')
+    fill_in('Nome', with: 'Ronaldo Brito')
     fill_in('Email', with: 'ronaldo.brito@hotmail.com')
-    fill_in('Phone', with: '11 976368299')
-    select('Unidade I', from: 'Store')
+    fill_in('Telefone', with: '11 976368299')
+    select('Unidade I', from: 'Loja')
 
-    select('São Paulo', from: 'State')
-    click_button('Criar Customer')
+    select('São Paulo', from: 'Estado')
+    click_button('Criar Cliente')
     expect(page).to have_content 'Criado com sucesso'
   end
 
@@ -71,8 +71,8 @@ feature 'Managing customers', %q{
     visit customers_path
 
     click_link('Editar', match: :first)
-    fill_in('Name', with: 'Ronaldo Brito')
-    click_button('Atualizar Customer')
+    fill_in('Nome', with: 'Ronaldo Brito')
+    click_button('Atualizar Cliente')
     expect(page).to have_content 'Alteração feita com sucesso'
   end
 
