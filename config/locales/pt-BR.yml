@@ -54,6 +54,7 @@ pt-BR:
         dob: "Data de Nascimento"
         cellphone: "Celular"
         state_registration: "Inscrição Estadual"
+        cnpj: "CNPJ"
       address:
         street: "Rua"
         number: "Número"
