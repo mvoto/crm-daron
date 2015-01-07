@@ -9,18 +9,28 @@ feature 'Managing customers', %q{
   let!(:company) { create(:company) }
   let!(:person) { create(:person, :with_address) }
 
-  scenario 'displays expected columns' do
-    visit customers_path
+  context 'when listing customers' do
 
-    expect(page).to have_content(customer.name)
-    expect(page).to have_content(customer.email)
-    expect(page).to have_content(customer.phone)
-    expect(page).to have_content(customer.store)
-    expect(page).to have_content(customer.purchased_at.strftime('%d/%m/%Y'))
-    expect(page).to have_content(customer.le_lost_type)
-    expect(page).to have_content(customer.re_lost_type)
-    expect(page).to have_content(customer.le_device_type)
-    expect(page).to have_content(customer.re_device_type)
+    scenario 'displays expected columns' do
+      visit customers_path
+
+      expect(page).to have_content(customer.name)
+      expect(page).to have_content(customer.email)
+      expect(page).to have_content(customer.phone)
+      expect(page).to have_content(customer.store)
+      expect(page).to have_content(customer.purchased_at.strftime('%d/%m/%Y'))
+      expect(page).to have_content(customer.le_lost_type)
+      expect(page).to have_content(customer.re_lost_type)
+      expect(page).to have_content(customer.le_device_type)
+      expect(page).to have_content(customer.re_device_type)
+    end
+
+    let!(:customers) { create_list(:customer, 20) }
+    scenario 'paginating customers' do
+      visit customers_path
+      expect(page).to have_content(Customer.order(:name).first.name)
+      expect(page).to_not have_content(Customer.order(:name).last.name)
+    end
   end
 
   scenario 'person details' do
