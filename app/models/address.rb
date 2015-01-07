@@ -4,7 +4,7 @@ class Address < ActiveRecord::Base
   # validates_presence_of :street, :city, :number
 
   def state
-    city.nil? ? '-' : city.state
+    city.nil? ? State.find(state_id) : city.state
   end
 end
 
