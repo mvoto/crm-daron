@@ -5,7 +5,7 @@ feature 'Managing customers', %q{
   I want to create, list, see and update company and person customers
 } do
 
-  let!(:customer) { create(:customer) }
+  let!(:customer) { create(:customer, name: 'Abel da Silva') }
   let!(:company) { create(:company) }
   let!(:person) { create(:person, :with_address) }
 
@@ -57,10 +57,10 @@ feature 'Managing customers', %q{
     visit customers_path
 
     click_link('Novo')
-    fill_in('Nome', with: 'Ronaldo Brito')
-    fill_in('Email', with: 'ronaldo.brito@hotmail.com')
-    fill_in('Telefone', with: '11 976368299')
-    select('Unidade I', from: 'Loja')
+    fill_in('customer_name', with: 'Ronaldo Brito')
+    fill_in('customer_email', with: 'ronaldo.brito@hotmail.com')
+    fill_in('customer_phone', with: '11 976368299')
+    select('Unidade I', from: 'customer_store')
 
     select('São Paulo', from: 'Estado')
     click_button('Criar Cliente')
@@ -71,7 +71,8 @@ feature 'Managing customers', %q{
     visit customers_path
 
     click_link('Editar', match: :first)
-    fill_in('Nome', with: 'Ronaldo Brito')
+    fill_in('customer_name', with: 'Ronaldo Brito')
+    select('São Paulo', from: 'Estado')
     click_button('Atualizar Cliente')
     expect(page).to have_content 'Alteração feita com sucesso'
   end

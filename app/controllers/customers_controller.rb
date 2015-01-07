@@ -2,7 +2,9 @@ class CustomersController < ApplicationController
   before_action :set_customer, only: [:new, :show, :edit, :update, :destroy]
 
   def index
-    @customers = Customer.paginate(page: params[:page], per_page: 15).order(:name)
+    @q = Customer.search(params[:q])
+    @customers = @q.result.order(:name).paginate(page: params[:page],
+      per_page: 15)
   end
 
   def show; end
@@ -46,6 +48,6 @@ class CustomersController < ApplicationController
       params.require(:customer).permit(:name, :email, :phone, :le_lost_type,
         :re_lost_type, :le_device_type, :re_device_type, :type, :cpf, :rg,
         :dob, :cellphone, :cnpj, :state_registration, :store,
-        address_attributes: [:street, :number, :zipcode, :city_id])
+        address_attributes: [:street, :number, :zipcode, :city_id, :state_id])
     end
 end
