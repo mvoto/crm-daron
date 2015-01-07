@@ -5,7 +5,7 @@ feature 'Managing customers', %q{
   I want to create, list, see and update company and person customers
 } do
 
-  let!(:customer) { create(:customer) }
+  let!(:customer) { create(:customer, name: 'Abel da Silva') }
   let!(:company) { create(:company) }
   let!(:person) { create(:person, :with_address) }
 

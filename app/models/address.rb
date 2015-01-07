@@ -4,7 +4,12 @@ class Address < ActiveRecord::Base
   # validates_presence_of :street, :city, :number
 
   def state
-    city.nil? ? State.find(state_id) : city.state
+    city.nil? ? state_by_id : city.state
+  end
+
+  protected
+  def state_by_id
+  	state_id.nil? ? '-' : State.find(state_id)
   end
 end
 
