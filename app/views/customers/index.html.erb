@@ -37,6 +37,8 @@
   </tbody>
 </table>
 
+<%= will_paginate @customers, renderer: BootstrapPagination::Rails %>
+
 <br>
 
 <%= link_to I18n.t('helpers.links.new'), new_customer_path %>
