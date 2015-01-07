@@ -7,8 +7,11 @@ class Customer < ActiveRecord::Base
   accepts_nested_attributes_for :address
 
   validates_presence_of :name, :store
-  validates_format_of :phone, with: /[0-9]{2}?[0-9]{3,4}[0-9]{4}/
-  validates :phone, length: { maximum: 13 }
+  validates_format_of :phone, with: /\(?[0-9]{0,2}\)?[0-9]{3,4}-?[0-9]{4}/
+  validates :phone, length: { maximum: 14 }
+  validates_format_of :cellphone, with: /\(?[0-9]{2}?\)?[0-9]{4}-?[0-9]{4,5}/,
+    allow_blank: true
+  validates :cellphone, length: { maximum: 14 }, allow_blank: true
   validates :re_device_type, :le_device_type, inclusion: { in: DEVICE_TYPES },
     allow_blank: true
   validates :re_lost_type, :le_lost_type,   inclusion: { in: LOST_TYPES },
