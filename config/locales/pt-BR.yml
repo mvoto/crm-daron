@@ -261,3 +261,8 @@ pt-BR:
     edit_customer: "Editar Cliente"
     list_customers: "Lista de Clientes"
     show_customer: "Detalhes de "
+    sidebar: "Menu"
+  will_paginate:
+    page_gap: "&hellip;"
+    previous_label: "Anterior"
+    next_label: "Próximo"
