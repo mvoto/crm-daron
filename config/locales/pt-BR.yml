@@ -24,9 +24,9 @@ pt-BR:
   activerecord:
     models:
       user: "Usuário"
+      customer: "Cliente"
     attributes:
-      customer:
-      user:
+      customer: &customer
         name: "Nome"
         first_name: "Nome"
         last_name: "Sobrenome"
@@ -44,6 +44,21 @@ pt-BR:
         remember_me: "Lembrar-me"
         marital_status: "Estado civil"
         city: "Cidade"
+        store: "Loja"
+        le_device_type: "Aparelho Esquerdo"
+        re_device_type: "Aparelho Direito"
+        le_lost_type: "Perda Esquerda"
+        re_lost_type: "Perda Direita"
+        purchased_at: "Data de Compra"
+        dob: "Data de Nascimento"
+        cellphone: "Celular"
+        state_registration: "Inscrição Estadual"
+      address:
+        street: "Rua"
+        number: "Número"
+        zipcode: "CEP"
+        state_id: "Estado"
+        city_id: "Cidade"
       city:
         name: "Nome"
         state: "Estado"
@@ -240,3 +255,9 @@ pt-BR:
       create: 'Criado com sucesso'
       update: 'Alteração feita com sucesso'
       destroy: 'Excluído com sucesso'
+  labels:
+    person: "Dados Pessoais"
+    company: "Empresa"
+    edit_customer: "Editar Cliente"
+    list_customers: "Lista de Clientes"
+    show_customer: "Detalhes de "

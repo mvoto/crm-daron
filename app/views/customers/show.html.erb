@@ -1,78 +1,82 @@
+<h1><%= t("labels.show_customer") + @customer.name %></h1>
+
+<br/>
+
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong><%= t("activerecord.attributes.customer.name") %>:</strong>
   <%= @customer.name %>
 </p>
 
 <p>
-  <strong>Email:</strong>
+  <strong><%= t("activerecord.attributes.customer.email") %>:</strong>
   <%= @customer.email %>
 </p>
 
 <p>
-  <strong>Phone:</strong>
+  <strong><%= t("activerecord.attributes.customer.phone") %>:</strong>
   <%= @customer.phone %>
 </p>
 
 <p>
-  <strong>Le lost type:</strong>
+  <strong><%= t("activerecord.attributes.customer.le_lost_type") %>:</strong>
   <%= @customer.le_lost_type %>
 </p>
 
 <p>
-  <strong>Re lost type:</strong>
+  <strong><%= t("activerecord.attributes.customer.re_lost_type") %>:</strong>
   <%= @customer.re_lost_type %>
 </p>
 
 <p>
-  <strong>Le device type:</strong>
+  <strong><%= t("activerecord.attributes.customer.le_device_type") %>:</strong>
   <%= @customer.le_device_type %>
 </p>
 
 <p>
-  <strong>Re device type:</strong>
+  <strong><%= t("activerecord.attributes.customer.re_device_type") %>:</strong>
   <%= @customer.re_device_type %>
 </p>
 
 <% if @customer.address.present? %>
   <p>
-    <strong>Street:</strong>
+    <strong><%= t("activerecord.attributes.address.street") %>:</strong>
     <%= @customer.address.street %>
   </p>
   <p>
-    <strong>Number:</strong>
+    <strong><%= t("activerecord.attributes.address.number") %>:</strong>
     <%= @customer.address.number %>
   </p>
   <p>
-    <strong>Cep:</strong>
+    <strong><%= t("activerecord.attributes.address.zipcode") %>:</strong>
     <%= @customer.address.zipcode %>
   </p>
   <p>
-    <strong>Estado:</strong>
+    <strong><%= t("activerecord.attributes.address.state_id") %>:</strong>
     <%= @customer.address.state %>
   </p>
   <p>
-    <strong>Cidade:</strong>
+    <strong><%= t("activerecord.attributes.address.city_id") %>:</strong>
     <%= @customer.address.city %>
   </p>
 <% end %>
 
 <% if @customer.person? %>
   <p>
-    <strong>Cpf:</strong>
+    <strong><%= t("activerecord.attributes.customer.cpf") %>:</strong>
     <%= @customer.cpf %>
   </p>
   <p>
-    <strong>Rg:</strong>
+    <strong><%= t("activerecord.attributes.customer.rg") %>:</strong>
     <%= @customer.rg %>
   </p>
   <p>
-    <strong>Date of birth:</strong>
+    <strong><%= t("activerecord.attributes.customer.dob") %>:</strong>
     <%= to_date(@customer.dob) %>
   </p>
   <p>
-    <strong>Celphone:</strong>
+    <strong><%= t("activerecord.attributes.customer.cellphone") %>:</strong>
     <%= @customer.cellphone %>
   </p>
 <% end %>
@@ -88,5 +92,5 @@
   </p>
 <% end %>
 
-<%= link_to 'Edit', edit_customer_path(@customer) %> |
-<%= link_to 'Back', customers_path %>
+<%= link_to t("helpers.links.edit"), edit_customer_path(@customer) %> |
+<%= link_to t("helpers.links.back"), customers_path %>

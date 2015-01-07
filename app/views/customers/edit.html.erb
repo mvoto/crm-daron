@@ -1,6 +1,6 @@
-<h1>Editing customer</h1>
+<h1><%= t("labels.edit_customer") %></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @customer %> |
-<%= link_to 'Back', customers_path %>
+<%= link_to t("helpers.links.details"), @customer %> |
+<%= link_to t("helpers.links.back"), customers_path %>
