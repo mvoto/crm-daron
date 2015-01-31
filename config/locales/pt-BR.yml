@@ -25,6 +25,7 @@ pt-BR:
     models:
       user: "Usuário"
       customer: "Cliente"
+      address: "Endereço"
     attributes:
       customer: &customer
         name: "Nome"

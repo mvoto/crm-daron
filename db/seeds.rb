@@ -4,7 +4,7 @@ include FactoryGirlHelper
 
 State.all.each_with_index do |state, i|
 	address = FactoryGirl.create(:address, state_id: state.id,
-		city_id: state.cities.first)
+		city_id: state.cities.first.id)
 
 	person = find_or_create(:person, email: "test#{i}@example.com")
 	person.address = address
