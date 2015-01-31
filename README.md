@@ -14,3 +14,7 @@ tested page on your browser. This gem does the trick: [launchy](https://github.c
 `annotate --exclude tests,fixtures,factories -p after`
 * Always keep seeds file updated when adding new ActiveRecord models
 * Use rails c --sandbox to use console and not save any register(rollback on exit)
+
+#### TODO
+- Add missing pt-br labels
+- Add an export button on customers to generate a .xls file
