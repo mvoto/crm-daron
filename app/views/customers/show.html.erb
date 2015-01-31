@@ -39,7 +39,7 @@
     <%= @customer.re_device_type %>
   </p>
 
-  <% if @customer.address.city %>
+  <% if @customer.address && @customer.address.city %>
     <strong><%= t("activerecord.models.address") %>:</strong>
     <address>
       <%= @customer.address.street %>, <%= @customer.address.number %><br>
