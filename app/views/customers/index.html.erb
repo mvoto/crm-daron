@@ -1,6 +1,9 @@
-<h1><%= t("labels.list_customers") %></h1>
-
-<table>
+<div class='row'>
+  <span id='span-title' class='lead'><%= t("labels.list_customers") %></span>
+  <%= link_to I18n.t('helpers.links.new'), new_customer_path, class: 'btn btn-default not-visited', role: "button" %>
+</div>
+<br/>
+<table class="table table-hover table-condensed table-responsive text-center">
   <thead>
     <tr>
       <th><%= t("activerecord.attributes.customer.name") %></th>
@@ -36,9 +39,6 @@
     <% end %>
   </tbody>
 </table>
-
-<%= will_paginate @customers, renderer: BootstrapPagination::Rails %>
-
-<br>
-
-<%= link_to I18n.t('helpers.links.new'), new_customer_path %>
+<div class='pull-right'>
+  <%= will_paginate @customers, renderer: BootstrapPagination::Rails %>
+</div>

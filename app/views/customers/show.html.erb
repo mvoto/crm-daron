@@ -1,96 +1,84 @@
 <h1><%= t("labels.show_customer") + @customer.name %></h1>
 
 <br/>
+<div class='well'>
+  <p id="notice"><%= notice %></p>
 
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong><%= t("activerecord.attributes.customer.name") %>:</strong>
-  <%= @customer.name %>
-</p>
-
-<p>
-  <strong><%= t("activerecord.attributes.customer.email") %>:</strong>
-  <%= @customer.email %>
-</p>
-
-<p>
-  <strong><%= t("activerecord.attributes.customer.phone") %>:</strong>
-  <%= @customer.phone %>
-</p>
-
-<p>
-  <strong><%= t("activerecord.attributes.customer.le_lost_type") %>:</strong>
-  <%= @customer.le_lost_type %>
-</p>
-
-<p>
-  <strong><%= t("activerecord.attributes.customer.re_lost_type") %>:</strong>
-  <%= @customer.re_lost_type %>
-</p>
-
-<p>
-  <strong><%= t("activerecord.attributes.customer.le_device_type") %>:</strong>
-  <%= @customer.le_device_type %>
-</p>
-
-<p>
-  <strong><%= t("activerecord.attributes.customer.re_device_type") %>:</strong>
-  <%= @customer.re_device_type %>
-</p>
-
-<% if @customer.address.present? %>
   <p>
-    <strong><%= t("activerecord.attributes.address.street") %>:</strong>
-    <%= @customer.address.street %>
+    <strong><%= t("activerecord.attributes.customer.name") %>:</strong>
+    <%= @customer.name %>
   </p>
-  <p>
-    <strong><%= t("activerecord.attributes.address.number") %>:</strong>
-    <%= @customer.address.number %>
-  </p>
-  <p>
-    <strong><%= t("activerecord.attributes.address.zipcode") %>:</strong>
-    <%= @customer.address.zipcode %>
-  </p>
-  <p>
-    <strong><%= t("activerecord.attributes.address.state_id") %>:</strong>
-    <%= @customer.address.state %>
-  </p>
-  <p>
-    <strong><%= t("activerecord.attributes.address.city_id") %>:</strong>
-    <%= @customer.address.city %>
-  </p>
-<% end %>
 
-<% if @customer.person? %>
   <p>
-    <strong><%= t("activerecord.attributes.customer.cpf") %>:</strong>
-    <%= @customer.cpf %>
+    <strong><%= t("activerecord.attributes.customer.email") %>:</strong>
+    <%= @customer.email %>
   </p>
-  <p>
-    <strong><%= t("activerecord.attributes.customer.rg") %>:</strong>
-    <%= @customer.rg %>
-  </p>
-  <p>
-    <strong><%= t("activerecord.attributes.customer.dob") %>:</strong>
-    <%= to_date(@customer.dob) %>
-  </p>
-  <p>
-    <strong><%= t("activerecord.attributes.customer.cellphone") %>:</strong>
-    <%= @customer.cellphone %>
-  </p>
-<% end %>
 
-<% if @customer.company? %>
   <p>
-    <strong>Cnpj:</strong>
-    <%= @customer.cnpj %>
+    <strong><%= t("activerecord.attributes.customer.phone") %>:</strong>
+    <%= @customer.phone %>
   </p>
-  <p>
-    <strong>State Registration:</strong>
-    <%= @customer.state_registration %>
-  </p>
-<% end %>
 
-<%= link_to t("helpers.links.edit"), edit_customer_path(@customer) %> |
-<%= link_to t("helpers.links.back"), customers_path %>
+  <p>
+    <strong><%= t("activerecord.attributes.customer.le_lost_type") %>:</strong>
+    <%= @customer.le_lost_type %>
+  </p>
+
+  <p>
+    <strong><%= t("activerecord.attributes.customer.re_lost_type") %>:</strong>
+    <%= @customer.re_lost_type %>
+  </p>
+
+  <p>
+    <strong><%= t("activerecord.attributes.customer.le_device_type") %>:</strong>
+    <%= @customer.le_device_type %>
+  </p>
+
+  <p>
+    <strong><%= t("activerecord.attributes.customer.re_device_type") %>:</strong>
+    <%= @customer.re_device_type %>
+  </p>
+
+  <% if @customer.address.city %>
+    <strong><%= t("activerecord.models.address") %>:</strong>
+    <address>
+      <%= @customer.address.street %>, <%= @customer.address.number %><br>
+      <%= @customer.address.city %>, <%= @customer.address.state %> <%= @customer.address.zipcode %><br>
+    </address>
+  <% end %>
+
+  <% if @customer.person? %>
+    <p>
+      <strong><%= t("activerecord.attributes.customer.cpf") %>:</strong>
+      <%= @customer.cpf %>
+    </p>
+    <p>
+      <strong><%= t("activerecord.attributes.customer.rg") %>:</strong>
+      <%= @customer.rg %>
+    </p>
+    <p>
+      <strong><%= t("activerecord.attributes.customer.dob") %>:</strong>
+      <%= to_date(@customer.dob) %>
+    </p>
+    <p>
+      <strong><%= t("activerecord.attributes.customer.cellphone") %>:</strong>
+      <%= @customer.cellphone %>
+    </p>
+  <% end %>
+
+  <% if @customer.company? %>
+    <p>
+      <strong>Cnpj:</strong>
+      <%= @customer.cnpj %>
+    </p>
+    <p>
+      <strong>State Registration:</strong>
+      <%= @customer.state_registration %>
+    </p>
+  <% end %>
+</div>
+<br/>
+<div class='well-sm' id='buttons'>
+  <%= link_to t("helpers.links.edit"), edit_customer_path(@customer), class: 'btn btn-primary', role: "button" %>
+  <%= link_to t("helpers.links.back"), customers_path, class: 'btn btn-default' %>
+</div>
