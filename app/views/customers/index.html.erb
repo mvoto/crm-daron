@@ -22,8 +22,8 @@
   <tbody>
     <% @customers.each do |customer| %>
       <tr>
-        <td><%= link_to customer.name, customer_path(customer.id) %></td>
-        <td><%= customer.email %></td>
+        <td title='<%= customer.name %>'><%= link_to customer.name.truncate(15), customer_path(customer.id) %></td>
+        <td title='<%= customer.email %>'><%= customer.email.truncate(12) %></td>
         <td><%= customer.phone %></td>
         <td><%= customer.store %></td>
         <td><%= to_date(customer.purchased_at) %></td>
