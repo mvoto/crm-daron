@@ -1,6 +1,9 @@
-<h1><%= t("labels.list_customers") %></h1>
-
-<table>
+<div class='row'>
+  <span id='span-title' class='lead'><%= t("labels.list_customers") %></span>
+  <%= link_to I18n.t('helpers.links.new'), new_customer_path, class: 'btn btn-default not-visited', role: "button" %>
+</div>
+<br/>
+<table class="table table-hover table-condensed table-responsive">
   <thead>
     <tr>
       <th><%= t("activerecord.attributes.customer.name") %></th>
@@ -19,8 +22,8 @@
   <tbody>
     <% @customers.each do |customer| %>
       <tr>
-        <td><%= link_to customer.name, customer_path(customer.id) %></td>
-        <td><%= customer.email %></td>
+        <td title='<%= customer.name %>'><%= link_to customer.name.truncate(15), customer_path(customer.id) %></td>
+        <td title='<%= customer.email %>'><%= customer.email.truncate(12) %></td>
         <td><%= customer.phone %></td>
         <td><%= customer.store %></td>
         <td><%= to_date(customer.purchased_at) %></td>
@@ -36,9 +39,6 @@
     <% end %>
   </tbody>
 </table>
-
-<%= will_paginate @customers, renderer: BootstrapPagination::Rails %>
-
-<br>
-
-<%= link_to I18n.t('helpers.links.new'), new_customer_path %>
+<div class='pull-right'>
+  <%= will_paginate @customers, renderer: BootstrapPagination::Rails %>
+</div>

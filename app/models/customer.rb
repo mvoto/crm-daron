@@ -3,7 +3,7 @@ class Customer < ActiveRecord::Base
   DEVICE_TYPES = [ 'CIC', 'ITC', 'ITE' ]
   STORES       = [ 'Unidade I', 'Unidade II' ]
 
-  has_one :address
+  has_one :address, dependent: :destroy
   accepts_nested_attributes_for :address
 
   validates_presence_of :name, :store

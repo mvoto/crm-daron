@@ -1,38 +1,69 @@
-<%= simple_form_for(setup_customer(@customer)) do |f| %>
+<%= simple_form_for(setup_customer(@customer), html: { class: 'form-horizontal' } ) do |f| %>
+
   <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :email %>
-    <%= f.input :phone %>
-    <%= f.input :store, collection: Customer::STORES.map{ |val| [val, val] } %>
-    <%= f.input :le_device_type, collection: Customer::DEVICE_TYPES.map{ |val| [val, val] } %>
-    <%= f.input :re_device_type, collection: Customer::DEVICE_TYPES.map{ |val| [val, val] } %>
-    <%= f.input :le_lost_type,   collection: Customer::LOST_TYPES.map{ |val| [val, val] } %>
-    <%= f.input :re_lost_type,   collection: Customer::LOST_TYPES.map{ |val| [val, val] } %>
-    <%= f.input :purchased_at %>
-    <%= f.fields_for :address do |builder| %>
-      <%= render 'address_fields', f: builder %>
-    <% end %>
+  <div class='row'>
+    <div class='col-md-6'>
+      <div class='panel panel-primary'>
+        <div class='panel-heading'><%= t("labels.person") %></div>
+        <div class='panel-body'>
+          <%= f.input :name, input_html: { class: 'form-control' } %>
+          <%= f.input :email, input_html: { class: 'form-control' } %>
+          <%= f.input :cpf, input_html: { class: 'form-control' } %>
+          <%= f.input :rg, input_html: { class: 'form-control' } %>
+          <%= f.input :dob, as: :date, start_year: Date.today.year - 90,
+                                  end_year: Date.today.year - 12, discard_day: true,
+                                  order: [:month, :year] %>
+        </div>
+      </div>
+    </div>
+    <div class='col-md-6'>
+      <div class='panel panel-primary'>
+        <div class='panel-heading'>Endereço</div>
+        <div class='panel-body'>
+          <%= f.fields_for :address do |builder| %>
+            <%= render 'address_fields', f: builder %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    <fieldset>
-      <legend><%= t("labels.person") %></legend>
-      <%= f.input :cpf %>
-      <%= f.input :rg %>
-      <%= f.input :dob, as: :date, start_year: Date.today.year - 90,
-                              end_year: Date.today.year - 12, discard_day: true,
-                              order: [:month, :year] %>
-      <%= f.input :cellphone %>
-    </fieldset>
+  <div class='row'>
+    <div class='col-md-6'>
+      <div class='panel panel-primary'>
+        <div class='panel-heading'>Informações da Compra</div>
+        <div class='panel-body'>
+          <%= f.input :store, collection: Customer::STORES.map{ |val| [val, val] }, input_html: { class: 'form-control' } %>
+          <%= f.input :le_device_type, collection: Customer::DEVICE_TYPES.map{ |val| [val, val] }, input_html: { class: 'form-control' } %>
+          <%= f.input :re_device_type, collection: Customer::DEVICE_TYPES.map{ |val| [val, val] }, input_html: { class: 'form-control' } %>
+          <%= f.input :le_lost_type,   collection: Customer::LOST_TYPES.map{ |val| [val, val] }, input_html: { class: 'form-control' } %>
+          <%= f.input :re_lost_type,   collection: Customer::LOST_TYPES.map{ |val| [val, val] }, input_html: { class: 'form-control' } %>
+          <%= f.input :purchased_at %>
+        </div>
+      </div>
+    </div>
 
-    <fieldset>
-      <legend><%= t("labels.company") %></legend>
-      <%= f.input :cnpj %>
-      <%= f.input :state_registration %>
-    </fieldset>
+    <div class='col-md-6'>
+      <div class='panel panel-primary'>
+        <div class='panel-heading'>Contato</div>
+        <div class='panel-body'>
+          <%= f.input :phone, input_html: { class: 'form-control' } %>
+          <%= f.input :cellphone, input_html: { class: 'form-control' } %>
+        </div>
+      </div>
+      <div class='panel panel-primary'>
+        <div class='panel-heading'><%= t("labels.company") %></div>
+        <div class='panel-body'>
+          <%= f.input :cnpj, input_html: { class: 'form-control' } %>
+          <%= f.input :state_registration, input_html: { class: 'form-control' } %>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, class: 'btn btn-success' %>
+    <%= link_to t("helpers.links.back"), customers_path, class: 'btn btn-default' %>
   </div>
 <% end %>

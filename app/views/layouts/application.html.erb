@@ -40,19 +40,19 @@
 
     <div class="navbar navbar-default navbar-static-top">
       <div class="container">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+        <%= link_to image_tag('white-logo.png'), customers_path, class: 'navbar-brand' %>
+<!--         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">CrmDaron</a>
-        <div class="navbar-collapse collapse navbar-responsive-collapse">
-          <ul class="nav navbar-nav">
-            <li><%= link_to "Link1", "/path1"  %></li>
-            <li><%= link_to "Link2", "/path2"  %></li>
-            <li><%= link_to "Link3", "/path3"  %></li>
+        </button> -->
+<!--         <div class="navbar-collapse collapse navbar-responsive-collapse">
+           <ul class="nav navbar-nav">
+            <li><%#= link_to "Link1", "/path1"  %></li>
+            <li><%#= link_to "Link2", "/path2"  %></li>
+            <li><%#= link_to "Link3", "/path3"  %></li>
           </ul>
-        </div>
+        </div> -->
       </div>
     </div>
 
@@ -60,11 +60,9 @@
       <div class="row">
         <% unless @customers.blank? %>
           <div class="col-lg-3">
-            <div class="well sidebar-nav">
-              <ul class="nav nav-list">
-                <%= render "search_form" %>
-              </ul>
-            </div><!--/.well -->
+            <div class="panel panel-info">
+              <%= render "search_form" %>
+            </div><!--/.sidebar-nav -->
           </div><!--/span-->
         <% end %>
         <div class="col-lg-9">
@@ -73,8 +71,8 @@
         </div>
       </div><!--/row-->
 
-      <footer>
-        <p>&copy; Company 2014</p>
+      <footer class="navbar navbar-default navbar-fixed-bottom footer">
+        <p>&copy; <a href="http://darondobrasil.com.br" target="_blank">Copyright Daron Brasil</a></p>
       </footer>
 
     </div> <!-- /container -->

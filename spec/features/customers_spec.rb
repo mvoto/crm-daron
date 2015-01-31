@@ -14,8 +14,8 @@ feature 'Managing customers', %q{
     scenario 'displays expected columns' do
       visit customers_path
 
-      expect(page).to have_content(customer.name)
-      expect(page).to have_content(customer.email)
+      expect(page).to have_content(customer.name.truncate(15))
+      expect(page).to have_content(customer.email.truncate(12))
       expect(page).to have_content(customer.phone)
       expect(page).to have_content(customer.store)
       expect(page).to have_content(customer.purchased_at.strftime('%d/%m/%Y'))
@@ -36,7 +36,7 @@ feature 'Managing customers', %q{
   scenario 'person details' do
     visit customers_path
 
-    click_link(person.name)
+    click_link(person.name.truncate(15))
     expect(page).to have_content 'CPF'
     expect(page).to have_content person.name
     expect(page).to have_content person.rg
