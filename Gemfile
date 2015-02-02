@@ -68,5 +68,6 @@ end
 
 group :production do
   # gem 'unicorn', '~> 4.8.3'        # use unicorn as the app server
+  gem 'puma'
   gem 'rails_12factor', '~> 0.0.3' # https://github.com/heroku/rails_12factor
 end
