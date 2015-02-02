@@ -1,0 +1,63 @@
+# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
+
+pt-BR:
+  devise:
+    confirmations:
+      confirmed: "Sua conta foi confirmada com sucesso"
+      send_instructions: "Você receberá um email com instruções para confirmar sua conta em alguns minutos"
+      send_paranoid_instructions: "Se seu email estiver em nosso banco de dados, você receberá um email com instruções de como confirmar sua conta em alguns minutos"
+    failure:
+      user:
+        already_authenticated: "Você já está Logado"
+        inactive: "Sua conta ainda não esta ativada"
+        invalid: "email ou senha inválidos"
+        locked: "Sua conta está bloqueada"
+        last_attempt: "Resta apenas uma tentativa antes de sua conta ser bloqueada"
+        not_found_in_database: "email ou senha inválidos"
+        timeout: "Sua sessão expirou. Favor logar-se novamente para contiuar"
+        unauthenticated: "Você precisa fazer o login antes de continuar"
+        unconfirmed: "Você precisa confirmar sua conta antes de continuar"
+    mailer:
+      confirmation_instructions:
+        subject: "Instruções de confirmação"
+      reset_password_instructions:
+        subject: "Instruções de definiçao de senha"
+      unlock_instructions:
+        subject: "Intruçoes de bloqueio"
+    omniauth_callbacks:
+      failure: "Nao foi possivel autenticar %{kind} porque \"%{reason}\""
+      success: "Autenticado com sucesso %{kind} conta"
+    passwords:
+      no_token: ". Você não pode acessar essa página sem um e-mail de redefinição de senha. Se você vem de um e-mail de redefinição de senha, por favor, certifique-se de utilizar a URL completa fornecida"
+      send_instructions: "Você receberá um e-mail com instruções sobre como redefinir sua senha em alguns minutos"
+      send_paranoid_instructions: "Se o seu endereço de e-mail existe no nosso banco de dados, você receberá um link de recuperação de senha em seu endereço de e-mail em alguns minutos"
+      updated: "Senha alterada com sucesso. Você pode se logar agora"
+      updated_not_active: "Senha alterada com sucesso"
+    registrations:
+      destroyed: ". Ate logo! Sua conta foi cancelada com sucesso Esperamos vê-lo novamente em breve"
+      signed_up: "Bem vindo! você foi cadastrado com sucesso"
+      signed_up_but_inactive: "Você se cadastrou com sucesso No entanto, não tem acesso porque a sua conta ainda não está ativa"
+      signed_up_but_locked: "Você se cadastrou com sucesso no entanto, não foi possível dar acesso porque sua conta está bloqueada"
+      signed_up_but_unconfirmed: ". Uma mensagem com um link de confirmação foi enviado para seu endereço de e-mail Por favor, abra o link para ativar sua conta"
+      update_needs_confirmation: "Você atualizou sua conta com sucesso, mas precisamos verificar o seu novo endereço de e-mail Por favor, verifique seu e-mail e clique no link de confirmação para finalizar confirmando o seu novo endereço de e-mail"
+      updated: "Alteração feita com sucesso"
+    sessions:
+      signed_in: "Logado com sucesso"
+      signed_out: "Deslogado com sucesso"
+    unlocks:
+      send_instructions: "Você receberá um e-mail com instruções sobre como desbloquear a sua conta em alguns minutos"
+      send_paranoid_instructions: "Se a sua conta for existente, você receberá um e-mail com instruções sobre como desbloqueá-lo em alguns minutos"
+      unlocked: "Sua conta foi desbloqueada com sucesso. Favor logar-se para continuar"
+  errors:
+    messages:
+      already_confirmed: "Confirmado, por favor tente logar-se"
+      confirmation_period_expired: "deve ser confirmado dentro de %{period}, solicite um novo"
+      expired: "Expirado, Favor solicitar uma nova"
+      not_found: "Não encontrado"
+      not_locked: "Não esta bloqueado"
+      not_saved:
+        one: "1 erro proibe que este %{resource} seja salvo:"
+        other: "%{count} erros proibem que este %{resource} seja salvo:"
+      email_not_sent:
+        one: "1 erro proibe que o email seja enviado:"
+        other: "%{count} erros proibem que o email seja enviado:"

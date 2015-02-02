@@ -68,6 +68,11 @@ pt-BR:
         name: "Nome"
         acronym: "Sigla"
         capital: "Capital"
+      user:
+        email: "Email"
+        password: "Senha"
+        current_password: "Senha Atual"
+        password_confirmation: "Confirmação de Senha"
   date:
     abbr_day_names:
     - Dom
