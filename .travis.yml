@@ -1,6 +1,6 @@
 language: ruby
 rvm:
-  - 2.1.1
+  - 2.1.5
 before_script:
 - cp -n config/database.yml.example config/database.yml
 - bundle exec rake db:create db:schema:load db:seed
