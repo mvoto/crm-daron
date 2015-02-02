@@ -32,16 +32,10 @@ gem 'simple_form', '~> 3.0.2'
 gem 'ransack', github: 'activerecord-hackery/ransack', branch: 'rails-4.1'
 # Slugging and permalink plugins for ActiveRecord. Read more: https://github.com/norman/friendly_id
 gem 'friendly_id', '~> 5.0.0'
-# Web text editor. Read more: https://github.com/galetahub/ckeditor
-# gem 'ckeditor', '~> 4.1.0'
 # For Settings.yml. Read more: https://github.com/railsconfig/rails_config
 # gem 'rails_config', '~> 0.4.2'
-# For database based asynchronous priority queue system. Read more: https://github.com/collectiveidea/delayed_job
-# gem 'delayed_job_active_record', '~> 4.0.2'
 # Flexible authentication solution for Rails with Warden
-# gem 'devise', '~> 3.3.0'
-# File upload
-# gem 'paperclip', '~> 4.1'
+gem 'devise', '~> 3.4.1'
 
 group :development do
   gem 'spring', '~> 1.1.3'        # Speeds up application. Read more: https://github.com/rails/spring
