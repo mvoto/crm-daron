@@ -72,4 +72,12 @@ h4 a:visited {
 	color: white;
 }
 
+.login-div {
+	margin-top: 26px;
+}
+
+.navbar-default .navbar-nav li a {
+	color: white;
+}
+
 body { padding-bottom: 70px; }

@@ -1,5 +1,6 @@
 class CustomersController < ApplicationController
   before_action :set_customer, only: [:new, :show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
 
   def index
     @q = Customer.search(params[:q])

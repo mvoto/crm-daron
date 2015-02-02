@@ -5,14 +5,14 @@
   <div class='panel-body panel-collapse collapse in' id='filters_div'>
       <%= f.search_field :name_cont, placeholder: I18n.t("activerecord.attributes.customer.name"), class: "form-control" %>
 
-      <%= f.search_field :email_cont, placeholder: I18n.t("activerecord.attributes.customer.email"), class: "form-control", type: 'email' %>
+      <%= f.search_field :email_cont, placeholder: I18n.t("activerecord.attributes.customer.email"), class: "form-control" %>
 
       <%= f.search_field :store_cont, placeholder: I18n.t("activerecord.attributes.customer.store"), class: "form-control" %>
 
       <%= f.search_field :le_lost_type_eq, placeholder: I18n.t("activerecord.attributes.customer.le_lost_type"), class: "form-control" %>
       <br/>
 
-      <%= f.search_field :le_lost_type_eq, placeholder: I18n.t("activerecord.attributes.customer.le_lost_type"), class: "form-control" %>
+      <%= f.search_field :re_lost_type_eq, placeholder: I18n.t("activerecord.attributes.customer.re_lost_type"), class: "form-control" %>
 
       <%= f.search_field :le_device_type_eq, placeholder: I18n.t("activerecord.attributes.customer.le_device_type"), class: "form-control" %>
 

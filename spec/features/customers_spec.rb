@@ -9,6 +9,8 @@ feature 'Managing customers', %q{
   let!(:company) { create(:company) }
   let!(:person) { create(:person, :with_address) }
 
+  before { sign_in }
+
   context 'when listing customers' do
 
     scenario 'displays expected columns' do
@@ -47,7 +49,7 @@ feature 'Managing customers', %q{
   scenario 'company details' do
     visit customers_path
 
-    click_link(company.name)
+    click_link(company.name.truncate(15))
     expect(page).to have_content 'Cnpj'
     expect(page).to have_content company.cnpj
     expect(page).to have_content company.state_registration
