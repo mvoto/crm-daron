@@ -49,14 +49,11 @@ RSpec.configure do |config|
   config.include FactoryGirlHelper # adds methods such as find_or_create
   config.include FactoryGirl::Syntax::Methods # factory girl syntax sugar
 
-  # config.include Devise::TestHelpers, type: :controller # devise helpers
-  # config.extend ControllerMacros, type: :controller # controller admin / user login
+  config.include Devise::TestHelpers, type: :controller # devise helpers
 
-  # config.include Features::SessionHelpers, type: :feature # features admin / user login
+  config.include Features::SessionHelpers, type: :feature # features admin / user login
 
   config.after(:suite) do
     FileUtils.rm_rf(Dir["#{Rails.root}/spec/test_files/"])
   end
-
-  # config.include Paperclip::Shoulda::Matchers
 end
