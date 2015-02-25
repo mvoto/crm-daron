@@ -61,7 +61,8 @@ feature 'Managing customers', %q{
     click_link('Novo')
     fill_in('customer_name', with: 'Ronaldo Brito')
     fill_in('customer_email', with: 'ronaldo.brito@hotmail.com')
-    fill_in('customer_phone', with: '11 976368299')
+    fill_in('customer_phone_ddd', with: '11')
+    fill_in('customer_phone', with: '976368299')
     select('Unidade I', from: 'customer_store')
 
     select('São Paulo', from: 'Estado')

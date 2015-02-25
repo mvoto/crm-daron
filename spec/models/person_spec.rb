@@ -11,9 +11,22 @@ RSpec.describe Person, type: :model do
         it 'validates format and length' do
           expect(person).to_not allow_value('(11)94433-1122').for(:cellphone)
           expect(person).to_not allow_value('(011)94433-1122').for(:cellphone)
-          expect(person).to allow_value('11944331122').for(:cellphone)
+          expect(person).to allow_value('944331122').for(:cellphone)
           expect(person).to_not allow_value('118').for(:cellphone)
-          expect(person).to ensure_length_of(:cellphone).is_at_most(11)
+          expect(person).to ensure_length_of(:cellphone).is_at_most(10)
+        end
+      end
+
+      context 'cellphone callbacks' do
+
+        subject { Person.new(name: "Ted", cellphone: "976368299",
+          store: Customer::STORES.first) }
+        before { subject.save }
+        let(:errors) { subject.errors[:cellphone_ddd] }
+
+        it 'validates cellphone format before save' do
+          expect(errors.size).to eq(1)
+          expect(errors).to include('não pode ficar em branco')
         end
       end
     end

@@ -31,7 +31,7 @@ RSpec.describe Customer, type: :model do
     context 'given the phone' do
 
       it 'validates format and length' do
-        expect(customer).to ensure_length_of(:phone).is_at_most(11)
+        expect(customer).to ensure_length_of(:phone).is_at_most(10)
         expect(customer).to_not allow_value('(11)4433-1122').for(:phone)
         expect(customer).to_not allow_value('(011)4433-1122').for(:phone)
         expect(customer).to allow_value('44331122').for(:phone)
@@ -47,19 +47,6 @@ RSpec.describe Customer, type: :model do
       let(:errors) { subject.errors[:phone_ddd] }
 
       it 'validates phones format before save' do
-        expect(errors.size).to eq(1)
-        expect(errors).to include('não pode ficar em branco')
-      end
-    end
-
-    context 'cellphone callbacks' do
-
-      subject { Customer.new(name: "Ted", cellphone: "976368299",
-        store: Customer::STORES.first) }
-      before { subject.save }
-      let(:errors) { subject.errors[:cellphone_ddd] }
-
-      it 'validates cellphone format before save' do
         expect(errors.size).to eq(1)
         expect(errors).to include('não pode ficar em branco')
       end

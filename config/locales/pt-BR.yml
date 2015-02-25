@@ -35,7 +35,7 @@ pt-BR:
         phone: "Telefone residencial"
         cell_phone: "Telefone celular"
         phone_ddd: "DDD"
-        celphone_ddd: "DDD"
+        cellphone_ddd: "DDD"
         cpf: "CPF"
         rg: "RG"
         zip_code: "CEP"
