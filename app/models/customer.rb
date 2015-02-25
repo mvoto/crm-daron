@@ -2,6 +2,7 @@ class Customer < ActiveRecord::Base
   LOST_TYPES   = [ 'Moderada', 'Moderada a Severa', 'Profunda' ]
   DEVICE_TYPES = [ 'CIC', 'ITC', 'ITE' ]
   STORES       = [ 'Unidade I', 'Unidade II' ]
+  GENDERS      = [ 'Masculino', 'Feminino' ]
 
   has_one :address, dependent: :destroy
   accepts_nested_attributes_for :address

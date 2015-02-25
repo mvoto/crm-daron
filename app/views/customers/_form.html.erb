@@ -9,11 +9,15 @@
         <div class='panel-body'>
           <%= f.input :name, input_html: { class: 'form-control' } %>
           <%= f.input :email, input_html: { class: 'form-control' }, type: 'email' %>
-          <%= f.input :cpf, input_html: { class: 'form-control' } %>
-          <%= f.input :rg, input_html: { class: 'form-control' } %>
           <%= f.input :dob, as: :date, start_year: Date.today.year - 90,
                                   end_year: Date.today.year - 12, discard_day: false,
                                   order: [:day, :month, :year] %>
+          <br/>
+          <%= f.collection_radio_buttons :gender, [[true, Customer::GENDERS.first] ,[false, Customer::GENDERS.last]],
+            :first, :last, checked: true %>
+          <%= f.input :cpf, input_html: { class: 'form-control' } %>
+          <%= f.input :rg, input_html: { class: 'form-control' } %>
+          <%= f.input :career, input_html: { class: 'form-control' } %>
         </div>
       </div>
     </div>

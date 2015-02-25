@@ -54,6 +54,8 @@ pt-BR:
         purchased_at: "Data de Compra"
         dob: "Data de Nascimento"
         cellphone: "Celular"
+        career: "Profissão"
+        gender: "Sexo"
         state_registration: "Inscrição Estadual"
       address:
         street: "Rua"
