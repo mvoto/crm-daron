@@ -12,8 +12,8 @@
           <%= f.input :cpf, input_html: { class: 'form-control' } %>
           <%= f.input :rg, input_html: { class: 'form-control' } %>
           <%= f.input :dob, as: :date, start_year: Date.today.year - 90,
-                                  end_year: Date.today.year - 12, discard_day: true,
-                                  order: [:month, :year] %>
+                                  end_year: Date.today.year - 12, discard_day: false,
+                                  order: [:day, :month, :year] %>
         </div>
       </div>
     </div>

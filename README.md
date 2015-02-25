@@ -16,5 +16,10 @@ tested page on your browser. This gem does the trick: [launchy](https://github.c
 * Use rails c --sandbox to use console and not save any register(rollback on exit)
 
 #### TODO
-- Add missing pt-br labels
+- Add customer's gender
+- Add customer's career
+- Add customer's RE field after name
+- Add contact's phones ddd field
+- Fix states and cities bug
 - Add an export button on customers to generate a .xls file
+- Add customer's details print version with button / link
