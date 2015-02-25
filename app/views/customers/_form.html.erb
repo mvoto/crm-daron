@@ -8,6 +8,7 @@
         <div class='panel-heading'><%= t("labels.person") %></div>
         <div class='panel-body'>
           <%= f.input :name, input_html: { class: 'form-control' } %>
+          <%= f.input :re, input_html: { class: 'form-control' } %>
           <%= f.input :email, input_html: { class: 'form-control' }, type: 'email' %>
           <%= f.input :dob, as: :date, start_year: Date.today.year - 90,
                                   end_year: Date.today.year - 12, discard_day: false,
