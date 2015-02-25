@@ -20,6 +20,7 @@ tested page on your browser. This gem does the trick: [launchy](https://github.c
 - Add customer's career
 - Add customer's RE field after name
 - Add contact's phones ddd field
+- Load address after zip code
 - Fix states and cities bug
 - Add an export button on customers to generate a .xls file
 - Add customer's details print version with button / link
