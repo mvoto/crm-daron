@@ -47,4 +47,6 @@ end
 #  updated_at         :datetime
 #  purchased_at       :datetime
 #  type               :string(255)
+#  gender             :string(255)
+#  career             :string(255)
 #
