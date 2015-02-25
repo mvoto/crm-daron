@@ -34,6 +34,8 @@ pt-BR:
         last_name: "Sobrenome"
         phone: "Telefone residencial"
         cell_phone: "Telefone celular"
+        phone_ddd: "DDD"
+        celphone_ddd: "DDD"
         cpf: "CPF"
         rg: "RG"
         zip_code: "CEP"
