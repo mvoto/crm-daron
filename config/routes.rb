@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   end
 
   resources :customers
+  get 'state', to: 'states#show'
   root to: 'customers#index'
 end
