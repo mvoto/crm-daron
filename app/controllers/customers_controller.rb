@@ -42,13 +42,14 @@ class CustomersController < ApplicationController
   private
     def set_customer
       @customer = Customer.find(params[:id]) if params[:id].present?
-      @states = State.order(:name)
+      @states = State.order(:acronym)
     end
 
     def customer_params
       params.require(:customer).permit(:name, :email, :phone, :le_lost_type,
         :re_lost_type, :le_device_type, :re_device_type, :type, :cpf, :rg,
         :dob, :cellphone, :cnpj, :state_registration, :store,
-        address_attributes: [:street, :number, :zipcode, :city_id, :state_id])
+        address_attributes: [:street, :number, :zipcode, :city_id, :state_id,
+          :neighborhood])
     end
 end

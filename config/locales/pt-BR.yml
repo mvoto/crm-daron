@@ -60,6 +60,7 @@ pt-BR:
         number: "Número"
         zipcode: "CEP"
         state_id: "Estado"
+        neighborhood: "Bairro"
         city_id: "Cidade"
       city:
         name: "Nome"

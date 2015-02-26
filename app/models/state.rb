@@ -3,7 +3,7 @@ class State < ActiveRecord::Base
   belongs_to :capital, class_name: 'City'
 
   def to_s
-    name
+    acronym
   end
 end
 

@@ -1,4 +1,4 @@
-<%= simple_form_for(setup_customer(@customer), html: { class: 'form-horizontal' } ) do |f| %>
+<%= simple_form_for(setup_customer(@customer), html: { class: 'form-horizontal', id: 'mainForm' } ) do |f| %>
 
   <%= f.error_notification %>
 
@@ -19,11 +19,17 @@
     </div>
     <div class='col-md-6'>
       <div class='panel panel-primary'>
-        <div class='panel-heading'>Endereço</div>
+        <div class='panel-heading'>Contato</div>
         <div class='panel-body'>
-          <%= f.fields_for :address do |builder| %>
-            <%= render 'address_fields', f: builder %>
-          <% end %>
+          <%= f.input :phone, input_html: { class: 'form-control' } %>
+          <%= f.input :cellphone, input_html: { class: 'form-control' } %>
+        </div>
+      </div>
+      <div class='panel panel-primary'>
+        <div class='panel-heading'><%= t("labels.company") %></div>
+        <div class='panel-body'>
+          <%= f.input :cnpj, input_html: { class: 'form-control' } %>
+          <%= f.input :state_registration, input_html: { class: 'form-control' } %>
         </div>
       </div>
     </div>
@@ -46,24 +52,20 @@
 
     <div class='col-md-6'>
       <div class='panel panel-primary'>
-        <div class='panel-heading'>Contato</div>
+        <div class='panel-heading'>Endereço</div>
         <div class='panel-body'>
-          <%= f.input :phone, input_html: { class: 'form-control' } %>
-          <%= f.input :cellphone, input_html: { class: 'form-control' } %>
-        </div>
-      </div>
-      <div class='panel panel-primary'>
-        <div class='panel-heading'><%= t("labels.company") %></div>
-        <div class='panel-body'>
-          <%= f.input :cnpj, input_html: { class: 'form-control' } %>
-          <%= f.input :state_registration, input_html: { class: 'form-control' } %>
+          <%= f.fields_for :address do |builder| %>
+            <%= render 'address_fields', f: builder %>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, class: 'btn btn-success' %>
+    <button id="mainButton" class="btn btn-success">
+      <%= @customer.persisted? ? 'Atualizar Cliente' : 'Criar Cliente' %>
+    </button>
     <%= link_to t("helpers.links.back"), customers_path, class: 'btn btn-default' %>
   </div>
 <% end %>
