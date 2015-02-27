@@ -6,7 +6,7 @@
 
   <p>
     <strong><%= t("activerecord.attributes.customer.name") %>:</strong>
-    <%= @customer.name %>
+    <%= @customer.name %>&nbsp;&nbsp;&nbsp;
     <strong><%= t("activerecord.attributes.customer.re") %>:</strong>
     <%= @customer.re %>
   </p>
@@ -61,6 +61,10 @@
     <p>
       <strong><%= t("activerecord.attributes.customer.dob") %>:</strong>
       <%= to_date(@customer.dob) %>
+    </p>
+    <p>
+      <strong><%= t("activerecord.attributes.customer.career") %>:</strong>
+      <%= @customer.career %>
     </p>
     <p>
       <strong><%= t("activerecord.attributes.customer.cellphone") %>:</strong>
