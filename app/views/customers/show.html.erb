@@ -41,6 +41,33 @@
     <%= @customer.re_device_type %>
   </p>
 
+  <p>
+    <strong><%= t("activerecord.attributes.customer.brand") %>:</strong>
+    <%= @customer.brand %>&nbsp;&nbsp;&nbsp;
+    <strong><%= t("activerecord.attributes.customer.model") %>:</strong>
+    <%= @customer.model %>
+  </p>
+
+  <p>
+    <strong><%= t("activerecord.attributes.customer.battery") %>:</strong>
+    <%= @customer.battery %>
+  </p>
+
+  <p>
+    <strong><%= t("activerecord.attributes.customer.serial_number") %>:</strong>
+    <%= @customer.serial_number %>
+  </p>
+
+  <p>
+    <strong><%= t("activerecord.attributes.customer.value") %>:</strong>
+    <%= @customer.value %>
+  </p>
+
+  <p>
+    <strong><%= t("activerecord.attributes.customer.warantee") %>:</strong>
+    <%= @customer.warantee %>
+  </p>
+
   <% if @customer.address && @customer.address.city %>
     <strong><%= t("activerecord.models.address") %>:</strong>
     <address>
