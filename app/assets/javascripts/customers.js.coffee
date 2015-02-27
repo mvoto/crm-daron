@@ -11,10 +11,15 @@ jQuery ->
 
     load_cities = (state, select_city, city) ->
       escaped_state = state.replace(/([ #;&,.+*~\':"!^$[\]()=>|\/@])/g, '\\$1')
-      console.log cities
+      # console.log escaped_state
+      # console.log cities
+      # console.log select_city
+      # console.log city
+      # console.log main_city
       options = $(cities).filter("optgroup[label='#{escaped_state}']").html()
+      main_city = $('#customer_address_attributes_city_id').val()
 
-      if options
+      if options || main_city
         $('#customer_address_attributes_city_id').html(options)
         $('#customer_address_attributes_city_id').parent().show()
         if select_city == true

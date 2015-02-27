@@ -9,7 +9,9 @@ FactoryGirl.define do
     re_lost_type 'Profunda'
     le_device_type 'CIC'
     re_device_type 'CIC'
-    store 'Unidade I'
+    store 'Unidade I - Santo André'
+    gender true
+    value '80,99'
   end
 
   factory :person, parent: :customer, class: 'Person' do

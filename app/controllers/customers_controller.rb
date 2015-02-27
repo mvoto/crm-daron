@@ -49,7 +49,8 @@ class CustomersController < ApplicationController
       params.require(:customer).permit(:name, :email, :phone, :le_lost_type,
         :re_lost_type, :le_device_type, :re_device_type, :type, :cpf, :rg,
         :dob, :cellphone, :cnpj, :state_registration, :store, :gender, :career,
-        :phone_ddd, :cellphone_ddd, :re,
+        :phone_ddd, :cellphone_ddd, :re, :brand, :model, :battery, :value,
+        :serial_number, :warantee,
         address_attributes: [:street, :number, :zipcode, :city_id, :state_id,
           :neighborhood])
     end

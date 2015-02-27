@@ -80,4 +80,9 @@ h4 a:visited {
 	color: white;
 }
 
+.right_column {
+	float: right;
+	margin-right: 400px;
+}
+
 body { padding-bottom: 70px; }
