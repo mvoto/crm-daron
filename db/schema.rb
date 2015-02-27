@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 20150225231013) do
     t.boolean  "gender",             default: true
     t.string   "phone_ddd"
     t.string   "cellphone_ddd"
-    t.string   "re"
+    t.integer  "re"
   end
 
   create_table "states", force: true do |t|
