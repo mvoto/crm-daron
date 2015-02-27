@@ -68,7 +68,8 @@ feature 'Managing customers', %q{
     select('Unidade I - Santo André', from: 'customer_store')
 
     select('São Paulo', from: 'Estado')
-    click_button('Criar Cliente')
+    # click_button('Criar Cliente')
+    page.find("#mainButton").trigger("click")
     expect(page).to have_content 'Criado com sucesso'
   end
 
@@ -78,7 +79,8 @@ feature 'Managing customers', %q{
     click_link('Editar', match: :first)
     fill_in('customer_name', with: 'Ronaldo Brito')
     select('São Paulo', from: 'Estado')
-    click_button('Atualizar Cliente')
+    # click_button('Atualizar Cliente')
+    page.find("#mainButton").click
     expect(page).to have_content 'Alteração feita com sucesso'
   end
 
