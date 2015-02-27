@@ -11,7 +11,7 @@ RSpec.describe Customer, type: :model do
     end
 
     context 'inclusions' do
-      let(:lost_types) { [ 'Moderada', 'Moderada a Severa', 'Profunda' ] }
+      let(:lost_types) { [ 'Moderada', 'Severa', 'Profunda' ] }
       let(:device_types) { [ 'CIC', 'ITC', 'ITE' ] }
       let(:stores) { [ 'Unidade I', 'Unidade II' ] }
 

@@ -1,6 +1,6 @@
 class Customer < ActiveRecord::Base
 
-  LOST_TYPES   = [ 'Moderada', 'Moderada a Severa', 'Profunda' ]
+  LOST_TYPES   = [ 'Moderada', 'Severa', 'Profunda' ]
   DEVICE_TYPES = [ 'CIC', 'ITC', 'ITE' ]
   STORES       = [ 'Unidade I', 'Unidade II' ]
   GENDERS      = [ 'Masculino', 'Feminino' ]
