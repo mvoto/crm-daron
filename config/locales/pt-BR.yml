@@ -34,6 +34,8 @@ pt-BR:
         last_name: "Sobrenome"
         phone: "Telefone residencial"
         cell_phone: "Telefone celular"
+        phone_ddd: "DDD"
+        cellphone_ddd: "DDD"
         cpf: "CPF"
         rg: "RG"
         zip_code: "CEP"
@@ -54,6 +56,8 @@ pt-BR:
         purchased_at: "Data de Compra"
         dob: "Data de Nascimento"
         cellphone: "Celular"
+        career: "Profissão"
+        gender: "Sexo"
         state_registration: "Inscrição Estadual"
       address:
         street: "Rua"

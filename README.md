@@ -16,5 +16,17 @@ tested page on your browser. This gem does the trick: [launchy](https://github.c
 * Use rails c --sandbox to use console and not save any register(rollback on exit)
 
 #### TODO
-- Add missing pt-br labels
+- Add customer's gender
+- Add customer's career
+- Add customer's RE field after name
+- Add contact's phones ddd field
+- Add Device's model
+- Add Device's brand
+- Add Device's battery
+- Add Device's serial number
+- Add Device's value
+- Add Device's warranty
+- Load address after zip code
+- Fix states and cities bug
 - Add an export button on customers to generate a .xls file
+- Add customer's details print version with button / link

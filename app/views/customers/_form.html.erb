@@ -7,13 +7,24 @@
       <div class='panel panel-primary'>
         <div class='panel-heading'><%= t("labels.person") %></div>
         <div class='panel-body'>
-          <%= f.input :name, input_html: { class: 'form-control' } %>
+          <div class="row">
+            <div class="col-xs-8">
+              <%= f.input :name, input_html: { class: 'form-control' } %>
+            </div>
+            <div class="col-xs-4">
+              <%= f.input :re, input_html: { class: 'form-control' } %>
+            </div>
+          </div>
           <%= f.input :email, input_html: { class: 'form-control' }, type: 'email' %>
+          <%= f.input :dob, as: :date, start_year: Date.today.year - 90,
+                                  end_year: Date.today.year - 12, discard_day: false,
+                                  order: [:day, :month, :year] %>
+          <br/>
+          <%= f.collection_radio_buttons :gender, [[true, Customer::GENDERS.first] ,[false, Customer::GENDERS.last]],
+            :first, :last %>
           <%= f.input :cpf, input_html: { class: 'form-control' } %>
           <%= f.input :rg, input_html: { class: 'form-control' } %>
-          <%= f.input :dob, as: :date, start_year: Date.today.year - 90,
-                                  end_year: Date.today.year - 12, discard_day: true,
-                                  order: [:month, :year] %>
+          <%= f.input :career, input_html: { class: 'form-control' } %>
         </div>
       </div>
     </div>
@@ -21,8 +32,22 @@
       <div class='panel panel-primary'>
         <div class='panel-heading'>Contato</div>
         <div class='panel-body'>
-          <%= f.input :phone, input_html: { class: 'form-control' } %>
-          <%= f.input :cellphone, input_html: { class: 'form-control' } %>
+          <div class='row'>
+            <div class="col-md-3">
+              <%= f.input :phone_ddd, input_html: { class: 'form-control', maxlength: 2 } %>
+            </div>
+            <div class="col-md-9">
+              <%= f.input :phone, input_html: { class: 'form-control' } %>
+            </div>
+          </div>
+          <div class='row'>
+            <div class="col-md-3">
+              <%= f.input :cellphone_ddd, input_html: { class: 'form-control', maxlength: 2 } %>
+            </div>
+            <div class="col-md-9">
+              <%= f.input :cellphone, input_html: { class: 'form-control' } %>
+            </div>
+          </div>
         </div>
       </div>
       <div class='panel panel-primary'>
