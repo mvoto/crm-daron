@@ -60,7 +60,7 @@ pt-BR:
         gender: "Sexo"
         state_registration: "Inscrição Estadual"
         value: "Valor"
-        warantee: "Garantia"
+        warantee: "Garantia (em anos)"
         battery: "Pilha"
         brand: "Marca"
         model: "Modelo"
