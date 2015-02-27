@@ -29,4 +29,15 @@ end
 #  updated_at         :datetime
 #  purchased_at       :datetime
 #  type               :string(255)
+#  career             :string(255)
+#  gender             :boolean          default(TRUE)
+#  phone_ddd          :string(255)
+#  cellphone_ddd      :string(255)
+#  re                 :integer
+#  model              :string(255)
+#  brand              :string(255)
+#  battery            :string(255)
+#  serial_number      :integer
+#  value              :decimal(5, 2)
+#  warantee           :integer
 #

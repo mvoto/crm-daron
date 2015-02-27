@@ -59,6 +59,12 @@ pt-BR:
         career: "Profissão"
         gender: "Sexo"
         state_registration: "Inscrição Estadual"
+        value: "Valor"
+        warantee: "Garantia"
+        battery: "Pilha"
+        brand: "Marca"
+        model: "Modelo"
+        serial_number: "Número de série"
       address:
         street: "Rua"
         number: "Número"
