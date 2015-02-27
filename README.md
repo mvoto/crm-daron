@@ -18,12 +18,7 @@ tested page on your browser. This gem does the trick: [launchy](https://github.c
 #### TODO
 
 VERSION 1:
-- Add Device's model
-- Add Device's brand
-- Add Device's battery
-- Add Device's serial number
-- Add Device's value
-- Add Device's warranty
+- Nothing to do here...yay !
 
 VERSION 2:
 - Add an export button on customers to generate a .xls file
