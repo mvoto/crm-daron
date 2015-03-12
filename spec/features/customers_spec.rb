@@ -21,8 +21,6 @@ feature 'Managing customers', %q{
       expect(page).to have_content(customer.phone)
       expect(page).to have_content(customer.store)
       expect(page).to have_content(customer.purchased_at.strftime('%d/%m/%Y'))
-      expect(page).to have_content(customer.le_lost_type)
-      expect(page).to have_content(customer.re_lost_type)
       expect(page).to have_content(customer.le_device_type)
       expect(page).to have_content(customer.re_device_type)
     end
@@ -63,12 +61,10 @@ feature 'Managing customers', %q{
     fill_in('customer_email', with: 'ronaldo.brito@hotmail.com')
     fill_in('customer_phone_ddd', with: '11')
     fill_in('customer_phone', with: '976368299')
-    fill_in('customer_value', with: '94,99')
     choose('customer_gender_true')
     select('Unidade I - Santo André', from: 'customer_store')
 
     select('São Paulo', from: 'Estado')
-    # click_button('Criar Cliente')
     page.find("#mainButton").trigger("click")
     expect(page).to have_content 'Criado com sucesso'
   end
@@ -79,7 +75,6 @@ feature 'Managing customers', %q{
     click_link('Editar', match: :first)
     fill_in('customer_name', with: 'Ronaldo Brito')
     select('São Paulo', from: 'Estado')
-    # click_button('Atualizar Cliente')
     page.find("#mainButton").click
     expect(page).to have_content 'Alteração feita com sucesso'
   end

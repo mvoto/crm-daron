@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150227175123) do
+ActiveRecord::Schema.define(version: 20150312021103) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20150227175123) do
     t.datetime "updated_at"
     t.integer  "customer_id"
     t.integer  "state_id"
+    t.string   "complement"
   end
 
   add_index "addresses", ["city_id"], name: "index_addresses_on_city_id", using: :btree
@@ -46,8 +47,6 @@ ActiveRecord::Schema.define(version: 20150227175123) do
     t.string   "email"
     t.string   "phone"
     t.string   "cellphone"
-    t.string   "le_lost_type"
-    t.string   "re_lost_type"
     t.string   "le_device_type"
     t.string   "re_device_type"
     t.string   "store"
@@ -69,7 +68,6 @@ ActiveRecord::Schema.define(version: 20150227175123) do
     t.string   "brand"
     t.string   "battery"
     t.integer  "serial_number"
-    t.string   "value"
     t.integer  "warantee"
   end
 

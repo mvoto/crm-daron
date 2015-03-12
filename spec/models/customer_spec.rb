@@ -19,10 +19,6 @@ RSpec.describe Customer, type: :model do
         'Interior de São Paulo' ] }
 
       it 'validates inclusion of' do
-        expect(customer).to validate_inclusion_of(:re_lost_type)
-          .in_array(lost_types)
-        expect(customer).to validate_inclusion_of(:le_lost_type)
-          .in_array(lost_types)
         expect(customer).to validate_inclusion_of(:re_device_type)
           .in_array(device_types)
         expect(customer).to validate_inclusion_of(:le_device_type)
