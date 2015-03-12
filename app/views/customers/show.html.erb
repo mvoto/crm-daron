@@ -58,20 +58,12 @@
   <% if @customer.address && @customer.address.city %>
     <strong><%= t("activerecord.models.address") %>:</strong>
     <address>
-      <%= @customer.address.street %>, <%= @customer.address.number %><br>
+      <%= @customer.address.street %>, <%= @customer.address.number %> <%= @customer.address.complement %><br>
       <%= @customer.address.city %>, <%= @customer.address.state %> <%= @customer.address.zipcode %><br>
     </address>
     <hr/>
   <% end %>
 
-  <div class="right_column">
-    <strong><%= t("activerecord.attributes.customer.re_lost_type") %>:</strong>
-    <%= @customer.re_lost_type %>
-  </div>
-  <p>
-    <strong><%= t("activerecord.attributes.customer.le_lost_type") %>:</strong>
-    <%= @customer.le_lost_type %>
-  </p>
   <div class="right_column">
     <strong><%= t("activerecord.attributes.customer.re_device_type") %>:</strong>
     <%= @customer.re_device_type %>
@@ -95,10 +87,6 @@
   <p>
     <strong><%= t("activerecord.attributes.customer.serial_number") %>:</strong>
     <%= @customer.serial_number %>
-  </p>
-  <p>
-    <strong><%= t("activerecord.attributes.customer.value") %>:</strong>
-    <%= @customer.value %>
   </p>
   <p>
     <strong><%= t("activerecord.attributes.customer.warantee") %>:</strong>

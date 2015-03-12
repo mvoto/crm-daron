@@ -4,7 +4,7 @@ class CustomersController < ApplicationController
 
   def index
     @q = Customer.search(params[:q])
-    @customers = @q.result.order(:name).paginate(page: params[:page],
+    @customers = @q.result.includes(:address).order(:name).paginate(page: params[:page],
       per_page: 10)
   end
 
@@ -46,12 +46,11 @@ class CustomersController < ApplicationController
     end
 
     def customer_params
-      params.require(:customer).permit(:name, :email, :phone, :le_lost_type,
-        :re_lost_type, :le_device_type, :re_device_type, :type, :cpf, :rg,
-        :dob, :cellphone, :cnpj, :state_registration, :store, :gender, :career,
-        :phone_ddd, :cellphone_ddd, :re, :brand, :model, :battery, :value,
-        :serial_number, :warantee,
+      params.require(:customer).permit(:name, :email, :phone, :type, :cpf, :rg,
+        :le_device_type, :re_device_type, :dob, :cellphone, :cnpj, :store,
+        :state_registration, :gender, :career, :phone_ddd, :cellphone_ddd,
+        :re, :brand, :model, :battery, :serial_number, :warantee,
         address_attributes: [:street, :number, :zipcode, :city_id, :state_id,
-          :neighborhood])
+          :neighborhood, :complement])
     end
 end

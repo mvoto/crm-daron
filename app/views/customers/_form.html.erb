@@ -16,8 +16,8 @@
             </div>
           </div>
           <%= f.input :email, input_html: { class: 'form-control' }, type: 'email' %>
-          <%= f.input :dob, as: :date, start_year: Date.today.year - 90,
-                                  end_year: Date.today.year - 12, discard_day: false,
+          <%= f.input :dob, as: :date, start_year: Date.today.year - 5,
+                                  end_year: Date.today.year - 100, discard_day: false,
                                   order: [:day, :month, :year] %>
           <br/>
           <%= f.collection_radio_buttons :gender, [[true, Customer::GENDERS.first] ,[false, Customer::GENDERS.last]],
@@ -76,14 +76,6 @@
           </div>
           <div class="row">
             <div class="col-xs-6">
-              <%= f.input :le_lost_type, collection: Customer::LOST_TYPES.map{ |val| [val, val] }, input_html: { class: 'form-control' } %>
-            </div>
-            <div class="col-xs-6">
-              <%= f.input :re_lost_type, collection: Customer::LOST_TYPES.map{ |val| [val, val] }, input_html: { class: 'form-control' } %>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-xs-6">
               <%= f.input :brand, input_html: { class: 'form-control' } %>
             </div>
             <div class="col-xs-6">
@@ -98,7 +90,6 @@
               <%= f.input :battery, collection: Customer::BATTERIES.map{ |val| [val, val] }, input_html: { class: 'form-control' } %>
             </div>
           </div>
-          <%= f.input :value, input_html: { value: number_with_precision(f.object.value, precision: 2), class: 'form-control' } %>
           <div class="row">
             <div class="col-xs-7">
               <%= f.input :purchased_at, as: :date, start_year: Date.today.year - 90,

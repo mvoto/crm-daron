@@ -9,6 +9,7 @@
     </div>
   </div>
   <%= f.input :neighborhood, input_html: { class: 'form-control' } %>
+  <%= f.input :complement, input_html: { class: 'form-control' } %>
   <%= f.input :state_id, collection: @states, input_html: { class: 'form-control' } %>
   <%= f.input :city_id, collection: @states, as: :grouped_select, group_method: :cities, input_html: { class: 'form-control' } %>
 </form>
