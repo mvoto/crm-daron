@@ -79,6 +79,16 @@ feature 'Managing customers', %q{
     expect(page).to have_content 'Alteração feita com sucesso'
   end
 
+  scenario 'displaying other store' do
+    visit customers_path
+
+    click_link('Editar', match: :first)
+    fill_in('customer_other_store', with: 'Unidade interior de SP')
+    page.find("#mainButton").click
+    expect(page).to have_content 'Alteração feita com sucesso'
+    expect(page).to have_content 'Loja: Unidade interior de SP'
+  end
+
   scenario 'destroying a customer' do
     visit customers_path
 

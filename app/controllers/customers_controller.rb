@@ -49,7 +49,7 @@ class CustomersController < ApplicationController
       params.require(:customer).permit(:name, :email, :phone, :type, :cpf, :rg,
         :le_device_type, :re_device_type, :dob, :cellphone, :cnpj, :store,
         :state_registration, :gender, :career, :phone_ddd, :cellphone_ddd,
-        :re, :brand, :model, :battery, :serial_number, :warantee,
+        :re, :brand, :model, :battery, :serial_number, :warantee, :other_store,
         address_attributes: [:street, :number, :zipcode, :city_id, :state_id,
           :neighborhood, :complement])
     end

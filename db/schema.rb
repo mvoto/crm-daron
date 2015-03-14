@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150312021103) do
+ActiveRecord::Schema.define(version: 20150314135619) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 20150312021103) do
     t.string   "battery"
     t.integer  "serial_number"
     t.integer  "warantee"
+    t.string   "other_store"
   end
 
   create_table "states", force: true do |t|

@@ -66,6 +66,7 @@
         <div class='panel-heading'>Informações da Compra</div>
         <div class='panel-body'>
           <%= f.input :store, collection: Customer::STORES.map{ |val| [val, val] }, input_html: { class: 'form-control' } %>
+          <%= f.input :other_store, input_html: { class: 'form-control' }, label: 'Outra', hint: 'Ao preencher este campo, caso alguma Loja esteja selecionada, será ignorada' %>
           <div class="row">
             <div class="col-xs-6">
               <%= f.input :le_device_type, collection: Customer::DEVICE_TYPES.map{ |val| [val, val] }, input_html: { class: 'form-control' } %>

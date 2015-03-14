@@ -62,6 +62,7 @@ pt-BR:
         brand: "Marca"
         model: "Modelo"
         serial_number: "Número de série"
+        other_store: "Outra"
       address:
         street: "Rua"
         number: "Número"
