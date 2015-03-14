@@ -13,6 +13,7 @@ class CustomersController < ApplicationController
   def new
     @customer = Customer.new
     @customer.build_address
+    # @customer.build_devices
   end
 
   def edit; end
@@ -47,10 +48,10 @@ class CustomersController < ApplicationController
 
     def customer_params
       params.require(:customer).permit(:name, :email, :phone, :type, :cpf, :rg,
-        :le_device_type, :re_device_type, :dob, :cellphone, :cnpj, :store,
-        :state_registration, :gender, :career, :phone_ddd, :cellphone_ddd,
-        :re, :brand, :model, :battery, :serial_number, :warantee, :other_store,
+        :dob, :cellphone, :cnpj, :store, :other_store, :state_registration,
+        :gender, :career, :phone_ddd, :cellphone_ddd,
         address_attributes: [:street, :number, :zipcode, :city_id, :state_id,
-          :neighborhood, :complement])
+        :neighborhood, :complement], devices_attributes: [:brand, :model, :ear,
+        :_type, :purchased_at, :warantee, :battery, :serial_number])
     end
 end

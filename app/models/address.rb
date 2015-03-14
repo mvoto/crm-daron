@@ -27,4 +27,5 @@ end
 #  updated_at   :datetime
 #  customer_id  :integer
 #  state_id     :integer
+#  complement   :string(255)
 #
