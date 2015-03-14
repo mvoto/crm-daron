@@ -23,7 +23,7 @@
         <td title='<%= customer.name %>'><%= link_to customer.name.truncate(15), customer_path(customer.id) %></td>
         <td title='<%= customer.email %>'><%= customer.email.truncate(12) %></td>
         <td><%= customer.phone %></td>
-        <td><%= customer.store %></td>
+        <td><%= customer.main_store %></td>
         <td><%= to_date(customer.purchased_at) %></td>
         <td><%= customer.le_device_type %></td>
         <td><%= customer.re_device_type %></td>

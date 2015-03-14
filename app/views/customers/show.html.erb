@@ -64,6 +64,15 @@
     <hr/>
   <% end %>
 
+  <p>
+    <strong><%= t("activerecord.attributes.customer.purchased_at") %>:</strong>
+    <%= to_date(@customer.purchased_at) %>
+  </p>
+  <p>
+    <strong><%= t("activerecord.attributes.customer.store") %>:</strong>
+    <%= @customer.main_store %>
+  </p>
+
   <div class="right_column">
     <strong><%= t("activerecord.attributes.customer.re_device_type") %>:</strong>
     <%= @customer.re_device_type %>

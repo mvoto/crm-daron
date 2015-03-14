@@ -29,6 +29,10 @@ class Customer < ActiveRecord::Base
     type.present? && type == 'Company'
   end
 
+  def main_store
+    other_store.blank? ? store : other_store
+  end
+
   # Defines dynamic _blank? methods for attributes listed in the array
   [:phone, :cellphone].each do |method_name|
     define_method "#{method_name}_blank?" do
