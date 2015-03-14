@@ -63,44 +63,12 @@
   <div class='row'>
     <div class='col-md-6'>
       <div class='panel panel-primary'>
-        <div class='panel-heading'>Informações da Compra</div>
+        <div class='panel-heading'>Informações de Compras</div>
         <div class='panel-body'>
-          <%= f.input :store, collection: Customer::STORES.map{ |val| [val, val] }, input_html: { class: 'form-control' } %>
-          <%= f.input :other_store, input_html: { class: 'form-control' }, label: 'Outra', hint: 'Ao preencher este campo, caso alguma Loja esteja selecionada, será ignorada' %>
-          <div class="row">
-            <div class="col-xs-6">
-              <%= f.input :le_device_type, collection: Customer::DEVICE_TYPES.map{ |val| [val, val] }, input_html: { class: 'form-control' } %>
-            </div>
-            <div class="col-xs-6">
-              <%= f.input :re_device_type, collection: Customer::DEVICE_TYPES.map{ |val| [val, val] }, input_html: { class: 'form-control' } %>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-xs-6">
-              <%= f.input :brand, input_html: { class: 'form-control' } %>
-            </div>
-            <div class="col-xs-6">
-              <%= f.input :model, input_html: { class: 'form-control' } %>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-xs-6">
-              <%= f.input :serial_number, input_html: { class: 'form-control' } %>
-            </div>
-            <div class="col-xs-6">
-              <%= f.input :battery, collection: Customer::BATTERIES.map{ |val| [val, val] }, input_html: { class: 'form-control' } %>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-xs-7">
-              <%= f.input :purchased_at, as: :date, start_year: Date.today.year - 90,
-                                      end_year: Date.today.year - 12, discard_day: false,
-                                      order: [:day, :month, :year] %>
-            </div>
-            <div class="col-xs-5">
-              <%= f.input :warantee, input_html: { class: 'form-control' } %>
-            </div>
-          </div>
+          <%= f.fields_for :device do |builder| %>
+            <%= render 'device_fields', f: builder %>
+          <% end %>
+          <%= link_to_add_fields "Adicionar mais Compras", f, :devices %>
         </div>
       </div>
     </div>

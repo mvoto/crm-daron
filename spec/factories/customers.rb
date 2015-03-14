@@ -5,8 +5,6 @@ FactoryGirl.define do
     phone_ddd '11'
     phone '44300390'
     purchased_at { Faker::Time.between(1.years.ago, Time.current, :all) }
-    le_device_type 'CIC'
-    re_device_type 'CIC'
     store 'Unidade I - Santo André'
     gender true
   end

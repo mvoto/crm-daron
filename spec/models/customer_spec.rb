@@ -11,20 +11,11 @@ RSpec.describe Customer, type: :model do
     end
 
     context 'inclusions' do
-      let(:lost_types) { [ 'Moderada', 'Severa', 'Profunda' ] }
-      let(:device_types) { [ 'CIC', 'ITC', 'ITE' ] }
-      let(:batteries) { [ '10', '13', '312', '675' ] }
       let(:stores) { [ 'Unidade I - Santo André', 'Unidade II - Barra Funda',
         'Unidade III - Santos', 'Unidade IV - Praia Grande',
         'Interior de São Paulo' ] }
 
       it 'validates inclusion of' do
-        expect(customer).to validate_inclusion_of(:re_device_type)
-          .in_array(device_types)
-        expect(customer).to validate_inclusion_of(:le_device_type)
-          .in_array(device_types)
-        expect(customer).to validate_inclusion_of(:battery)
-          .in_array(batteries)
         expect(customer).to validate_inclusion_of(:store).in_array(stores)
       end
     end
