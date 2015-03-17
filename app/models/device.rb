@@ -3,14 +3,20 @@ class Device < ActiveRecord::Base
   TYPES 		= [ 'CIC', 'ITC', 'ITE', 'BTE', 'ADP.A', 'REC.C.' ]
   BATTERIES = [ '10', '13', '312', '675' ]
   EAR 			= [ 'Direito', 'Esquerdo' ]
+  STORES    = [ 'Unidade I - Santo André', 'Unidade II - Barra Funda',
+    'Unidade III - Santos', 'Unidade IV - Praia Grande',
+    'Interior de São Paulo']
 
   belongs_to :customer
 
   validates :ear, inclusion: { in: EAR }, allow_blank: true
   validates :_type, inclusion: { in: TYPES }, allow_blank: true
+  validates :store, inclusion: { in: STORES }, allow_blank: true
   validates :battery, inclusion: { in: BATTERIES }, allow_blank: true
-  validates_presence_of :model, :brand, :ear
 
+  def main_store
+    other_store.blank? ? store : other_store
+  end
 
 end
 
@@ -30,4 +36,6 @@ end
 #  customer_id   :integer
 #  created_at    :datetime
 #  updated_at    :datetime
+#  store         :string(255)
+#  other_store   :string(255)
 #

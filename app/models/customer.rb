@@ -1,21 +1,16 @@
 class Customer < ActiveRecord::Base
 
   GENDERS = [ 'Masculino', 'Feminino' ]
-  STORES  = [ 'Unidade I - Santo André', 'Unidade II - Barra Funda',
-    'Unidade III - Santos', 'Unidade IV - Praia Grande',
-    'Interior de São Paulo']
-
 
   has_one :address, dependent: :destroy
   has_many :devices, dependent: :destroy
   accepts_nested_attributes_for :address
-  accepts_nested_attributes_for :devices
+  accepts_nested_attributes_for :devices, allow_destroy: true
 
-  validates_presence_of :name, :store
+  validates_presence_of :name
   validates_format_of :phone, with: /[0-9]{3,4}[0-9]{4}/
   validates :phone, length: { maximum: 10 }
   validates_presence_of :phone_ddd, unless: :phone_blank?
-  validates :store, inclusion: { in: STORES }, allow_blank: true
 
   def person?
     type.present? && type == 'Person'
@@ -25,15 +20,21 @@ class Customer < ActiveRecord::Base
     type.present? && type == 'Company'
   end
 
-  def main_store
-    other_store.blank? ? store : other_store
-  end
-
   # Defines dynamic _blank? methods for attributes listed in the array
   [:phone, :cellphone].each do |method_name|
     define_method "#{method_name}_blank?" do
       send(method_name).send(:blank?)
     end
+  end
+
+  def complete_phone
+    ddd = "(#{phone_ddd})" unless phone_ddd.nil?
+    "#{ddd} #{phone}"
+  end
+
+  def complete_cellphone
+    ddd = "(#{cellphone_ddd})" unless cellphone_ddd.nil?
+    "#{ddd} #{cellphone}"
   end
 end
 

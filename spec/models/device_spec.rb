@@ -6,14 +6,14 @@ RSpec.describe Device, type: :model do
 
     let(:device) { build(:device) }
 
-    [:brand, :model, :ear].each do |attribute|
-      it { should validate_presence_of(attribute) }
-    end
-
     context 'inclusions' do
       let(:types) 		{ Device::TYPES }
       let(:batteries) { Device::BATTERIES }
       let(:ears) { Device::EAR }
+      let(:stores) { [ 'Unidade I - Santo André', 'Unidade II - Barra Funda',
+        'Unidade III - Santos', 'Unidade IV - Praia Grande',
+        'Interior de São Paulo' ] }
+
 
       it 'validates inclusion of' do
         expect(device).to validate_inclusion_of(:_type)
@@ -22,6 +22,7 @@ RSpec.describe Device, type: :model do
           .in_array(batteries)
         expect(device).to validate_inclusion_of(:ear)
           .in_array(ears)
+        expect(device).to validate_inclusion_of(:store).in_array(stores)
       end
     end
 

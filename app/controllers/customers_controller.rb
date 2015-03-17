@@ -4,8 +4,7 @@ class CustomersController < ApplicationController
 
   def index
     @q = Customer.search(params[:q])
-    @customers = @q.result.includes(:address).order(:name).paginate(page: params[:page],
-      per_page: 10)
+    @customers = @q.result.includes(:address, :devices).order(:name).paginate(page: params[:page], per_page: 10)
   end
 
   def show; end
@@ -13,10 +12,14 @@ class CustomersController < ApplicationController
   def new
     @customer = Customer.new
     @customer.build_address
-    # @customer.build_devices
+    2.times { |i| @customer.devices.build(ear: Device::EAR[i]) }
   end
 
-  def edit; end
+  def edit
+    if @customer.devices.empty?
+      2.times { |i| @customer.devices.build(ear: Device::EAR[i]) }
+    end
+  end
 
   def create
     @customer = Customer.new(customer_params)
@@ -48,10 +51,10 @@ class CustomersController < ApplicationController
 
     def customer_params
       params.require(:customer).permit(:name, :email, :phone, :type, :cpf, :rg,
-        :dob, :cellphone, :cnpj, :store, :other_store, :state_registration,
-        :gender, :career, :phone_ddd, :cellphone_ddd,
-        address_attributes: [:street, :number, :zipcode, :city_id, :state_id,
-        :neighborhood, :complement], devices_attributes: [:brand, :model, :ear,
-        :_type, :purchased_at, :warantee, :battery, :serial_number])
+        :dob, :cellphone, :cnpj, :state_registration, :gender, :career,
+        :phone_ddd, :cellphone_ddd, address_attributes: [:street, :number,
+        :zipcode, :city_id, :state_id, :neighborhood, :complement],
+        devices_attributes: [:brand, :model, :ear, :_type, :purchased_at,
+        :warantee, :battery, :serial_number, :store, :other_store])
     end
 end

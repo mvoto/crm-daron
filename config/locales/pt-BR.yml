@@ -26,6 +26,7 @@ pt-BR:
       user: "Usuário"
       customer: "Cliente"
       address: "Endereço"
+      device: "Aparelho"
     attributes:
       customer: &customer
         name: "Nome"
@@ -54,7 +55,7 @@ pt-BR:
         gender: "Sexo"
         state_registration: "Inscrição Estadual"
       device:
-        _type: "Tipe de Aparelho"
+        _type: "Tipo de Aparelho"
         purchased_at: "Data de Compra"
         warantee: "Garantia (em anos)"
         battery: "Pilha"
@@ -62,7 +63,7 @@ pt-BR:
         model: "Modelo"
         serial_number: "Número de série"
         store: "Loja"
-        ear: "Ouvido:"
+        ear: "Ouvido"
         other_store: "Outra"
       address:
         street: "Rua"

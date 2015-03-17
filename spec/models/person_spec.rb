@@ -19,8 +19,7 @@ RSpec.describe Person, type: :model do
 
       context 'cellphone callbacks' do
 
-        subject { Person.new(name: "Ted", cellphone: "976368299",
-          store: Customer::STORES.first) }
+        subject { Person.new(name: "Ted", cellphone: "976368299") }
         before { subject.save }
         let(:errors) { subject.errors[:cellphone_ddd] }
 

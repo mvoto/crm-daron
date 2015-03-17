@@ -6,19 +6,7 @@ RSpec.describe Customer, type: :model do
 
     let(:customer) { build(:customer) }
 
-    [:name, :store].each do |attribute|
-      it { should validate_presence_of(attribute) }
-    end
-
-    context 'inclusions' do
-      let(:stores) { [ 'Unidade I - Santo André', 'Unidade II - Barra Funda',
-        'Unidade III - Santos', 'Unidade IV - Praia Grande',
-        'Interior de São Paulo' ] }
-
-      it 'validates inclusion of' do
-        expect(customer).to validate_inclusion_of(:store).in_array(stores)
-      end
-    end
+    it { should validate_presence_of(:name) }
 
     context 'given the phone' do
 
@@ -33,8 +21,7 @@ RSpec.describe Customer, type: :model do
 
     context 'phone callbacks' do
 
-      subject { Customer.new(name: "Ted", phone: "44366081",
-        store: Customer::STORES.first) }
+      subject { Customer.new(name: "Ted", phone: "44366081") }
       before { subject.save }
       let(:errors) { subject.errors[:phone_ddd] }
 
