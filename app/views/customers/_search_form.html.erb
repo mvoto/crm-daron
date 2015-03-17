@@ -9,14 +9,12 @@
 
       <%= f.text_field :dob_lteq, placeholder: "Nascido até: (dd/mm/aaaa)", class: "form-control" %>
 
-      <%= f.search_field :store_or_other_store_cont, placeholder: I18n.t("activerecord.attributes.customer.store"), class: "form-control" %>
+      <%= f.search_field :devices_store_or_other_store_cont, placeholder: I18n.t("activerecord.attributes.device.store"), class: "form-control" %>
 
-      <%= f.search_field :le_device_type_cont, placeholder: I18n.t("activerecord.attributes.customer.le_device_type"), class: "form-control" %>
-
-      <%= f.search_field :re_device_type_cont, placeholder: I18n.t("activerecord.attributes.customer.re_device_type"), class: "form-control" %>
+      <%= f.search_field :devices__type_cont, placeholder: I18n.t("activerecord.attributes.device._type"), class: "form-control" %>
       <br/>
 
-      <%= f.text_field :brand, placeholder: I18n.t("activerecord.attributes.customer.brand"), class: "form-control" %>
+      <%= f.text_field :devices_brand, placeholder: I18n.t("activerecord.attributes.device.brand"), class: "form-control" %>
 
       <br/><br/>
       <%= f.collection_select :address_city_id_eq, City.all, :id, :name, include_blank: 'Escolha uma Cidade', class: "form-control" %>

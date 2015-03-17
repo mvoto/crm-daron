@@ -10,7 +10,7 @@ This is a specific crm project.
 ## Tips
 * On acceptance/features tests, you can use `save_and_open_page` to open the current
 tested page on your browser. This gem does the trick: [launchy](https://github.com/copiousfreetime/launchy)
-* After creating models, run:
+* After creating models and execute the migrations, run:
 `annotate --exclude tests,fixtures,factories -p after`
 * Always keep seeds file updated when adding new ActiveRecord models
 * Use rails c --sandbox to use console and not save any register(rollback on exit)
@@ -18,7 +18,10 @@ tested page on your browser. This gem does the trick: [launchy](https://github.c
 #### TODO
 
 VERSION 1:
-- Nothing to do here...yay !
+- Fix duplicated devices on form edit
+- Fix todo's
+- Remove unused attributes from customers
+- Add tooltip maybe on the index tr's with devices info
 
 VERSION 2:
 - Add an export button on customers to generate a .xls file

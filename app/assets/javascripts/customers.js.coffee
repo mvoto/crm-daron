@@ -55,3 +55,8 @@ jQuery ->
           success: (resp) -> $("#customer_address_attributes_state_id option").filter( (index) ->
             load_cities resp.name, true, result.city
             $(this).text() is resp.name).attr('selected', 'selected')
+
+    $('form').on 'click', '.remove_fields', (event) ->
+      $(this).prev('input[type=hidden]').val('1')
+      $(this).closest('div').hide()
+      event.preventDefault()
