@@ -18,9 +18,6 @@ end
 #  email              :string(255)
 #  phone              :string(255)
 #  cellphone          :string(255)
-#  le_device_type     :string(255)
-#  re_device_type     :string(255)
-#  store              :string(255)
 #  dob                :datetime
 #  rg                 :string(255)
 #  cpf                :string(255)
@@ -28,17 +25,10 @@ end
 #  state_registration :string(255)
 #  created_at         :datetime
 #  updated_at         :datetime
-#  purchased_at       :datetime
 #  type               :string(255)
 #  career             :string(255)
 #  gender             :boolean          default(TRUE)
 #  phone_ddd          :string(255)
 #  cellphone_ddd      :string(255)
 #  re                 :integer
-#  model              :string(255)
-#  brand              :string(255)
-#  battery            :string(255)
-#  serial_number      :integer
-#  warantee           :integer
-#  other_store        :string(255)
 #
