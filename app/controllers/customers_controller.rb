@@ -54,7 +54,7 @@ class CustomersController < ApplicationController
         :dob, :cellphone, :cnpj, :state_registration, :gender, :career,
         :phone_ddd, :cellphone_ddd, address_attributes: [:street, :number,
         :zipcode, :city_id, :state_id, :neighborhood, :complement],
-        devices_attributes: [:brand, :model, :ear, :_type, :purchased_at,
+        devices_attributes: [:id, :brand, :model, :ear, :_type, :purchased_at,
         :warantee, :battery, :serial_number, :store, :other_store])
     end
 end

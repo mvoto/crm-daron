@@ -21,9 +21,6 @@ feature 'Managing customers', %q{
       expect(page).to have_content(customer.phone)
       # TODO: update this info from customer.device.store
       # expect(page).to have_content(customer.store)
-      expect(page).to have_content(customer.purchased_at.strftime('%d/%m/%Y'))
-      expect(page).to have_content(customer.le_device_type)
-      expect(page).to have_content(customer.re_device_type)
     end
 
     let!(:customers) { create_list(:customer, 20) }
