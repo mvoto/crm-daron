@@ -18,10 +18,7 @@ tested page on your browser. This gem does the trick: [launchy](https://github.c
 #### TODO
 
 VERSION 1:
-- Fix duplicated devices on form edit
-- Fix todo's
-- Remove unused attributes from customers
-- Add tooltip maybe on the index tr's with devices info
+- Add collapse info on index table
 
 VERSION 2:
 - Add an export button on customers to generate a .xls file
