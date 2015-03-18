@@ -19,8 +19,6 @@ feature 'Managing customers', %q{
       expect(page).to have_content(customer.name.truncate(15))
       expect(page).to have_content(customer.email.truncate(12))
       expect(page).to have_content(customer.phone)
-      # TODO: update this info from customer.device.store
-      # expect(page).to have_content(customer.store)
     end
 
     let!(:customers) { create_list(:customer, 20) }

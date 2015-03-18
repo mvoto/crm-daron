@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150314171847) do
+ActiveRecord::Schema.define(version: 20150318015300) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,9 +47,6 @@ ActiveRecord::Schema.define(version: 20150314171847) do
     t.string   "email"
     t.string   "phone"
     t.string   "cellphone"
-    t.string   "le_device_type"
-    t.string   "re_device_type"
-    t.string   "store"
     t.datetime "dob"
     t.string   "rg"
     t.string   "cpf"
@@ -57,19 +54,12 @@ ActiveRecord::Schema.define(version: 20150314171847) do
     t.string   "state_registration"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.datetime "purchased_at"
     t.string   "type"
     t.string   "career"
     t.boolean  "gender",             default: true
     t.string   "phone_ddd"
     t.string   "cellphone_ddd"
     t.integer  "re"
-    t.string   "model"
-    t.string   "brand"
-    t.string   "battery"
-    t.integer  "serial_number"
-    t.integer  "warantee"
-    t.string   "other_store"
   end
 
   create_table "devices", force: true do |t|
