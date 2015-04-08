@@ -19,6 +19,7 @@ tested page on your browser. This gem does the trick: [launchy](https://github.c
 
 VERSION 1:
 - Add collapse info on index table
+- Make collapse work for more than 1 device per customer
 
 VERSION 2:
 - Add an export button on customers to generate a .xls file

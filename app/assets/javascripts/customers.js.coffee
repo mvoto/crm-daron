@@ -60,3 +60,6 @@ jQuery ->
       $(this).prev('input[type=hidden]').val('1')
       $(this).closest('div').hide()
       event.preventDefault()
+
+    $('.collapse').on('show.bs.collapse') ->
+      $(this).collapse('hide')

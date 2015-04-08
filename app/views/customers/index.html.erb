@@ -9,7 +9,7 @@
       <th><%= t("activerecord.attributes.customer.name") %></th>
       <th><%= t("activerecord.attributes.customer.email") %></th>
       <th><%= t("activerecord.attributes.customer.phone") %></th>
-      <th colspan="3"></th>
+      <th colspan="4"></th>
     </tr>
   </thead>
 
@@ -23,6 +23,23 @@
         <td><%= link_to I18n.t('helpers.links.edit'), edit_customer_path(customer) %></td>
         <td><%= link_to I18n.t('helpers.links.destroy'), customer_path(customer), method: :delete,
           data: { confirm: I18n.t('helpers.links.confirm') } %></td>
+        <td><a href="#" data-toggle="collapse" data-target="#trCollapse<%= customer.id %>" aria-expanded="false" class="accordion-toggle">Ver Aparelhos</a></td>
+      </tr>
+      <tr>
+        <% if customer.devices.blank? %>
+          <tr class="collapse" id="trCollapse<%= customer.id %>">
+            <td colspan="6">Não houve compra de aparelhos</td>
+          </tr>
+        <% else %>
+          <% customer.devices.each do |device| %>
+            <tr class="collapse" id="trCollapse<%= customer.id %>">
+              <td><b>Ouvido:</b> <%= device.ear %></td>
+              <td><b>Perda:</b> <%= device._type %></td>
+              <td><b>Data:</b><%= to_date(device.purchased_at) %></td>
+              <td colspan="4"><b>Loja:</b><%= device.main_store %></td>
+            </tr>
+          <% end %>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
