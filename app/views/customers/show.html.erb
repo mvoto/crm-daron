@@ -1,7 +1,7 @@
 <h1><%= t("labels.show_customer") + @customer.name %></h1>
 
 <br/>
-<div class='well'>
+<div>
   <div class="right_column">
     <strong><%= t("activerecord.attributes.customer.re") %>:</strong>
     <%= @customer.re %>
@@ -62,44 +62,41 @@
     </address>
   <% end %>
 
-  <% @customer.devices.each do |device| %>
-    <hr/>
-    <div class="right_column">
-      <strong><%= t("activerecord.attributes.device._type") %>:</strong>
-      <%= device._type %>
-    </div>
-    <p>
-      <strong><%= t("activerecord.attributes.device.ear") %>:</strong>
-      <%= device.ear %>
-    </p>
-    <div class="right_column">
-      <strong><%= t("activerecord.attributes.device.model") %>:</strong>
-      <%= device.model %>
-    </div>
-    <p>
-      <strong><%= t("activerecord.attributes.device.brand") %>:</strong>
-      <%= device.brand %>
-    </p>
-    <p>
-      <strong><%= t("activerecord.attributes.device.store") %>:</strong>
-      <%= device.main_store %>
-    </p>
-    <p>
-      <strong><%= t("activerecord.attributes.device.purchased_at") %>:</strong>
-      <%= to_date(device.purchased_at) %>
-    </p>
-    <p>
-      <strong><%= t("activerecord.attributes.device.battery") %>:</strong>
-      <%= device.battery %>
-    </p>
-    <p>
-      <strong><%= t("activerecord.attributes.device.serial_number") %>:</strong>
-      <%= device.serial_number %>
-    </p>
-    <p>
-      <strong><%= t("activerecord.attributes.device.warantee") %>:</strong>
-      <%= device.warantee %>
-    </p>
+  <% if not @customer.devices.blank? %>
+    <hr>
+    <h2><%= t('activerecord.models.device').pluralize %></h2>
+    <table class="table table-hover table-condensed table-responsive">
+      <thead>
+        <tr>
+          <th><%= t("activerecord.attributes.device._type") %></th>
+          <th><%= t("activerecord.attributes.device.ear") %></th>
+          <th><%= t("activerecord.attributes.device.model") %></th>
+          <th><%= t("activerecord.attributes.device.brand") %></th>
+          <th><%= t("activerecord.attributes.device.store") %></th>
+          <th><%= t("activerecord.attributes.device.purchased_at") %></th>
+          <th><%= t("activerecord.attributes.device.battery") %></th>
+          <th><%= t("activerecord.attributes.device.serial_number") %></th>
+          <th><%= t("activerecord.attributes.device.warantee") %></th>
+          <th colspan="4"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @customer.devices.each do |device| %>
+          <tr>
+            <td><%= device._type %></td>
+            <td><%= device.ear %></td>
+            <td><%= device.model %></td>
+            <td><%= device.brand %></td>
+            <td><%= device.main_store %></td>
+            <td><%= to_date(device.purchased_at) %></td>
+            <td><%= device.battery %></td>
+            <td><%= device.serial_number %></td>
+            <td><%= device.warantee %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   <% end %>
 </div>
 <br/>

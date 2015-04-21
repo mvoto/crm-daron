@@ -61,5 +61,3 @@ jQuery ->
       $(this).closest('div').hide()
       event.preventDefault()
 
-    $('.collapse').on('show.bs.collapse') ->
-      $(this).collapse('hide')
