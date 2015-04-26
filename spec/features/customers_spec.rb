@@ -58,7 +58,6 @@ feature 'Managing customers', %q{
     fill_in('customer_phone_ddd', with: '11')
     fill_in('customer_phone', with: '976368299')
     choose('customer_gender_true')
-    fill_in('customer_devices_attributes_0_other_store', with: 'Unidade interior de SP')
 
     select('São Paulo', from: 'Estado')
     page.find("#mainButton").trigger("click")
@@ -73,16 +72,6 @@ feature 'Managing customers', %q{
     select('São Paulo', from: 'Estado')
     page.find("#mainButton").click
     expect(page).to have_content 'Alteração feita com sucesso'
-  end
-
-  scenario 'displaying other store', js: true do
-    visit customers_path
-
-    click_link('Editar', match: :first)
-    fill_in('customer_devices_attributes_0_other_store', with: 'Qualquer outra')
-    page.find("#mainButton").click
-    expect(page).to have_content 'Alteração feita com sucesso'
-    expect(page).to have_content 'Loja: Qualquer outra'
   end
 
   scenario 'destroying a customer' do

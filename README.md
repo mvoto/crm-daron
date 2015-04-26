@@ -18,7 +18,7 @@ tested page on your browser. This gem does the trick: [launchy](https://github.c
 #### TODO
 
 VERSION 1:
-- Add collapse info on index table
+- Nothing to do here, yay !
 
 VERSION 2:
 - Add an export button on customers to generate a .xls file
