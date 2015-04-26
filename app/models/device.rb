@@ -9,14 +9,10 @@ class Device < ActiveRecord::Base
 
   belongs_to :customer
 
-  validates_presence_of :brand, :model, :serial_number, :warantee, :_type,
-    :ear, :battery
-  validates :store, presence: true, if: Proc.new { |a| a.other_store.blank? }
-  validates :other_store, presence: true, if: Proc.new { |a| a.store.blank? }
-  validates :ear, inclusion: { in: EAR }
-  validates :_type, inclusion: { in: TYPES }
+  validates :ear, inclusion: { in: EAR }, allow_blank: true
+  validates :_type, inclusion: { in: TYPES }, allow_blank: true
   validates :store, inclusion: { in: STORES }, allow_blank: true
-  validates :battery, inclusion: { in: BATTERIES }
+  validates :battery, inclusion: { in: BATTERIES }, allow_blank: true
 
   def main_store
     other_store.blank? ? store : other_store

@@ -12,9 +12,14 @@ class CustomersController < ApplicationController
   def new
     @customer = Customer.new
     @customer.build_address
+    2.times { |i| @customer.devices.build(ear: Device::EAR[i]) }
   end
 
-  def edit; end
+  def edit
+    if @customer.devices.empty?
+      2.times { |i| @customer.devices.build(ear: Device::EAR[i]) }
+    end
+  end
 
   def create
     @customer = Customer.new(customer_params)
@@ -48,6 +53,8 @@ class CustomersController < ApplicationController
       params.require(:customer).permit(:name, :email, :phone, :type, :cpf, :rg,
         :dob, :cellphone, :cnpj, :state_registration, :gender, :career,
         :phone_ddd, :cellphone_ddd, address_attributes: [:street, :number,
-        :zipcode, :city_id, :state_id, :neighborhood, :complement])
+        :zipcode, :city_id, :state_id, :neighborhood, :complement],
+        devices_attributes: [:id, :brand, :model, :ear, :_type, :purchased_at,
+        :warantee, :battery, :serial_number, :store, :other_store])
     end
 end
