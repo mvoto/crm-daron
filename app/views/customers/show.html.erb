@@ -69,7 +69,10 @@
 
   <% if not @customer.devices.blank? %>
     <hr>
-    <h2><%= t('activerecord.models.device').pluralize %> <%= link_to I18n.t('helpers.links.new'), new_device_path(device: {customer_id: @customer.id}), class: 'btn btn-default not-visited', role: "button" %></h2>
+    <h2>
+      <%= t('activerecord.models.device').pluralize %>
+      <%= link_to I18n.t('helpers.links.new'), new_device_path(device: {customer_id: @customer.id}), class: 'btn btn-default not-visited', role: "button" %>
+    </h2>
     <table class="table table-hover table-condensed table-responsive">
       <thead>
         <tr>
