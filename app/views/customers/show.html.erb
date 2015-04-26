@@ -53,57 +53,54 @@
     </p>
   <% end %>
 
-  <hr/>
-
   <% if @customer.address && @customer.address.city %>
+    <hr/>
     <strong><%= t("activerecord.models.address") %>:</strong>
     <address>
-      <%= @customer.address.street %>, <%= @customer.address.number %><br>
+      <%= @customer.address.street %>, <%= @customer.address.number %> <%= @customer.address.complement %><br>
       <%= @customer.address.city %>, <%= @customer.address.state %> <%= @customer.address.zipcode %><br>
     </address>
-    <hr/>
   <% end %>
 
-  <div class="right_column">
-    <strong><%= t("activerecord.attributes.customer.re_lost_type") %>:</strong>
-    <%= @customer.re_lost_type %>
-  </div>
-  <p>
-    <strong><%= t("activerecord.attributes.customer.le_lost_type") %>:</strong>
-    <%= @customer.le_lost_type %>
-  </p>
-  <div class="right_column">
-    <strong><%= t("activerecord.attributes.customer.re_device_type") %>:</strong>
-    <%= @customer.re_device_type %>
-  </div>
-  <p>
-    <strong><%= t("activerecord.attributes.customer.le_device_type") %>:</strong>
-    <%= @customer.le_device_type %>
-  </p>
-  <div class="right_column">
-    <strong><%= t("activerecord.attributes.customer.model") %>:</strong>
-    <%= @customer.model %>
-  </div>
-  <p>
-    <strong><%= t("activerecord.attributes.customer.brand") %>:</strong>
-    <%= @customer.brand %>
-  </p>
-  <p>
-    <strong><%= t("activerecord.attributes.customer.battery") %>:</strong>
-    <%= @customer.battery %>
-  </p>
-  <p>
-    <strong><%= t("activerecord.attributes.customer.serial_number") %>:</strong>
-    <%= @customer.serial_number %>
-  </p>
-  <p>
-    <strong><%= t("activerecord.attributes.customer.value") %>:</strong>
-    <%= @customer.value %>
-  </p>
-  <p>
-    <strong><%= t("activerecord.attributes.customer.warantee") %>:</strong>
-    <%= @customer.warantee %>
-  </p>
+  <% @customer.devices.each do |device| %>
+    <hr/>
+    <div class="right_column">
+      <strong><%= t("activerecord.attributes.device._type") %>:</strong>
+      <%= device._type %>
+    </div>
+    <p>
+      <strong><%= t("activerecord.attributes.device.ear") %>:</strong>
+      <%= device.ear %>
+    </p>
+    <div class="right_column">
+      <strong><%= t("activerecord.attributes.device.model") %>:</strong>
+      <%= device.model %>
+    </div>
+    <p>
+      <strong><%= t("activerecord.attributes.device.brand") %>:</strong>
+      <%= device.brand %>
+    </p>
+    <p>
+      <strong><%= t("activerecord.attributes.device.store") %>:</strong>
+      <%= device.main_store %>
+    </p>
+    <p>
+      <strong><%= t("activerecord.attributes.device.purchased_at") %>:</strong>
+      <%= to_date(device.purchased_at) %>
+    </p>
+    <p>
+      <strong><%= t("activerecord.attributes.device.battery") %>:</strong>
+      <%= device.battery %>
+    </p>
+    <p>
+      <strong><%= t("activerecord.attributes.device.serial_number") %>:</strong>
+      <%= device.serial_number %>
+    </p>
+    <p>
+      <strong><%= t("activerecord.attributes.device.warantee") %>:</strong>
+      <%= device.warantee %>
+    </p>
+  <% end %>
 </div>
 <br/>
 <div class='well-sm' id='buttons'>

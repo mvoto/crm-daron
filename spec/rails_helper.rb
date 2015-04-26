@@ -50,6 +50,7 @@ RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods # factory girl syntax sugar
 
   config.include Devise::TestHelpers, type: :controller # devise helpers
+  config.extend ControllerMacros, type: :controller # controller admin / user login
 
   config.include Features::SessionHelpers, type: :feature # features admin / user login
 

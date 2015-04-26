@@ -4,14 +4,7 @@ FactoryGirl.define do
     email { Faker::Internet.email }
     phone_ddd '11'
     phone '44300390'
-    purchased_at { Faker::Time.between(1.years.ago, Time.current, :all) }
-    le_lost_type 'Moderada'
-    re_lost_type 'Profunda'
-    le_device_type 'CIC'
-    re_device_type 'CIC'
-    store 'Unidade I - Santo André'
     gender true
-    value '80,99'
   end
 
   factory :person, parent: :customer, class: 'Person' do

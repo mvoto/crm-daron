@@ -1,29 +1,16 @@
 class Customer < ActiveRecord::Base
 
-  LOST_TYPES   = [ 'Moderada', 'Severa', 'Profunda' ]
-  DEVICE_TYPES = [ 'CIC', 'ITC', 'ITE' ]
-  GENDERS      = [ 'Masculino', 'Feminino' ]
-  BATTERIES    = [ '10', '13', '312', '675' ]
-  STORES       = [ 'Unidade I - Santo André', 'Unidade II - Barra Funda',
-    'Unidade III - Santos', 'Unidade IV - Praia Grande',
-    'Interior de São Paulo']
-
+  GENDERS = [ 'Masculino', 'Feminino' ]
 
   has_one :address, dependent: :destroy
+  has_many :devices, dependent: :destroy
   accepts_nested_attributes_for :address
+  accepts_nested_attributes_for :devices, allow_destroy: true
 
-  validates_presence_of :name, :store
+  validates_presence_of :name
   validates_format_of :phone, with: /[0-9]{3,4}[0-9]{4}/
   validates :phone, length: { maximum: 10 }
   validates_presence_of :phone_ddd, unless: :phone_blank?
-  validates :battery, inclusion: { in: BATTERIES }, allow_blank: true
-  validates :store, inclusion: { in: STORES }, allow_blank: true
-  validates :re_device_type, :le_device_type, inclusion: { in: DEVICE_TYPES },
-    allow_blank: true
-  validates :re_lost_type, :le_lost_type,   inclusion: { in: LOST_TYPES },
-    allow_blank: true
-  validates :value, format: { with: /\A\d+(?:\,\d{0,2})?\z/,
-    message: 'Valor deve seguir o formato do exemplo: 10,80' }
 
   def person?
     type.present? && type == 'Person'
@@ -39,6 +26,16 @@ class Customer < ActiveRecord::Base
       send(method_name).send(:blank?)
     end
   end
+
+  def complete_phone
+    ddd = "(#{phone_ddd})" unless phone_ddd.nil?
+    "#{ddd} #{phone}"
+  end
+
+  def complete_cellphone
+    ddd = "(#{cellphone_ddd})" unless cellphone_ddd.nil?
+    "#{ddd} #{cellphone}"
+  end
 end
 
 # == Schema Information
@@ -50,11 +47,6 @@ end
 #  email              :string(255)
 #  phone              :string(255)
 #  cellphone          :string(255)
-#  le_lost_type       :string(255)
-#  re_lost_type       :string(255)
-#  le_device_type     :string(255)
-#  re_device_type     :string(255)
-#  store              :string(255)
 #  dob                :datetime
 #  rg                 :string(255)
 #  cpf                :string(255)
@@ -62,17 +54,10 @@ end
 #  state_registration :string(255)
 #  created_at         :datetime
 #  updated_at         :datetime
-#  purchased_at       :datetime
 #  type               :string(255)
 #  career             :string(255)
 #  gender             :boolean          default(TRUE)
 #  phone_ddd          :string(255)
 #  cellphone_ddd      :string(255)
 #  re                 :integer
-#  model              :string(255)
-#  brand              :string(255)
-#  battery            :string(255)
-#  serial_number      :integer
-#  value              :decimal(5, 2)
-#  warantee           :integer
 #

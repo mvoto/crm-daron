@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150227175123) do
+ActiveRecord::Schema.define(version: 20150318015300) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20150227175123) do
     t.datetime "updated_at"
     t.integer  "customer_id"
     t.integer  "state_id"
+    t.string   "complement"
   end
 
   add_index "addresses", ["city_id"], name: "index_addresses_on_city_id", using: :btree
@@ -46,11 +47,6 @@ ActiveRecord::Schema.define(version: 20150227175123) do
     t.string   "email"
     t.string   "phone"
     t.string   "cellphone"
-    t.string   "le_lost_type"
-    t.string   "re_lost_type"
-    t.string   "le_device_type"
-    t.string   "re_device_type"
-    t.string   "store"
     t.datetime "dob"
     t.string   "rg"
     t.string   "cpf"
@@ -58,19 +54,28 @@ ActiveRecord::Schema.define(version: 20150227175123) do
     t.string   "state_registration"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.datetime "purchased_at"
     t.string   "type"
     t.string   "career"
     t.boolean  "gender",             default: true
     t.string   "phone_ddd"
     t.string   "cellphone_ddd"
     t.integer  "re"
-    t.string   "model"
-    t.string   "brand"
+  end
+
+  create_table "devices", force: true do |t|
+    t.datetime "purchased_at"
+    t.integer  "warantee"
     t.string   "battery"
     t.integer  "serial_number"
-    t.string   "value"
-    t.integer  "warantee"
+    t.string   "brand"
+    t.string   "model"
+    t.string   "ear"
+    t.string   "_type"
+    t.integer  "customer_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "store"
+    t.string   "other_store"
   end
 
   create_table "states", force: true do |t|

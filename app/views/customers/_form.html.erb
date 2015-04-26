@@ -5,30 +5,13 @@
   <div class='row'>
     <div class='col-md-6'>
       <div class='panel panel-primary'>
-        <div class='panel-heading'><%= t("labels.person") %></div>
+        <div class='panel-heading'>Informações de Compras</div>
         <div class='panel-body'>
-          <div class="row">
-            <div class="col-xs-8">
-              <%= f.input :name, input_html: { class: 'form-control' } %>
-            </div>
-            <div class="col-xs-4">
-              <%= f.input :re, input_html: { class: 'form-control' } %>
-            </div>
-          </div>
-          <%= f.input :email, input_html: { class: 'form-control' }, type: 'email' %>
-          <%= f.input :dob, as: :date, start_year: Date.today.year - 90,
-                                  end_year: Date.today.year - 12, discard_day: false,
-                                  order: [:day, :month, :year] %>
-          <br/>
-          <%= f.collection_radio_buttons :gender, [[true, Customer::GENDERS.first] ,[false, Customer::GENDERS.last]],
-            :first, :last %>
-          <%= f.input :cpf, input_html: { class: 'form-control' } %>
-          <%= f.input :rg, input_html: { class: 'form-control' } %>
-          <%= f.input :career, input_html: { class: 'form-control' } %>
+          <%= f.fields_for :devices do |builder| %>
+            <%= render 'device_fields', f: builder %>
+          <% end %>
         </div>
       </div>
-    </div>
-    <div class='col-md-6'>
       <div class='panel panel-primary'>
         <div class='panel-heading'>Contato</div>
         <div class='panel-body'>
@@ -50,6 +33,31 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class='col-md-6'>
+      <div class='panel panel-primary'>
+        <div class='panel-heading'><%= t("labels.person") %></div>
+        <div class='panel-body'>
+          <div class="row">
+            <div class="col-xs-8">
+              <%= f.input :name, input_html: { class: 'form-control' } %>
+            </div>
+            <div class="col-xs-4">
+              <%= f.input :re, input_html: { class: 'form-control' } %>
+            </div>
+          </div>
+          <%= f.input :email, input_html: { class: 'form-control' }, type: 'email' %>
+          <%= f.input :dob, as: :date, start_year: Date.today.year - 5,
+                                  end_year: Date.today.year - 100, discard_day: false,
+                                  order: [:day, :month, :year] %>
+          <br/>
+          <%= f.collection_radio_buttons :gender, [[true, Customer::GENDERS.first] ,[false, Customer::GENDERS.last]],
+            :first, :last %>
+          <%= f.input :cpf, input_html: { class: 'form-control' } %>
+          <%= f.input :rg, input_html: { class: 'form-control' } %>
+          <%= f.input :career, input_html: { class: 'form-control' } %>
+        </div>
+      </div>
       <div class='panel panel-primary'>
         <div class='panel-heading'><%= t("labels.company") %></div>
         <div class='panel-body'>
@@ -57,63 +65,6 @@
           <%= f.input :state_registration, input_html: { class: 'form-control' } %>
         </div>
       </div>
-    </div>
-  </div>
-
-  <div class='row'>
-    <div class='col-md-6'>
-      <div class='panel panel-primary'>
-        <div class='panel-heading'>Informações da Compra</div>
-        <div class='panel-body'>
-          <%= f.input :store, collection: Customer::STORES.map{ |val| [val, val] }, input_html: { class: 'form-control' } %>
-          <div class="row">
-            <div class="col-xs-6">
-              <%= f.input :le_device_type, collection: Customer::DEVICE_TYPES.map{ |val| [val, val] }, input_html: { class: 'form-control' } %>
-            </div>
-            <div class="col-xs-6">
-              <%= f.input :re_device_type, collection: Customer::DEVICE_TYPES.map{ |val| [val, val] }, input_html: { class: 'form-control' } %>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-xs-6">
-              <%= f.input :le_lost_type, collection: Customer::LOST_TYPES.map{ |val| [val, val] }, input_html: { class: 'form-control' } %>
-            </div>
-            <div class="col-xs-6">
-              <%= f.input :re_lost_type, collection: Customer::LOST_TYPES.map{ |val| [val, val] }, input_html: { class: 'form-control' } %>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-xs-6">
-              <%= f.input :brand, input_html: { class: 'form-control' } %>
-            </div>
-            <div class="col-xs-6">
-              <%= f.input :model, input_html: { class: 'form-control' } %>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-xs-6">
-              <%= f.input :serial_number, input_html: { class: 'form-control' } %>
-            </div>
-            <div class="col-xs-6">
-              <%= f.input :battery, collection: Customer::BATTERIES.map{ |val| [val, val] }, input_html: { class: 'form-control' } %>
-            </div>
-          </div>
-          <%= f.input :value, input_html: { value: number_with_precision(f.object.value, precision: 2), class: 'form-control' } %>
-          <div class="row">
-            <div class="col-xs-7">
-              <%= f.input :purchased_at, as: :date, start_year: Date.today.year - 90,
-                                      end_year: Date.today.year - 12, discard_day: false,
-                                      order: [:day, :month, :year] %>
-            </div>
-            <div class="col-xs-5">
-              <%= f.input :warantee, input_html: { class: 'form-control' } %>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class='col-md-6'>
       <div class='panel panel-primary'>
         <div class='panel-heading'>Endereço</div>
         <div class='panel-body'>
@@ -124,6 +75,16 @@
       </div>
     </div>
   </div>
+
+  <!-- <div class='row'>
+    <div class='col-md-6'>
+
+    </div>
+
+    <div class='col-md-6'>
+
+    </div>
+  </div> -->
 
   <div class="form-actions">
     <button id="mainButton" class="btn btn-success">
