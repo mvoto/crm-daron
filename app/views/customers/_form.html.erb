@@ -70,10 +70,10 @@
 
   <div class="form-actions">
     <% if @customer.persisted? %>
-      <%= link_to "Atualizar Cliente", customers_path(@customer.id), class: 'btn btn-success' %>
+      <%= f.submit "Atualizar Cliente", class: 'btn btn-success', id: 'mainButton' %>
       <%= link_to "Ver", customers_path(@customer.id), class: 'btn btn-warning' %>
     <% else %>
-      <%= link_to "Criar Cliente", customers_path(@customer.id), class: 'btn btn-success' %>
+      <%= f.submit "Criar Cliente", class: 'btn btn-success', id: 'mainButton' %>
     <% end %>
     <%= link_to t("helpers.links.back"), customers_path, class: 'btn btn-default' %>
   </div>
