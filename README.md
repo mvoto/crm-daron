@@ -23,3 +23,4 @@ VERSION 1:
 VERSION 2:
 - Add an export button on customers to generate a .xls file
 - Add customer's details print version with button / link
+- Add coverage and rubocop metrics
