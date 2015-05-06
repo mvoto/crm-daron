@@ -23,6 +23,7 @@ class DevicesController < ApplicationController
   end
 
   def update
+    @customer = @device.customer
     if @device.update(device_params)
       redirect_to customer_path(@device.customer),
         notice: I18n.t('controller.messages.update')
