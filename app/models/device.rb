@@ -9,6 +9,7 @@ class Device < ActiveRecord::Base
 
   belongs_to :customer
 
+  validates :serial_number, numericality: true
   validates_presence_of :brand, :model, :serial_number, :warantee, :_type,
     :ear, :battery
   validates :store, presence: true, if: Proc.new { |a| a.other_store.blank? }
