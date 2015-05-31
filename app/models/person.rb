@@ -30,5 +30,5 @@ end
 #  gender             :boolean          default(TRUE)
 #  phone_ddd          :string(255)
 #  cellphone_ddd      :string(255)
-#  re                 :integer
+#  re                 :string(255)
 #
