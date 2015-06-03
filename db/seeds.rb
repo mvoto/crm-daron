@@ -2,7 +2,7 @@ require File.expand_path("../../spec/support/factory_girl_helper", __FILE__)
 
 include FactoryGirlHelper
 
-FactoryGirl.create(:user, email: 'daronteste@daron.com.br', password: 'daronteste')
+FactoryGirl.create(:user, email: 'daron@daron.com.br', password: 'daron')
 
 State.all.each_with_index do |state, i|
 	address = FactoryGirl.create(:address, state_id: state.id,
