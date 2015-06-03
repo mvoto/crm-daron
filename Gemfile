@@ -38,6 +38,8 @@ gem 'friendly_id', '~> 5.0.0'
 # gem 'rails_config', '~> 0.4.2'
 # Flexible authentication solution for Rails with Warden
 gem 'devise', '~> 3.4.1'
+# https://github.com/thoughtbot/factory_girl/blob/master/GETTING_STARTED.md(needed for seeds)
+gem 'factory_girl_rails', '~> 4.5.0'
 
 group :development do
   gem 'spring', '~> 1.1.3'        # Speeds up application. Read more: https://github.com/rails/spring
@@ -62,7 +64,6 @@ group :development, :test do
 end
 
 group :development, :test, :staging do
-  gem 'factory_girl_rails', '~> 4.5.0' # https://github.com/thoughtbot/factory_girl/blob/master/GETTING_STARTED.md
   gem 'faker', '~> 1.4.3'              # http://faker.rubyforge.org/
   gem 'database_cleaner', '~> 1.3.0'   # https://github.com/DatabaseCleaner/database_cleaner
   gem 'rspec-its', '~> 1.0.1'          # https://github.com/rspec/rspec-its
