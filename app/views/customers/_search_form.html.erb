@@ -17,7 +17,7 @@
       <%= f.text_field :devices_brand, placeholder: I18n.t("activerecord.attributes.device.brand"), class: "form-control" %>
 
       <br/><br/>
-      <%= f.collection_select :address_city_id_eq, City.all, :id, :name, include_blank: 'Escolha uma Cidade', class: "form-control" %>
+      <%= f.collection_select :address_city_id_eq, City.all, :id, :full_name, include_blank: 'Escolha uma Cidade', class: "form-control" %>
 
       <br/><br/>
       <span class='pull-right'><%= f.submit "Buscar", class: 'btn btn-primary' %></span>
