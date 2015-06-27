@@ -67,7 +67,6 @@ ActiveRecord::Schema.define(version: 20150627141856) do
     t.datetime "purchased_at"
     t.integer  "warantee"
     t.string   "battery"
-    t.integer  "serial_number"
     t.string   "brand"
     t.string   "model"
     t.string   "ear"
@@ -77,6 +76,7 @@ ActiveRecord::Schema.define(version: 20150627141856) do
     t.datetime "updated_at"
     t.string   "store"
     t.string   "other_store"
+    t.string   "serial_number"
   end
 
   create_table "states", force: true do |t|

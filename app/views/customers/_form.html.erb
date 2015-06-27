@@ -37,7 +37,7 @@
             </div>
           </div>
           <%= f.input :email, input_html: { class: 'form-control' }, type: 'email' %>
-          <%= f.input :dob, as: :date, start_year: Date.today.year - 5,
+          <%= f.input :dob, as: :date, start_year: Date.today.year,
                                   end_year: Date.today.year - 100, discard_day: false,
                                   order: [:day, :month, :year] %>
           <br/>
@@ -72,7 +72,7 @@
   <div class="form-actions">
     <% if @customer.persisted? %>
       <%= f.submit "Atualizar Cliente", class: 'btn btn-success', id: 'mainButton' %>
-      <%= link_to "Ver", customers_path(@customer.id), class: 'btn btn-warning' %>
+      <%= link_to "Ver", customer_path(@customer.id), class: 'btn btn-warning' %>
     <% else %>
       <%= f.submit "Criar Cliente", class: 'btn btn-success', id: 'mainButton' %>
     <% end %>

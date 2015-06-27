@@ -32,7 +32,6 @@ end
 #  purchased_at  :datetime
 #  warantee      :integer
 #  battery       :string(255)
-#  serial_number :integer
 #  brand         :string(255)
 #  model         :string(255)
 #  ear           :string(255)
@@ -42,4 +41,5 @@ end
 #  updated_at    :datetime
 #  store         :string(255)
 #  other_store   :string(255)
+#  serial_number :string(255)
 #
