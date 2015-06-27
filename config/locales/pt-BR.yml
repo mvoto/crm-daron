@@ -54,6 +54,7 @@ pt-BR:
         career: "Profissão"
         gender: "Sexo"
         state_registration: "Inscrição Estadual"
+        observation: "Observações"
       device:
         _type: "Tipo de Aparelho"
         purchased_at: "Data de Compra"
