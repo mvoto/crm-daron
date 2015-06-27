@@ -37,6 +37,7 @@ feature 'Managing customers', %q{
     expect(page).to have_content person.name
     expect(page).to have_content person.rg
     expect(page).to have_content person.cpf
+    expect(page).to have_content person.observation
     expect(page).to have_content person.dob.strftime('%d/%m/%Y')
   end
 
