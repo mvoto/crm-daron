@@ -40,7 +40,8 @@
 
     <div class="navbar navbar-default navbar-static-top">
       <div class="container">
-        <%= link_to image_tag('white-logo.png'), customers_path, class: 'navbar-brand' %>
+        <%= link_to 'Daron', customers_path, class: 'navbar-brand' %>
+        <%#= link_to image_tag('white-logo.png'), customers_path, class: 'navbar-brand' %>
         <% if current_user %>
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
             <span class="icon-bar"></span>
@@ -58,13 +59,6 @@
 
     <div class="container">
       <div class="row">
-        <% unless @customers.blank? %>
-          <div class="col-lg-3">
-            <div class="panel panel-info">
-              <%= render "search_form" %>
-            </div><!--/.sidebar-nav -->
-          </div><!--/span-->
-        <% end %>
         <div class="col-lg-9">
           <%= bootstrap_flash %>
           <%= yield %>

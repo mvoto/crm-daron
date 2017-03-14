@@ -11,82 +11,84 @@
  * file per style scope.
  *
  *= require_tree .
+*= require bootstrap
+*= require bootstrap-datetimepicker
  *= require_self
  */
-#filters_div {
-	padding: 15px;
-	text-align: center;
-}
-
-#filters_div input {
-	margin-top: 7px;
-}
-
-.panel-heading span {
-	cursor: pointer;
-}
-
-#span-title {
-	padding: 20px;
-	font-size: 36px;
-	font-weight: bold;
-	vertical-align: middle;
-}
-
-#buttons a:visited[role=button] {
-	color: white;
-}
-
-.help-inline {
-	color: #a94442;
-}
-
-.navbar-default {
-	background-color: #1e5c8d;
-	color: white;
-}
-
-.navbar-default a:visited {
-	color: white;
-}
-
-.navbar-default a:hover {
-	color: yellow;
-}
-
-.navbar-brand img {
-	margin-top: -17px;
-	height: 50px;
-	width: auto;
-}
-
-.footer {
-	padding: 15px;
-}
-
-.well {
-	background-color: #B1BDD3;
-}
-
-h4 a:visited {
-	color: white;
-}
-
-.login-div {
-	margin-top: 26px;
-}
-
-.navbar-default .navbar-nav li a {
-	color: white;
-}
-
-.right_column {
-	float: right;
-	margin-right: 400px;
-}
-
-.hiddenRow {
-	padding: 0 !important;
-}
-
-body { padding-bottom: 70px; }
+/* #filters_div { */
+/*   padding: 15px; */
+/*   text-align: center; */
+/* } */
+/*  */
+/* #filters_div input { */
+/*   margin-top: 7px; */
+/* } */
+/*  */
+/* .panel-heading span { */
+/*   cursor: pointer; */
+/* } */
+/*  */
+/* #span-title { */
+/*   padding: 20px; */
+/*   font-size: 36px; */
+/*   font-weight: bold; */
+/*   vertical-align: middle; */
+/* } */
+/*  */
+/* #buttons a:visited[role=button] { */
+/*   color: white; */
+/* } */
+/*  */
+/* .help-inline { */
+/*   color: #a94442; */
+/* } */
+/*  */
+/* .navbar-default { */
+/*   background-color: #1e5c8d; */
+/*   color: white; */
+/* } */
+/*  */
+/* .navbar-default a:visited { */
+/*   color: white; */
+/* } */
+/*  */
+/* .navbar-default a:hover { */
+/*   color: yellow; */
+/* } */
+/*  */
+/* .navbar-brand img { */
+/*   margin-top: -17px; */
+/*   height: 50px; */
+/*   width: auto; */
+/* } */
+/*  */
+/* .footer { */
+/*   padding: 15px; */
+/* } */
+/*  */
+/* .well { */
+/*   background-color: #B1BDD3; */
+/* } */
+/*  */
+/* h4 a:visited { */
+/*   color: white; */
+/* } */
+/*  */
+/* .login-div { */
+/*   margin-top: 26px; */
+/* } */
+/*  */
+/* .navbar-default .navbar-nav li a { */
+/*   color: white; */
+/* } */
+/*  */
+/* .right_column { */
+/*   float: right; */
+/*   margin-right: 400px; */
+/* } */
+/*  */
+/* .hiddenRow { */
+/*   padding: 0 !important; */
+/* } */
+/*  */
+/* body { padding-bottom: 70px; } */

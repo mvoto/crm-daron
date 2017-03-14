@@ -20,6 +20,7 @@
   </p>
 
   <% if @customer.person? %>
+    <%# TODO: add a partial to render person-only info %>
     <div class="right_column">
       <strong><%= t("activerecord.attributes.customer.rg") %>:</strong>
       <%= @customer.rg %>
@@ -47,6 +48,7 @@
   <% end %>
 
   <% if @customer.company? %>
+    <%# TODO: add a partial to render company-only info %>
     <p>
       <strong>Cnpj:</strong>
       <%= @customer.cnpj %>
