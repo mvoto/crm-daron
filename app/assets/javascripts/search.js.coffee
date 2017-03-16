@@ -7,7 +7,5 @@ cal_opts = {
 
 jQuery ->
   $(document).ready ->
-    $('#dob_gteq_datetimepicker').datetimepicker(cal_opts)
-    $('#dob_lteq_datetimepicker').datetimepicker(cal_opts)
-    $('#devices_purchased_at_gteq_datetimepicker').datetimepicker(cal_opts)
-    $('#devices_purchased_at_lteq_datetimepicker').datetimepicker(cal_opts)
+    $('.input-daterange input').each ->
+      $(this).datetimepicker(cal_opts)
