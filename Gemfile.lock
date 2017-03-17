@@ -73,6 +73,7 @@ GEM
       execjs
     coffee-script-source (1.8.0)
     columnize (0.8.9)
+    commonjs (0.2.7)
     database_cleaner (1.3.0)
     debugger-linecache (1.2.0)
     devise (3.4.1)
@@ -114,6 +115,13 @@ GEM
     kgio (2.9.2)
     launchy (2.4.2)
       addressable (~> 2.3)
+    less (2.6.0)
+      commonjs (~> 0.2.7)
+    less-rails (2.8.0)
+      actionpack (>= 4.0)
+      less (~> 2.6.0)
+      sprockets (> 2, < 4)
+      tilt
     libv8 (3.16.14.7)
     mail (2.6.1)
       mime-types (>= 1.16, < 3)
@@ -263,6 +271,7 @@ DEPENDENCIES
   jquery-turbolinks (~> 2.1.0)
   jquery-ui-rails (~> 5.0.2)
   launchy (~> 2.4.2)
+  less-rails
   momentjs-rails (>= 2.9.0)
   pg (~> 0.17.1)
   pry (~> 0.10.1)
