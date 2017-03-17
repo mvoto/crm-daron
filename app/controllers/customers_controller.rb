@@ -4,7 +4,7 @@ class CustomersController < ApplicationController
 
   def index
     @q = Customer.search(params[:q])
-    @customers = @q.result.includes(:address, :devices).order(:name).paginate(page: params[:page], per_page: 10)
+    @customers = @q.result.includes(:address, :devices).order('devices.purchased_at asc', :name).paginate(page: params[:page], per_page: 10)
   end
 
   def show; end
