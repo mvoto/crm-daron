@@ -7,11 +7,13 @@
   </div>
 </div>
 <br/>
-
-<%#= render "search_form" %>
+<div class="row">
+  <%= render "search_form" %>
+</div>
+<br/>
 <%= sort_link(@q, :devices_purchased_at, "Ordenar por #{t('activerecord.attributes.device.purchased_at')}") %>
-<br/>
-<br/>
+<br/><br/>
+
 <table class="table table-hover table-condensed table-responsive">
   <thead>
     <tr>
