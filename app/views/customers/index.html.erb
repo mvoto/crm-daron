@@ -9,12 +9,14 @@
 <br/>
 
 <%#= render "search_form" %>
-
+<%= sort_link(@q, :devices_purchased_at, "Ordenar por #{t('activerecord.attributes.device.purchased_at')}") %>
+<br/>
+<br/>
 <table class="table table-hover table-condensed table-responsive">
   <thead>
     <tr>
-      <th><%= t("activerecord.attributes.customer.name") %></th>
-      <th><%= t("activerecord.attributes.customer.email") %></th>
+      <th><%= sort_link(@q, :name, t("activerecord.attributes.customer.name")) %></th>
+      <th><%= sort_link(@q, :email, t("activerecord.attributes.customer.email")) %></th>
       <th><%= t("activerecord.attributes.customer.phone") %></th>
       <th colspan="3"></th>
     </tr>
