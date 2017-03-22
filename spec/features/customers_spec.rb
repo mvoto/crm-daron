@@ -68,7 +68,7 @@ feature 'Managing customers', %q{
   scenario 'updating a customer' do
     visit customers_path
 
-    click_link('Editar', match: :first)
+    click_button('Editar', match: :first)
     fill_in('customer_name', with: 'Ronaldo Brito')
     select('São Paulo', from: 'Estado')
     page.find("#mainButton").click
@@ -78,7 +78,7 @@ feature 'Managing customers', %q{
   scenario 'destroying a customer' do
     visit customers_path
 
-    click_link('Excluir', match: :first)
+    click_button('Excluir', match: :first)
     expect(page).to have_content 'Excluído com sucesso'
   end
 end

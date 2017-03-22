@@ -41,7 +41,7 @@
           <% end %>
         </td>
         <td>
-          <%= button_to customer_path(customer), method: :delete, data: { confirm: I18n.t('helpers.links.confirm'), toggle: "tooltip" }, class: 'btn btn-danger', title: "#{I18n.t('helpers.links.confirm')}" do %>
+          <%= button_to customer_path(customer), method: :delete, data: { confirm: I18n.t('helpers.links.confirm'), toggle: "tooltip" }, class: 'btn btn-danger', title: "#{I18n.t('helpers.links.destroy')}" do %>
               <i class="fa fa-trash-o fa-fw"></i>
           <% end %>
         </td>
