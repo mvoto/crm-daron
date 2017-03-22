@@ -30,10 +30,21 @@
         <td title='<%= customer.name %>'><%= link_to customer.name.truncate(15), customer_path(customer.id) %></td>
         <td title='<%= customer.email %>'><%= customer.email.truncate(12) %></td>
         <td><%= customer.complete_phone %></td>
-        <td><%= link_to I18n.t('helpers.links.details'), customer_path(customer) %></td>
-        <td><%= link_to I18n.t('helpers.links.edit'), edit_customer_path(customer) %></td>
-        <td><%= link_to I18n.t('helpers.links.destroy'), customer_path(customer), method: :delete,
-          data: { confirm: I18n.t('helpers.links.confirm') } %></td>
+        <td>
+          <%= button_to customer_path(customer), method: :get, class: 'btn btn-success', 'data-toggle' => "tooltip", title: "#{I18n.t('helpers.links.details')}" do %>
+            <i class="fa fa-eye fa-fw"></i>
+          <% end %>
+        </td>
+        <td>
+          <%= button_to edit_customer_path(customer), method: :get, class: 'btn btn-primary', 'data-toggle' => "tooltip", title: "#{I18n.t('helpers.links.edit')}" do %>
+            <i class="fa fa-edit fa-fw"></i>
+          <% end %>
+        </td>
+        <td>
+          <%= button_to customer_path(customer), method: :delete, data: { confirm: I18n.t('helpers.links.confirm'), toggle: "tooltip" }, class: 'btn btn-danger', title: "#{I18n.t('helpers.links.confirm')}" do %>
+              <i class="fa fa-trash-o fa-fw"></i>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
