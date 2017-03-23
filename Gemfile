@@ -24,6 +24,7 @@ gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
 gem 'less-rails'
 gem 'less-rails-bootstrap'
+gem 'therubyracer', '~> 0.12.1'        # https://github.com/cowboyd/therubyracer
 
 group :development do
   gem 'spring', '~> 1.1.3'        # Speeds up application. Read more: https://github.com/rails/spring
@@ -32,7 +33,6 @@ group :development do
 end
 
 group :development, :test do
-  gem 'therubyracer', '~> 0.12.1'        # https://github.com/cowboyd/therubyracer
   gem 'pry', '~> 0.10.1'                 # Pry = win
   gem 'pry-byebug', '~> 2.0.0'           # Adds step, next and etc to pry
   gem 'fuubar', '~> 2.0.0'               # pretty rspec output
