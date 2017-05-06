@@ -25,10 +25,12 @@
 
   <hr/>
   <strong><%= t("activerecord.models.address") %>:</strong>
-  <address>
-    <%= @customer.address.street %>, <%= @customer.address.number %> <%= @customer.address.complement %><br>
-    <%= @customer.address.city %>, <%= @customer.address.state %> <%= @customer.address.zipcode %><br>
-  </address>
+  <% if @customer.address %>
+    <address>
+      <%= @customer.address.street %>, <%= @customer.address.number %> <%= @customer.address.complement %><br>
+      <%= @customer.address.city %>, <%= @customer.address.state %> <%= @customer.address.zipcode %><br>
+    </address>
+  <% end %>
 
   <br/>
   <div class='well-sm' id='buttons'>
