@@ -25,7 +25,7 @@
   </thead>
 
   <tbody>
-    <% @customers.each do |customer| %>
+    <% @customers.to_a.uniq.each do |customer| %>
       <tr>
         <td title='<%= customer.name %>'><%= link_to customer.name.truncate(15), customer_path(customer.id) %></td>
         <td title='<%= customer.email %>'><%= customer.email.truncate(12) %></td>
