@@ -12,3 +12,12 @@ script:
 install:
   - bundle config build.nokogiri --use-system-libraries
   - bundle
+
+addons:
+  apt:
+    packages:
+      - qt5-default
+      - libqt5webkit5-dev
+      - gstreamer1.0-plugins-base
+      - gstreamer1.0-tools
+      - gstreamer1.0-x
