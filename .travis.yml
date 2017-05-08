@@ -1,3 +1,5 @@
+dist: trusty
+sudo: required
 language: ruby
 rvm:
   - 2.1.5
@@ -12,6 +14,7 @@ script:
 install:
   - bundle config build.nokogiri --use-system-libraries
   - bundle
+
 
 addons:
   apt:
