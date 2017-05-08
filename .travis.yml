@@ -21,5 +21,7 @@ addons:
     sources:
       - ubuntu-sdk-team
     packages:
-      - libqt5webkit5-dev
-      - qtdeclarative5-dev
+      - libqt4-dev
+      - libqtwebkit-dev
+      - zlib1g-dev
+      - libaspell-dev
