@@ -9,3 +9,6 @@ before_script:
 script:
   - xvfb-run bundle exec rspec
 
+install:
+  - bundle config build.nokogiri --use-system-libraries
+  - bundle
