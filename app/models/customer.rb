@@ -1,6 +1,5 @@
 class Customer < ActiveRecord::Base
-
-  GENDERS = [ 'Masculino', 'Feminino' ]
+  GENDERS = %w[Masculino Feminino].freeze
 
   has_one :address, dependent: :destroy
   has_many :devices, dependent: :destroy
@@ -12,6 +11,8 @@ class Customer < ActiveRecord::Base
   validates :phone, length: { maximum: 10 }
   validates_presence_of :phone_ddd, unless: :phone_blank?
 
+  mount_uploader :audiometry, AudiometryUploader
+
   def person?
     type.present? && type == 'Person'
   end
@@ -21,7 +22,7 @@ class Customer < ActiveRecord::Base
   end
 
   # Defines dynamic _blank? methods for attributes listed in the array
-  [:phone, :cellphone].each do |method_name|
+  %i[phone cellphone].each do |method_name|
     define_method "#{method_name}_blank?" do
       send(method_name).send(:blank?)
     end

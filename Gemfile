@@ -25,6 +25,9 @@ gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
 gem 'less-rails'
 gem 'less-rails-bootstrap'
 gem 'therubyracer', '~> 0.12.1'        # https://github.com/cowboyd/therubyracer
+gem 'carrierwave', '~> 1.0'
+gem 'fog-aws', '~> 1.3.0'
+gem 'mini_magick'
 
 group :development do
   gem 'spring', '~> 1.1.3'          # Speeds up application. Read more: https://github.com/rails/spring

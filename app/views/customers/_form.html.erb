@@ -1,4 +1,4 @@
-<%= simple_form_for(setup_customer(@customer), html: { class: 'form-horizontal', id: 'mainForm' } ) do |f| %>
+<%= simple_form_for(setup_customer(@customer), html: { class: 'form-horizontal', id: 'mainForm', multipart: true } ) do |f| %>
 
   <%= f.error_notification %>
 
@@ -64,6 +64,14 @@
           <%= f.fields_for :address do |builder| %>
             <%= render 'address_fields', f: builder %>
           <% end %>
+        </div>
+      </div>
+      <div class='panel panel-primary'>
+        <div class='panel-heading'>Audiometria</div>
+        <div class='panel-body'>
+          <%= f.file_field :audiometry %>
+          <%= image_tag(@customer.audiometry) if @customer.audiometry? %>
+          <%= f.hidden_field :audiometry_cache %>
         </div>
       </div>
     </div>

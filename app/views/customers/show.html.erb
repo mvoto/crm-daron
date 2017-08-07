@@ -23,6 +23,15 @@
   <%= render 'person_info' %>
   <%= render 'company_info' %>
 
+  <p>
+    <strong><%= t("activerecord.attributes.customer.audiometry") %>:</strong>
+    <% if @customer.audiometry? %>
+      <%= link_to_thumb_or_path(@customer.audiometry, @customer.audiometry_url) %>
+    <% else %>
+      -
+    <% end %>
+  </p>
+
   <hr/>
   <strong><%= t("activerecord.models.address") %>:</strong>
   <% if @customer.address %>
