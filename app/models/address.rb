@@ -7,6 +7,7 @@ class Address < ActiveRecord::Base
   end
 
   protected
+
   def state_by_id
     state_id.nil? ? '-' : State.find(state_id)
   end

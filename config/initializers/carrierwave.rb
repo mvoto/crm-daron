@@ -6,7 +6,7 @@ CarrierWave.configure do |config|
     aws_secret_access_key: ENV['S3_SECRET'],
     region:                'us-east-1'
   }
-  config.fog_directory  = 'crm-daron'
+  config.fog_directory  = ENV['S3_BUCKET'] || 'crm-daron-staging'
   config.fog_public     = false
   config.fog_attributes = { cache_control: "public, max-age=#{365.day.to_i}" }
 end

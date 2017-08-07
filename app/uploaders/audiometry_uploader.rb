@@ -2,8 +2,7 @@ class AudiometryUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
-  storage :file
-  # storage :fog
+  storage :fog
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
@@ -18,7 +17,7 @@ class AudiometryUploader < CarrierWave::Uploader::Base
   protected
 
   def image?(new_file)
-    new_file.content_type.start_with? 'image'
+    new_file.content_type.start_with? 'image' if new_file.content_type
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
