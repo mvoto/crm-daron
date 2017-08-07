@@ -10,6 +10,7 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+/public/uploads
 .rspec
 .env
 /spec/tmp/*
