@@ -27,7 +27,7 @@ gem 'less-rails-bootstrap'
 gem 'therubyracer', '~> 0.12.1'        # https://github.com/cowboyd/therubyracer
 gem 'carrierwave', '~> 1.0'
 gem 'fog-aws', '~> 1.3.0'
-gem 'mini_magick'
+gem 'mini_magick', '~> 4.8.0'
 
 group :development do
   gem 'spring', '~> 1.1.3'          # Speeds up application. Read more: https://github.com/rails/spring
@@ -44,6 +44,7 @@ group :development, :test do
   gem 'capybara-webkit', '~> 1.3.0'      # https://github.com/thoughtbot/capybara-webkit
   gem 'shoulda-matchers', require: false # https://github.com/thoughtbot/shoulda
   gem 'launchy', '~> 2.4.2'              # https://github.com/copiousfreetime/launchy
+  gem 'dotenv-rails', '~> 2.2.1'         # https://github.com/bkeepers/dotenv
 end
 
 group :development, :test, :staging do
