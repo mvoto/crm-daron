@@ -34,7 +34,7 @@
 
   <hr/>
   <strong><%= t("activerecord.models.address") %>:</strong>
-  <% if @customer.address.city %>
+  <% if @customer.address && @customer.address.city %>
     <address>
       <%= @customer.address.street %>, <%= @customer.address.number %> <%= @customer.address.complement %><br>
       <%= @customer.address.city %>, <%= @customer.address.state %> <%= @customer.address.zipcode %><br>
