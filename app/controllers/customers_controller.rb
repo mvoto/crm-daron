@@ -3,7 +3,7 @@ class CustomersController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    dob_month = params[:q].delete('dob') if params.present? && params[:q]
+    dob_month = params[:q].delete(:dob) if params.present? && params[:q]
     @q = Customer.search(params[:q])
 
     query = @q.result.includes(:address, :devices)
@@ -12,7 +12,7 @@ class CustomersController < ApplicationController
 
     if dob_month.present?
       query = query.where('extract(month from dob) = ?', dob_month)
-      params[:q].merge!('dob' => dob_month)
+      params[:q].merge!(:dob => dob_month)
       puts params
     end
 
