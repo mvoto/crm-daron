@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170521222104) do
+ActiveRecord::Schema.define(version: 20170809023316) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,6 +79,15 @@ ActiveRecord::Schema.define(version: 20170521222104) do
     t.string   "other_store"
     t.string   "serial_number"
   end
+
+  create_table "handbooks", force: true do |t|
+    t.string   "information"
+    t.integer  "customer_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "handbooks", ["customer_id"], name: "index_handbooks_on_customer_id", using: :btree
 
   create_table "states", force: true do |t|
     t.string   "acronym"

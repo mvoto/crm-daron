@@ -3,6 +3,7 @@ class Customer < ActiveRecord::Base
 
   has_one :address, dependent: :destroy
   has_many :devices, dependent: :destroy
+  has_many :handbooks, dependent: :destroy
   accepts_nested_attributes_for :address
   accepts_nested_attributes_for :devices, allow_destroy: true
 

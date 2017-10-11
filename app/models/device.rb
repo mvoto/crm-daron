@@ -1,18 +1,17 @@
 class Device < ActiveRecord::Base
-
-  TYPES     = [ 'CIC', 'ITC', 'ITE', 'BTE', 'ADP.A', 'REC.C.' ]
-  BATTERIES = [ '10', '13', '312', '675' ]
-  EAR       = [ 'Direito', 'Esquerdo' ]
-  STORES    = [ 'Unidade I - Santo André', 'Unidade II - Barra Funda',
-    'Unidade III - Santos', 'Unidade IV - Praia Grande',
-    'Interior de São Paulo']
+  TYPES     = ['CIC', 'ITC', 'ITE', 'BTE', 'ADP.A', 'REC.C.'].freeze
+  BATTERIES = %w[10 13 312 675].freeze
+  EAR       = %w[Direito Esquerdo].freeze
+  STORES    = ['Unidade I - Santo André', 'Unidade II - Barra Funda',
+               'Unidade III - Santos', 'Unidade IV - Praia Grande',
+               'Interior de São Paulo'].freeze
 
   belongs_to :customer
 
   validates_presence_of :brand, :model, :serial_number, :warantee, :_type,
-    :ear, :battery
-  validates :store, presence: true, if: Proc.new { |a| a.other_store.blank? }
-  validates :other_store, presence: true, if: Proc.new { |a| a.store.blank? }
+                        :ear, :battery
+  validates :store, presence: true, if: proc { |a| a.other_store.blank? }
+  validates :other_store, presence: true, if: proc { |a| a.store.blank? }
   validates :ear, inclusion: { in: EAR }
   validates :_type, inclusion: { in: TYPES }
   validates :store, inclusion: { in: STORES }, allow_blank: true
