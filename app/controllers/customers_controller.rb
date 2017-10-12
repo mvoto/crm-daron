@@ -4,6 +4,7 @@ class CustomersController < ApplicationController
 
   def index
     dob_month = params[:q].delete(:dob) if params.present? && params[:q]
+    purchased_year = params[:q].delete(:purchased_at) if params.present? && params[:q]
     @q = Customer.search(params[:q])
 
     query = @q.result.includes(:address, :devices)
@@ -13,7 +14,11 @@ class CustomersController < ApplicationController
     if dob_month.present?
       query = query.where('extract(month from dob) = ?', dob_month)
       params[:q].merge!(:dob => dob_month)
-      puts params
+    end
+
+    if purchased_year.present?
+      query = query.references(:devices).where('extract(year from devices.purchased_at) = ?', purchased_year)
+      params[:q].merge!(:purchased_at => purchased_year)
     end
 
     @customers = query
