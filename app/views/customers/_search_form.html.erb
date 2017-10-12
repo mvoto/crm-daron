@@ -1,8 +1,9 @@
 <div class="col-lg-8">
   <%= search_form_for @q, html: { class: 'form-inline' } do |f| %>
-    <div class='form-group'>
+    <div class='form-group has-feedback has-clear'>
       <label for='dob'>Ano da Compra:</label>
       <%= f.search_field :purchased_at, placeholder: "Ano da Compra", class: "form-control datetimepicker", value: params.fetch(:q, {}).fetch(:purchased_at, nil) %>
+      <span class="form-control-clear fa fa-times form-control-feedback"></span>
     </div>
 
     <div class='form-group'>

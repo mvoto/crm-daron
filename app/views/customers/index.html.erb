@@ -21,6 +21,7 @@
       <th><%= sort_link(@q, :email, t("activerecord.attributes.customer.email")) %></th>
       <th><%= t("activerecord.attributes.customer.phone") %></th>
       <th><%= t("activerecord.attributes.customer.dob") %></th>
+      <th><%= t("activerecord.attributes.device.purchased_at") %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -32,6 +33,7 @@
         <td title='<%= customer.email %>'><%= customer.email.truncate(12) %></td>
         <td><%= customer.complete_phone %></td>
         <td><%= customer.dob.try(:strftime, '%d/%m/%Y') %></td>
+        <td><%= customer.devices.last.try(:purchased_at).try(:strftime, '%d/%m/%Y') %></td>
         <td>
           <%= button_to customer_path(customer), method: :get, class: 'btn btn-success', 'data-toggle' => "tooltip", title: "#{I18n.t('helpers.links.details')}" do %>
             <i class="fa fa-eye fa-fw"></i>
