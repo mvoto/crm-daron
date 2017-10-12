@@ -31,7 +31,7 @@
         <td title='<%= customer.name %>'><%= link_to customer.name.truncate(15), customer_path(customer.id) %></td>
         <td title='<%= customer.email %>'><%= customer.email.truncate(12) %></td>
         <td><%= customer.complete_phone %></td>
-        <td><%= customer.dob.strftime('%d/%m/%Y') %></td>
+        <td><%= customer.dob.try(:strftime, '%d/%m/%Y') %></td>
         <td>
           <%= button_to customer_path(customer), method: :get, class: 'btn btn-success', 'data-toggle' => "tooltip", title: "#{I18n.t('helpers.links.details')}" do %>
             <i class="fa fa-eye fa-fw"></i>
