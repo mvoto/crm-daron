@@ -71,6 +71,14 @@
         <div class='panel-body'>
           <%= f.file_field :audiometry %>
           <%= image_tag(@customer.audiometry) if @customer.audiometry? %>
+          <% if @customer.audiometry? %>
+            <p>
+              <label>
+                <%= f.check_box :remove_audiometry %>
+                Remover
+              </label>
+            </p>
+          <% end %>
           <%= f.hidden_field :audiometry_cache %>
         </div>
       </div>
