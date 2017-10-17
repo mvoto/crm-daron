@@ -7,7 +7,7 @@ class Customer < ActiveRecord::Base
   accepts_nested_attributes_for :devices, allow_destroy: true
 
   validates_presence_of :name
-  validates_uniqueness_of :name
+  validates_uniqueness_of :name, on: :create
   validates_format_of :phone, with: /[0-9]{3,4}[0-9]{4}/
   validates :phone, length: { maximum: 10 }
   validates_presence_of :phone_ddd, unless: :phone_blank?
