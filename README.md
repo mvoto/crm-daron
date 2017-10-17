@@ -44,7 +44,3 @@ VERSION 2:
 * Adicionar em Gráficos, infos de Dashboard: total de clientes, total de aparelhos, etc
 e os gráficos(pizza) de usuários por tipos talvez
 
-# AWS KEYS
-
-AKIAIFXOVGXYDBXKXCOA
-UP17kD681dCQUPehnm1HAv/1TjOmWu5AR8NjrRC1
