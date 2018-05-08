@@ -9,7 +9,7 @@ class CustomersController < ApplicationController
 
     query = @q.result.includes(:address, :devices)
               .order(:name)
-              .paginate(page: params[:page], per_page: 10)
+              .paginate(page: params[:page], per_page: 15)
 
     if dob_month.present?
       query = query.where('extract(month from dob) = ?', dob_month)
