@@ -5,9 +5,13 @@ Rails.application.routes.draw do
     get '/logout' => 'devise/sessions#destroy'
   end
 
+  namespace :admin do
+    resources :users
+  end
+
   resources :customers
-  resources :devices, only: [:new, :create, :edit, :update, :destroy]
+  resources :devices, only: %i[:new, :create, :edit, :update, :destroy]
   get 'state', to: 'states#show'
-  
+
   root to: 'customers#index'
 end
