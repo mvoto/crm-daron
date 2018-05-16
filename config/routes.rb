@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
 
   resources :customers
-  resources :devices, only: %i[:new, :create, :edit, :update, :destroy]
+  resources :devices, only: [:new, :create, :edit, :update, :destroy]
   get 'state', to: 'states#show'
 
   root to: 'customers#index'

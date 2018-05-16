@@ -4,20 +4,15 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  DEFAULT_PASSWORD = 'daron123'
+  DEFAULT_PASSWORD = 'daron123'.freeze
 
   ROLES = [
     ADMIN = 'Admin'.freeze,
-    SUPER = 'Super'.freeze,
     BASIC = 'Básico'.freeze
   ].freeze
 
   def admin?
     role == ADMIN
-  end
-
-  def super?
-    role == SUPER
   end
 
   def basic?
