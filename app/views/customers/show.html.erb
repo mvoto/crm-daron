@@ -1,6 +1,7 @@
-<h1><%= t("labels.show_customer") + @customer.name %></h1>
+<h1 class='page-header'><%= t("labels.show_customer") + @customer.name %></h1>
 
 <br/>
+
 <div>
   <div class="right_column">
     <strong><%= t("activerecord.attributes.customer.re") %>:</strong>
@@ -19,48 +20,29 @@
     <%= complete_phone(@customer) %>
   </p>
 
-  <% if @customer.person? %>
-    <div class="right_column">
-      <strong><%= t("activerecord.attributes.customer.rg") %>:</strong>
-      <%= @customer.rg %>
-    </div>
-    <p>
-      <strong><%= t("activerecord.attributes.customer.cpf") %>:</strong>
-      <%= @customer.cpf %>
-    </p>
-    <p>
-      <strong><%= t("activerecord.attributes.customer.dob") %>:</strong>
-      <%= to_date(@customer.dob) %>
-    </p>
-    <p>
-      <strong><%= t("activerecord.attributes.customer.career") %>:</strong>
-      <%= @customer.career %>
-    </p>
-    <p>
-      <strong><%= t("activerecord.attributes.customer.cellphone") %>:</strong>
-      <%= complete_cellphone(@customer) %>
-    </p>
-  <% end %>
+  <%= render 'person_info' %>
+  <%= render 'company_info' %>
 
-  <% if @customer.company? %>
-    <p>
-      <strong>Cnpj:</strong>
-      <%= @customer.cnpj %>
-    </p>
-    <p>
-      <strong>State Registration:</strong>
-      <%= @customer.state_registration %>
-    </p>
-  <% end %>
+  <p>
+    <strong><%= t("activerecord.attributes.customer.audiometry") %>:</strong>
+    <% if @customer.audiometry? %>
+      <%= link_to_thumb_or_path(@customer.audiometry, @customer.audiometry_url) %>
+    <% else %>
+      -
+    <% end %>
+  </p>
 
+  <hr/>
+  <strong><%= t("activerecord.models.address") %>:</strong>
   <% if @customer.address && @customer.address.city %>
-    <hr/>
-    <strong><%= t("activerecord.models.address") %>:</strong>
     <address>
       <%= @customer.address.street %>, <%= @customer.address.number %> <%= @customer.address.complement %><br>
       <%= @customer.address.city %>, <%= @customer.address.state %> <%= @customer.address.zipcode %><br>
     </address>
+  <% else %>
+    -
   <% end %>
+
   <br/>
   <div class='well-sm' id='buttons'>
     <%= link_to t("helpers.links.edit"), edit_customer_path(@customer), class: 'btn btn-primary', role: "button" %>
@@ -71,41 +53,8 @@
     <%= t('activerecord.models.device').pluralize %>
     <%= link_to I18n.t('helpers.links.new'), new_device_path(device: {customer_id: @customer.id}), class: 'btn btn-default not-visited', role: "button" %>
   </h2>
-  <% if not @customer.devices.blank? %>
-    <table class="table table-hover table-condensed table-responsive">
-      <thead>
-        <tr>
-          <th><%= t("activerecord.attributes.device._type") %></th>
-          <th><%= t("activerecord.attributes.device.ear") %></th>
-          <th><%= t("activerecord.attributes.device.model") %></th>
-          <th><%= t("activerecord.attributes.device.brand") %></th>
-          <th><%= t("activerecord.attributes.device.store") %></th>
-          <th><%= t("activerecord.attributes.device.purchased_at") %></th>
-          <th><%= t("activerecord.attributes.device.battery") %></th>
-          <th><%= t("activerecord.attributes.device.serial_number") %></th>
-          <th><%= t("activerecord.attributes.device.warantee") %></th>
-          <th colspan="2"></th>
-        </tr>
-      </thead>
 
-      <tbody>
-        <% @customer.devices.each do |device| %>
-          <tr>
-            <td><%= device._type %></td>
-            <td><%= device.ear %></td>
-            <td><%= device.model %></td>
-            <td><%= device.brand %></td>
-            <td><%= device.main_store %></td>
-            <td><%= to_date(device.purchased_at) %></td>
-            <td><%= device.battery %></td>
-            <td><%= device.serial_number %></td>
-            <td><%= device.warantee %></td>
-            <td><%= link_to I18n.t('helpers.links.edit'), edit_device_path(device) %></td>
-            <td><%= link_to I18n.t('helpers.links.destroy'), device_path(device), method: :delete,
-              data: { confirm: I18n.t('helpers.links.confirm') } %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+  <% if not @customer.devices.blank? %>
+    <%= render 'devices' %>
   <% end %>
 </div>

@@ -1,0 +1,24 @@
+<div class="right_column">
+  <p>
+    <strong><%= t("activerecord.attributes.customer.cellphone") %>:</strong>
+    <%= complete_cellphone(@customer) %>
+  </p>
+</div>
+<strong><%= t("activerecord.attributes.customer.rg") %>:</strong>
+<%= @customer.rg %>
+<p>
+  <strong><%= t("activerecord.attributes.customer.cpf") %>:</strong>
+  <%= @customer.cpf %>
+</p>
+<p>
+  <strong><%= t("activerecord.attributes.customer.dob") %>:</strong>
+  <%= to_date(@customer.dob) %>
+</p>
+<p>
+  <strong><%= t("activerecord.attributes.customer.career") %>:</strong>
+  <%= @customer.career %>
+</p>
+<p>
+  <strong><%= t("activerecord.attributes.customer.observation") %>:</strong>
+  <%= @customer.observation %>
+</p>

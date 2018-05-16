@@ -1,4 +1,5 @@
 <%= simple_form_for(@device, html: { class: 'form-horizontal', id: 'mainForm' } ) do |f| %>
+
   <h2>Aparelho de: <b><%= @customer.name %></b></h2>
   <%= f.input :customer_id, as: :hidden, input_html: { value: @customer.id } %>
   <br>
@@ -20,8 +21,14 @@
     </div>
   </div>
 
-  <%= f.input :store, collection: Device::STORES.map{ |val| [val, val] }, input_html: { class: 'form-control' } %>
-  <%= f.input :other_store, input_html: { class: 'form-control' }, label: 'Outra Loja(caso não exista na listagem)' %>
+  <div class="row">
+    <div class="col-xs-6">
+      <%= f.input :store, collection: Device::STORES.map{ |val| [val, val] }, input_html: { class: 'form-control' } %>
+    </div>
+    <div class="col-xs-6">
+      <%= f.input :other_store, input_html: { class: 'form-control' }, label: 'Outra Loja(caso não exista na listagem)' %>
+    </div>
+  </div>
 
   <div class="row">
     <div class="col-xs-6">
@@ -33,13 +40,12 @@
   </div>
 
   <div class="row">
-    <div class="col-xs-7">
-      <%= f.input :purchased_at, as: :date, start_year: Date.today.year - 90,
-                              end_year: Date.today.year, discard_day: false,
-                              order: [:day, :month, :year] %>
-    </div>
-    <div class="col-xs-5">
+    <div class="col-xs-6">
       <%= f.input :warantee, input_html: { class: 'form-control' } %>
+    </div>
+    <div class="col-xs-6">
+      <%= f.input :purchased_at, as: :date, start_year: Date.today.year - 90,
+        end_year: Date.today.year, discard_day: false, order: [:day, :month, :year] %>
     </div>
   </div>
 <% end %>

@@ -13,6 +13,7 @@ FactoryGirl.define do
     dob { Faker::Time.between(80.years.ago, 30.years.ago, :all) }
     cellphone_ddd '11'
     cellphone '944300390'
+    observation 'Customer needs someone'
   end
 
   factory :company, parent: :customer, class: 'Company' do

@@ -1,25 +1,43 @@
-<div class='panel-heading'>
-  <span data-toggle="collapse" data-target="#filters_div" class='lead'>Filtros</span>
-</div>
-<%= search_form_for @q, html: { class: 'form-inline' } do |f| %>
-  <div class='panel-body panel-collapse collapse in' id='filters_div'>
+<div class="col-lg-8">
+  <%= search_form_for @q, html: { class: 'form-inline' } do |f| %>
+    <div class='form-group has-feedback has-clear'>
+      <label for='dob'>Ano da Compra:</label>
+      <%= f.search_field :purchased_at, placeholder: "Ano da Compra", class: "form-control datetimepicker", value: params.fetch(:q, {}).fetch(:purchased_at, nil) %>
+      <span class="form-control-clear fa fa-times form-control-feedback"></span>
+    </div>
+
+    <div class='form-group'>
+      <label for='dob'>Mês de Aniversário:</label>
+      <%= f.select :dob, 1..12, {selected: params.fetch(:q, {}).fetch(:dob, nil), include_blank: true}, class: 'form-control dropdown-toggle', onchange: "this.form.submit()" %>
+    </div>
+
+    <div class='form-group has-feedback has-clear'>
       <%= f.search_field :name_cont, placeholder: I18n.t("activerecord.attributes.customer.name"), class: "form-control" %>
+      <span class="form-control-clear fa fa-times form-control-feedback"></span>
+    </div>
 
-      <%= f.text_field :dob_gteq, placeholder: "Nascido de: (dd/mm/aaaa)", class: "form-control" %>
-
-      <%= f.text_field :dob_lteq, placeholder: "Nascido até: (dd/mm/aaaa)", class: "form-control" %>
-
+    <div class='form-group has-feedback has-clear'>
       <%= f.search_field :devices_store_or_devices_other_store_cont, placeholder: I18n.t("activerecord.attributes.device.store"), class: "form-control" %>
+      <span class="form-control-clear fa fa-times form-control-feedback"></span>
+    </div>
 
-      <%= f.search_field :devices__type_cont, placeholder: I18n.t("activerecord.attributes.device._type"), class: "form-control" %>
-      <br/>
+    <%= f.submit "Filtrar", class: 'btn btn-primary' %>
+  <% end %>
+</div>
 
-      <%= f.text_field :devices_brand, placeholder: I18n.t("activerecord.attributes.device.brand"), class: "form-control" %>
+<%= javascript_tag do %>
+  $('.form-control-clear').click(function() {
+    $(this).prev('input').val('').focus()
+  });
 
-      <br/><br/>
-      <%= f.collection_select :address_city_id_eq, City.all, :id, :name, include_blank: 'Escolha uma Cidade', class: "form-control" %>
-
-      <br/><br/>
-      <span class='pull-right'><%= f.submit "Buscar", class: 'btn btn-primary' %></span>
-  </div>
+  $('.datetimepicker').datetimepicker({
+    format: 'YYYY',
+    viewMode: 'years',
+    icons: {
+        up: "fa fa-chevron-circle-up",
+        down: "fa fa-chevron-circle-down",
+        next: 'fa fa-chevron-circle-right',
+        previous: 'fa fa-chevron-circle-left'
+    }
+    });
 <% end %>

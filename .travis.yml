@@ -1,9 +1,28 @@
+dist: trusty
+sudo: required
 language: ruby
 rvm:
   - 2.1.5
 before_script:
-- cp -n config/database.yml.example config/database.yml
-- bundle exec rake db:create db:schema:load db:seed
+  - cp -n config/database.yml.example config/database.yml
+  - cp -n .rspec.example .rspec
+  - bundle exec rake db:create db:schema:load
 
 script:
-- xvfb-run bundle exec rspec
+  - xvfb-run bundle exec rspec
+
+install:
+  - bundle config build.nokogiri --use-system-libraries
+  - bundle
+
+
+addons:
+  apt:
+    sources:
+      - ubuntu-sdk-team
+    packages:
+      - qt5-default
+      - libqt5webkit5-dev
+      - gstreamer1.0-plugins-base
+      - gstreamer1.0-tools
+      - gstreamer1.0-x
