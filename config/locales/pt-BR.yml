@@ -54,6 +54,8 @@ pt-BR:
         career: "Profissão"
         gender: "Sexo"
         state_registration: "Inscrição Estadual"
+        observation: "Observações"
+        audiometry: "Audiometria"
       device:
         _type: "Tipo de Aparelho"
         purchased_at: "Data de Compra"
@@ -83,6 +85,8 @@ pt-BR:
       user:
         email: "Email"
         password: "Senha"
+        created_at: "Data de Criação"
+        role: "Perfil"
         current_password: "Senha Atual"
         password_confirmation: "Confirmação de Senha"
   date:
@@ -280,6 +284,7 @@ pt-BR:
     edit_customer: "Editar Cliente"
     list_customers: "Lista de Clientes"
     show_customer: "Detalhes de "
+    list_users: "Lista de Usuários"
     sidebar: "Menu"
   will_paginate:
     page_gap: "&hellip;"

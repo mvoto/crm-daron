@@ -1,8 +1,23 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  # :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  DEFAULT_PASSWORD = 'daron123'.freeze
+
+  ROLES = [
+    ADMIN = 'Admin'.freeze,
+    BASIC = 'Básico'.freeze
+  ].freeze
+
+  def admin?
+    role == ADMIN
+  end
+
+  def basic?
+    role == BASIC
+  end
 end
 
 # == Schema Information

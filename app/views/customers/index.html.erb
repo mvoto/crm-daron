@@ -1,28 +1,56 @@
 <div class='row'>
-  <span id='span-title' class='lead'><%= t("labels.list_customers") %></span>
-  <%= link_to I18n.t('helpers.links.new'), new_customer_path, class: 'btn btn-default not-visited', role: "button" %>
+  <div class='col-lg-12'>
+    <h1 class="page-header">
+      <%= t("labels.list_customers") %>
+      <%= link_to I18n.t('helpers.links.new'), new_customer_path, class: 'btn btn-default not-visited', role: "button" %>
+    </h1>
+  </div>
 </div>
 <br/>
-<table class="table table-hover table-condensed table-responsive">
+<div class="row">
+  <%= render "search_form" %>
+</div>
+<br/>
+<%= sort_link(@q, :devices_purchased_at, "Ordenar por #{t('activerecord.attributes.device.purchased_at')}") %>
+<br/><br/>
+
+<table class="table table-hover table-condensed table-responsive table-striped">
   <thead>
     <tr>
-      <th><%= t("activerecord.attributes.customer.name") %></th>
-      <th><%= t("activerecord.attributes.customer.email") %></th>
+      <th><%= sort_link(@q, :name, t("activerecord.attributes.customer.name")) %></th>
+      <th><%= sort_link(@q, :email, t("activerecord.attributes.customer.email")) %></th>
       <th><%= t("activerecord.attributes.customer.phone") %></th>
-      <th colspan="3"></th>
+      <th><%= t("activerecord.attributes.customer.dob") %></th>
+      <th><%= t("activerecord.attributes.device.purchased_at") %></th>
+      <th colspan="#{current_user.admin? ? 3 : 2}"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @customers.each do |customer| %>
+    <% @customers.to_a.uniq.each do |customer| %>
       <tr>
         <td title='<%= customer.name %>'><%= link_to customer.name.truncate(15), customer_path(customer.id) %></td>
         <td title='<%= customer.email %>'><%= customer.email.truncate(12) %></td>
         <td><%= customer.complete_phone %></td>
-        <td><%= link_to I18n.t('helpers.links.details'), customer_path(customer) %></td>
-        <td><%= link_to I18n.t('helpers.links.edit'), edit_customer_path(customer) %></td>
-        <td><%= link_to I18n.t('helpers.links.destroy'), customer_path(customer), method: :delete,
-          data: { confirm: I18n.t('helpers.links.confirm') } %></td>
+        <td><%= customer.dob.try(:strftime, '%d/%m/%Y') %></td>
+        <td><%= customer.devices.last.try(:purchased_at).try(:strftime, '%d/%m/%Y') %></td>
+        <td>
+          <%= button_to customer_path(customer), method: :get, class: 'btn btn-success', 'data-toggle' => "tooltip", title: "#{I18n.t('helpers.links.details')}" do %>
+            <i class="fa fa-eye fa-fw"></i>
+          <% end %>
+        </td>
+        <td>
+          <%= button_to edit_customer_path(customer), method: :get, class: 'btn btn-primary', 'data-toggle' => "tooltip", title: "#{I18n.t('helpers.links.edit')}" do %>
+            <i class="fa fa-edit fa-fw"></i>
+          <% end %>
+        </td>
+        <% if current_user.admin? %>
+          <td>
+            <%= button_to customer_path(customer), method: :delete, data: { confirm: I18n.t('helpers.links.confirm'), toggle: "tooltip" }, class: 'btn btn-danger', title: "#{I18n.t('helpers.links.destroy')}" do %>
+              <i class="fa fa-trash-o fa-fw"></i>
+            <% end %>
+          </td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

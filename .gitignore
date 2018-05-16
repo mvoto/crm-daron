@@ -10,6 +10,7 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+/public/uploads
 .rspec
 .env
 /spec/tmp/*
@@ -19,3 +20,6 @@
 /vendor/bundle
 config/database.yml
 .ruby-version
+.env
+.env.development
+.env.test

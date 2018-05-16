@@ -1,8 +1,8 @@
 class Device < ActiveRecord::Base
 
-  TYPES 		= [ 'CIC', 'ITC', 'ITE', 'BTE', 'ADP.A', 'REC.C.' ]
+  TYPES     = [ 'CIC', 'ITC', 'ITE', 'BTE', 'ADP.A', 'REC.C.' ]
   BATTERIES = [ '10', '13', '312', '675' ]
-  EAR 			= [ 'Direito', 'Esquerdo' ]
+  EAR       = [ 'Direito', 'Esquerdo' ]
   STORES    = [ 'Unidade I - Santo André', 'Unidade II - Barra Funda',
     'Unidade III - Santos', 'Unidade IV - Praia Grande',
     'Interior de São Paulo']
@@ -21,7 +21,6 @@ class Device < ActiveRecord::Base
   def main_store
     other_store.blank? ? store : other_store
   end
-
 end
 
 # == Schema Information

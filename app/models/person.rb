@@ -31,4 +31,5 @@ end
 #  phone_ddd          :string(255)
 #  cellphone_ddd      :string(255)
 #  re                 :string(255)
+#  observation        :text
 #

@@ -6,6 +6,10 @@ class City < ActiveRecord::Base
   def to_s
     name
   end
+
+  def full_name
+    "#{name} - #{state.acronym}"
+  end
 end
 
 # == Schema Information
