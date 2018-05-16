@@ -1,4 +1,4 @@
-require File.expand_path('spec/support/factory_girl_helper', __dir__)
+require File.expand_path('spec/support/factory_girl_helper.rb', __dir__)
 
 FactoryGirl.create(:user, email: 'daron@daron.com.br', password: 'daron2015')
 
