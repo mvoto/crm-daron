@@ -22,7 +22,7 @@
       <th><%= t("activerecord.attributes.customer.phone") %></th>
       <th><%= t("activerecord.attributes.customer.dob") %></th>
       <th><%= t("activerecord.attributes.device.purchased_at") %></th>
-      <th colspan="3"></th>
+      <th colspan="#{current_user.admin? ? 3 : 2}"></th>
     </tr>
   </thead>
 
@@ -44,11 +44,13 @@
             <i class="fa fa-edit fa-fw"></i>
           <% end %>
         </td>
-        <td>
-          <%= button_to customer_path(customer), method: :delete, data: { confirm: I18n.t('helpers.links.confirm'), toggle: "tooltip" }, class: 'btn btn-danger', title: "#{I18n.t('helpers.links.destroy')}" do %>
+        <% if current_user.admin? %>
+          <td>
+            <%= button_to customer_path(customer), method: :delete, data: { confirm: I18n.t('helpers.links.confirm'), toggle: "tooltip" }, class: 'btn btn-danger', title: "#{I18n.t('helpers.links.destroy')}" do %>
               <i class="fa fa-trash-o fa-fw"></i>
-          <% end %>
-        </td>
+            <% end %>
+          </td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

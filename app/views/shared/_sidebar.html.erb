@@ -6,9 +6,16 @@
           <i class="fa fa-users fa-fw"></i> Clientes
         <% end %>
       </li>
-      <li>
-        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Gráfico</a>
-      </li>
+      <% if current_user.admin? %>
+        <li>
+          <%= link_to admin_users_path do %>
+            <i class="fa fa-desktop fa-fw"></i> Usuários
+          <% end %>
+        </li>
+        <li>
+          <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Gráfico</a>
+        </li>
+      <% end %>
     </ul>
   </div>
   <!-- /.sidebar-collapse -->

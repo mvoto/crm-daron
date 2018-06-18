@@ -34,6 +34,7 @@ group :development do
   gem 'spring', '~> 1.1.3'          # Speeds up application. Read more: https://github.com/rails/spring
   gem 'awesome_print', '~> 1.2.0'   # https://github.com/michaeldv/awesome_print
   gem 'annotate', '~> 2.6.5'        # https://github.com/ctran/annotate_models
+  gem 'mailcatcher'
 end
 
 group :development, :test do
