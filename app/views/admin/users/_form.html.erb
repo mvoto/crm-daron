@@ -12,7 +12,7 @@
   <div class="form-group row">
     <label for="user_role" class="col-sm-2 col-form-label">Perfil</label>
     <div class="col-sm-10">
-      <%= f.select :role, options_for_select(User::ROLES), {}, { class: "form-control" } %>
+      <%= f.select :role, options_for_select(User::ROLES, @user.role), {}, { class: "form-control" } %>
     </div>
   </div>
 
