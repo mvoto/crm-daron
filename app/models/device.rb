@@ -1,10 +1,10 @@
 class Device < ActiveRecord::Base
 
   TYPES     = [ 'CIC', 'ITC', 'ITE', 'BTE', 'ADP.A', 'REC.C.' ]
-  BATTERIES = [ '10', '13', '312', '675' ]
+  BATTERIES = [ '10', '13', '312', '675', 'Recarregável' ]
   EAR       = [ 'Direito', 'Esquerdo' ]
   STORES    = [ 'Unidade I - Santo André', 'Unidade II - Barra Funda',
-    'Unidade III - Santos', 'Unidade IV - Praia Grande',
+    'Unidade III - Santos', 'Unidade IV - Praia Grande', 'Unidade V - Lapa',
     'Interior de São Paulo']
 
   belongs_to :customer

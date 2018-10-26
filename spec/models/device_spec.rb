@@ -11,7 +11,7 @@ RSpec.describe Device, type: :model do
       let(:batteries) { Device::BATTERIES }
       let(:ears) { Device::EAR }
       let(:stores) { [ 'Unidade I - Santo André', 'Unidade II - Barra Funda',
-        'Unidade III - Santos', 'Unidade IV - Praia Grande',
+        'Unidade III - Santos', 'Unidade IV - Praia Grande', 'Unidade V - Lapa',
         'Interior de São Paulo' ] }
 
       it 'validates inclusion of' do
