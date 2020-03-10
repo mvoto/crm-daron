@@ -44,7 +44,7 @@ jQuery ->
       $("#customer_address_attributes_neighborhood").val('');
       $("#customer_address_attributes_street").val('');
 
-      $.get "http://apps.widenet.com.br/busca-cep/api/cep/" + cep_code + ".json", {}, (result) ->
+      $.get "https://apps.widenet.com.br/busca-cep/api/cep/" + cep_code + ".json", {}, (result) ->
         if result.status != 200 && result.state == undefined
           alert result.message or "Houve um erro desconhecido na consulta do CEP"
           return
