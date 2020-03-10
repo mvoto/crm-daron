@@ -39,8 +39,13 @@ jQuery ->
     $("#customer_address_attributes_zipcode").change ->
       cep_code = $(this).val()
       if cep_code.length <= 0 then return
-      $.get "http://apps.widenet.com.br/busca-cep/api/cep.json", { code: cep_code }, (result) ->
-        if result.status != 1
+      $("#customer_address_attributes_zipcode").val('');
+      $("#customer_address_attributes_estado").val('');
+      $("#customer_address_attributes_neighborhood").val('');
+      $("#customer_address_attributes_street").val('');
+
+      $.get "http://apps.widenet.com.br/busca-cep/api/cep/" + cep_code + ".json", {}, (result) ->
+        if result.status != 200 && result.state == undefined
           alert result.message or "Houve um erro desconhecido na consulta do CEP"
           return
         $("#customer_address_attributes_zipcode").val( result.code );
