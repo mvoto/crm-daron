@@ -78,7 +78,16 @@ feature 'Managing customers', %q{
   scenario 'destroying a customer' do
     visit customers_path
 
-    click_button('Excluir', match: :first)
-    expect(page).to have_content 'Excluído com sucesso'
+    expect(page).to have_css '.btn'
+  end
+
+  context 'given logged user is an admin' do
+    before { allow(@user).to receive(:admin?).and_return(true) }
+    scenario 'destroying a customer' do
+      visit customers_path
+
+      page.first('button.btn-danger').click
+      expect(page).to have_content 'Excluído com sucesso'
+    end
   end
 end
