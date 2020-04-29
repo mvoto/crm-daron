@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '2.4.0'
 
 gem 'rails', '>= 5.0.0.rc2', '< 5.1'
-gem 'pg', '~> 0.17.1'
+gem 'pg', '~> 0.18'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '>= 4.1.1', '< 5'
 gem 'jquery-rails', '>= 4'
@@ -26,6 +26,7 @@ gem 'therubyracer', '~> 0.12.1'        # https://github.com/cowboyd/therubyracer
 gem 'carrierwave', '~> 1.0'
 gem 'fog-aws', '~> 1.3.0'
 gem 'mini_magick', '~> 4.8.0'
+gem 'sprockets', '3.6.3'
 
 group :development do
   gem 'spring', '~> 1.1.3'          # Speeds up application. Read more: https://github.com/rails/spring
@@ -35,10 +36,9 @@ end
 group :development, :test do
   gem 'pry', '~> 0.10.1'                 # Pry = win
   gem 'pry-byebug', '~> 2.0.0'           # Adds step, next and etc to pry
-  gem 'fuubar', '~> 2.0.0'               # pretty rspec output
-  gem 'rspec-rails', '~> 3.1.0'          # http://rspec.info
-  gem 'capybara', '~> 2.4.3'             # https://github.com/jnicklas/capybara
-  gem 'capybara-webkit', '~> 1.3.0'      # https://github.com/thoughtbot/capybara-webkit
+  gem 'rspec-rails', '~> 3.5.0'          # http://rspec.info
+  gem 'capybara', '~> 2.5'               # https://github.com/jnicklas/capybara
+  gem 'capybara-webkit', '~> 1.5'      # https://github.com/thoughtbot/capybara-webkit
   gem 'shoulda-matchers', require: false # https://github.com/thoughtbot/shoulda
   gem 'launchy', '~> 2.4.2'              # https://github.com/copiousfreetime/launchy
   gem 'dotenv-rails', '~> 2.2.1'         # https://github.com/bkeepers/dotenv
