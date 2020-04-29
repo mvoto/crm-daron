@@ -1,4 +1,4 @@
-class State < ActiveRecord::Base
+class State < ApplicationRecord
   has_many :cities
   belongs_to :capital, class_name: 'City'
 
@@ -6,15 +6,3 @@ class State < ActiveRecord::Base
     acronym
   end
 end
-
-# == Schema Information
-#
-# Table name: states
-#
-#  id         :integer          not null, primary key
-#  acronym    :string(255)
-#  name       :string(255)
-#  capital_id :integer
-#  created_at :datetime
-#  updated_at :datetime
-#

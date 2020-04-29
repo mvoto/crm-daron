@@ -1,4 +1,4 @@
-class Address < ActiveRecord::Base
+class Address < ApplicationRecord
   belongs_to :city
   belongs_to :customer
 
@@ -12,20 +12,3 @@ class Address < ActiveRecord::Base
     state_id.nil? ? '-' : State.find(state_id)
   end
 end
-
-# == Schema Information
-#
-# Table name: addresses
-#
-#  id           :integer          not null, primary key
-#  street       :string(255)
-#  number       :integer
-#  neighborhood :string(255)
-#  zipcode      :string(255)
-#  city_id      :integer
-#  created_at   :datetime
-#  updated_at   :datetime
-#  customer_id  :integer
-#  state_id     :integer
-#  complement   :string(255)
-#
