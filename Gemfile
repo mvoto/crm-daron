@@ -26,7 +26,7 @@ gem 'therubyracer', '~> 0.12.1'        # https://github.com/cowboyd/therubyracer
 gem 'carrierwave', '~> 1.0'
 gem 'fog-aws', '~> 1.3.0'
 gem 'mini_magick', '~> 4.8.0'
-gem 'sprockets', '3.6.3'
+gem 'sprockets', '3.7.2'
 
 group :development do
   gem 'spring', '~> 1.1.3'          # Speeds up application. Read more: https://github.com/rails/spring
