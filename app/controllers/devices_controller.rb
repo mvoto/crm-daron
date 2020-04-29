@@ -1,7 +1,7 @@
 class DevicesController < ApplicationController
   before_action :load_device, only: [:edit, :update, :destroy]
   before_action :load_customer, only: [:new, :create]
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
 
   def new
     @device = Device.new
