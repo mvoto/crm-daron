@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :customers
   resources :devices, only: [:new, :create, :edit, :update, :destroy]
   get 'state', to: 'states#show'
+  get 'cities', to: 'cities#index'
 
   root to: 'customers#index'
 end

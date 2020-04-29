@@ -21,6 +21,16 @@
       <span class="form-control-clear fa fa-times form-control-feedback"></span>
     </div>
 
+    <div class='form-group has-feedback has-clear'>
+      <%= f.hidden_field :address_city_id, placeholder: I18n.t("activerecord.attributes.city.name"), class: "form-control" %>
+      <input type="text" class="search" placeholder="City or State">
+      <ul class="suggestions">
+        <li>Filter for a city</li>
+      </ul>
+
+      <span class="form-control-clear fa fa-times form-control-feedback"></span>
+    </div>
+
     <%= f.submit "Filtrar", class: 'btn btn-primary' %>
   <% end %>
 </div>
@@ -39,5 +49,48 @@
         next: 'fa fa-chevron-circle-right',
         previous: 'fa fa-chevron-circle-left'
     }
+  });
+
+  // Get the path from rails
+  const endpoint = '/cities.json';
+
+  const cities = [];
+  fetch(endpoint)
+    .then(blob => blob.json())
+    .then(data => cities.push(...data));
+
+  function findMatches(wordToMatch, cities) {
+    return cities.filter(city => {
+      const regex = new RegExp(wordToMatch, 'gi');
+      return city.name.match(regex)
     });
+  }
+
+  function displayMatches() {
+    const matchArray = findMatches(this.value, cities);
+    const html = matchArray.map(city => {
+      const regex = new RegExp(this.value, 'gi');
+      const cityName = city.name.replace(regex, `<span class="hl">${this.value}</span>`);
+      return `
+        <li>
+          <span class="name">${cityName}</span>
+          <span class="id">${city.id}</span>
+        </li>
+      `;
+    }).join('');
+    suggestions.innerHTML = html;
+    const cityItems = Array.from(suggestions.querySelectorAll('li'));
+    cityItems.map(item => { item.addEventListener('click', setCityId) });
+  }
+
+  function setCityId() {
+    console.log(this)
+    console.log(this.querySelector('span#id'))
+  }
+
+  const searchInput = document.querySelector('.search');
+  const suggestions = document.querySelector('.suggestions');
+
+  searchInput.addEventListener('change', displayMatches);
+  searchInput.addEventListener('keyup', displayMatches);
 <% end %>
