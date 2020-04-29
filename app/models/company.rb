@@ -1,5 +1,5 @@
 class Company < Customer
-  validates_presence_of :cnpj
+  validates :cnpj, presence: true
 
   def self.model_name
     Customer.model_name
