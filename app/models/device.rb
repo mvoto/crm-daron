@@ -1,4 +1,4 @@
-class Device < ActiveRecord::Base
+class Device < ApplicationRecord
 
   TYPES     = [ 'CIC', 'ITC', 'ITE', 'BTE', 'ADP.A', 'REC.C.' ]
   BATTERIES = [ '10', '13', '312', '675', 'Recarregável' ]
@@ -22,23 +22,3 @@ class Device < ActiveRecord::Base
     other_store.blank? ? store : other_store
   end
 end
-
-# == Schema Information
-#
-# Table name: devices
-#
-#  id            :integer          not null, primary key
-#  purchased_at  :datetime
-#  warantee      :integer
-#  battery       :string(255)
-#  brand         :string(255)
-#  model         :string(255)
-#  ear           :string(255)
-#  _type         :string(255)
-#  customer_id   :integer
-#  created_at    :datetime
-#  updated_at    :datetime
-#  store         :string(255)
-#  other_store   :string(255)
-#  serial_number :string(255)
-#

@@ -20,7 +20,7 @@ RSpec.describe DevicesController, type: :controller do
     it "returns http success" do
     	expect(response).to have_http_status(:success)
 
-      get :new, device: { customer_id: customer.id }
+      get :new, params: { device: { customer_id: customer.id } }
     end
   end
 
@@ -37,7 +37,7 @@ RSpec.describe DevicesController, type: :controller do
     it "returns http success" do
       expect(response).to have_http_status(:success)
 
-      get :edit, id: existing_device.id
+      get :edit, params: { id: existing_device.id }
     end
   end
 end

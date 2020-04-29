@@ -11,7 +11,7 @@ RSpec.describe Customer, type: :model do
     context 'given the phone' do
 
       it 'validates format and length' do
-        expect(customer).to ensure_length_of(:phone).is_at_most(10)
+        expect(customer).to validate_length_of(:phone).is_at_most(10)
         expect(customer).to_not allow_value('(11)4433-1122').for(:phone)
         expect(customer).to_not allow_value('(011)4433-1122').for(:phone)
         expect(customer).to allow_value('44331122').for(:phone)

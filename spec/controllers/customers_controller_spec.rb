@@ -42,7 +42,7 @@ RSpec.describe CustomersController, type: :controller do
     it "returns http success" do
       expect(response).to have_http_status(:success)
 
-      get :edit, id: existing_customer.id
+      get :edit, params: { id: existing_customer.id }
     end
   end
 
