@@ -1,4 +1,4 @@
-class City < ActiveRecord::Base
+class City < ApplicationRecord
   belongs_to :state
   has_many :addresses
 
@@ -12,14 +12,3 @@ class City < ActiveRecord::Base
     "#{name} - #{state.acronym}"
   end
 end
-
-# == Schema Information
-#
-# Table name: cities
-#
-#  id         :integer          not null, primary key
-#  name       :string(255)
-#  state_id   :integer
-#  created_at :datetime
-#  updated_at :datetime
-#

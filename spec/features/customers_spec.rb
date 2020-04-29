@@ -21,7 +21,7 @@ feature 'Managing customers', %q{
       expect(page).to have_content(customer.phone)
     end
 
-    let!(:customers) { create_list(:customer, 20) }
+    before { (1..20).each_with_index { |index| create(:customer, name: "Ze ##{index}") } }
     scenario 'paginating customers' do
       visit customers_path
       expect(page).to have_content(Customer.order(:name).first.name)

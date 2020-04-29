@@ -13,7 +13,7 @@ RSpec.describe Person, type: :model do
           expect(person).to_not allow_value('(011)94433-1122').for(:cellphone)
           expect(person).to allow_value('944331122').for(:cellphone)
           expect(person).to_not allow_value('118').for(:cellphone)
-          expect(person).to ensure_length_of(:cellphone).is_at_most(10)
+          expect(person).to validate_length_of(:cellphone).is_at_most(10)
         end
       end
 
