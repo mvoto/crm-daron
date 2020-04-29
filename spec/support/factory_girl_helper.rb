@@ -1,5 +1,5 @@
 # See more at: http://blog.tobedevoured.com/post/54523066986/rspec-helper-to-add-find-or-create-to-factorygirl#sthash.n79NQWlu.dpuf
-class FactoryGirlHelper
+module FactoryGirlHelper
   class << self
     def find_or_create(*args)
       name = args.shift
