@@ -1,11 +1,7 @@
-<div class='row'>
-  <div class='col-lg-12'>
-    <h1 class="page-header">
-      <%= t("labels.list_customers") %>
-      <%= link_to I18n.t('helpers.links.new'), new_customer_path, class: 'btn btn-default not-visited', role: "button" %>
-    </h1>
-  </div>
-</div>
+<h1>
+  <%= t("labels.list_customers") %>
+  <%= link_to I18n.t('helpers.links.new'), new_customer_path, class: 'btn btn-default not-visited', role: "button" %>
+</h1>
 <br/>
 <div class="row">
   <%= render "search_form" %>
@@ -55,6 +51,6 @@
     <% end %>
   </tbody>
 </table>
-<div class='pull-right'>
+<div class='text-center'>
   <%= will_paginate @customers, renderer: BootstrapPagination::Rails %>
 </div>
