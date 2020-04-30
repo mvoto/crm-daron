@@ -1,14 +1,13 @@
-<div class="col-lg-8">
+<div>
   <%= search_form_for @q, html: { class: 'form-inline' } do |f| %>
-    <div class='form-group has-feedback has-clear'>
-      <label for='dob'>Ano da Compra:</label>
-      <%= f.search_field :purchased_at, placeholder: "Ano da Compra", class: "form-control datetimepicker", value: params.fetch(:q, {}).fetch(:purchased_at, nil) %>
-      <span class="form-control-clear fa fa-times form-control-feedback"></span>
-    </div>
-
     <div class='form-group'>
       <label for='dob'>Mês de Aniversário:</label>
-      <%= f.select :dob, 1..12, {selected: params.fetch(:q, {}).fetch(:dob, nil), include_blank: true}, class: 'form-control dropdown-toggle', onchange: "this.form.submit()" %>
+      <%= f.select :dob, 1..12, {selected: params.fetch(:q, {}).fetch(:dob, nil), include_blank: true}, class: 'form-control dropdown-toggle', onchange: "this.form.submit()", placeholder: 'Mês de Aniversário' %>
+    </div>
+
+    <div class='form-group has-feedback has-clear'>
+      <%= f.search_field :purchased_at, placeholder: "Ano da Compra", class: "form-control datetimepicker", value: params.fetch(:q, {}).fetch(:purchased_at, nil) %>
+      <span class="form-control-clear fa fa-times form-control-feedback"></span>
     </div>
 
     <div class='form-group has-feedback has-clear'>
@@ -22,13 +21,10 @@
     </div>
 
     <div class='form-group has-feedback has-clear'>
-      <%= f.hidden_field :address_city_id, placeholder: I18n.t("activerecord.attributes.city.name"), class: "form-control" %>
-      <input type="text" class="search" placeholder="City or State">
-      <ul class="suggestions">
-        <li>Filter for a city</li>
-      </ul>
-
+      <%= f.hidden_field :address_city_id_eq, placeholder: I18n.t("activerecord.attributes.city.name"), class: "form-control hiddenCityId" %>
+      <input type="text" class="form-control search" placeholder="Cidade">
       <span class="form-control-clear fa fa-times form-control-feedback"></span>
+      <ul class="suggestions" style="display:none"></ul>
     </div>
 
     <%= f.submit "Filtrar", class: 'btn btn-primary' %>
@@ -38,6 +34,10 @@
 <%= javascript_tag do %>
   $('.form-control-clear').click(function() {
     $(this).prev('input').val('').focus()
+    if ($(this).prev('input').hasClass('search')) {
+      $(this).prev('input').prev('input').val('')
+      suggestions.style.display = 'none';
+    }
   });
 
   $('.datetimepicker').datetimepicker({
@@ -67,25 +67,40 @@
   }
 
   function displayMatches() {
+    if (this.value.length < 1) {
+      suggestions.style.display = 'none';
+      return;
+    }
     const matchArray = findMatches(this.value, cities);
     const html = matchArray.map(city => {
       const regex = new RegExp(this.value, 'gi');
       const cityName = city.name.replace(regex, `<span class="hl">${this.value}</span>`);
       return `
         <li>
-          <span class="name">${cityName}</span>
-          <span class="id">${city.id}</span>
+          <span class="cityName">${cityName}</span>
+          <span class="cityId">${city.id}</span>
         </li>
       `;
     }).join('');
     suggestions.innerHTML = html;
+    suggestions.style.display = '';
     const cityItems = Array.from(suggestions.querySelectorAll('li'));
-    cityItems.map(item => { item.addEventListener('click', setCityId) });
+    cityItems.map(item => { item.addEventListener('click', selectCityId) });
   }
 
-  function setCityId() {
-    console.log(this)
-    console.log(this.querySelector('span#id'))
+  function selectCityId() {
+    const hiddenCityIdField = document.querySelector('input.hiddenCityId');
+    hiddenCityIdField.value = this.querySelector('span.cityId').innerText;
+    searchInput.value = this.querySelector('span.cityName').innerText;
+    suggestions.style.display = 'none';
+  }
+
+  function toggleUlDisplay() {
+    if(suggestions.style.display === 'none') {
+      suggestions.style.display = '';
+    } else {
+      suggestions.style.display = 'none';
+    }
   }
 
   const searchInput = document.querySelector('.search');
