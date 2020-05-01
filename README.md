@@ -1,4 +1,4 @@
-# Crm Daron [![Code Climate](https://codeclimate.com/github/mvoto/crm-daron/badges/gpa.svg)](https://codeclimate.com/github/mvoto/crm-daron)
+# Crm Daron [![Build Status](https://travis-ci.org/mvoto/crm-daron.svg?branch=master)](https://travis-ci.org/mvoto/crm-daron) [![Code Climate](https://codeclimate.com/github/mvoto/crm-daron/badges/gpa.svg)](https://codeclimate.com/github/mvoto/crm-daron)
 
 This is a specific crm project.
 
