@@ -7,7 +7,7 @@ class CustomersController < ApplicationController
     purchased_year = params[:q].delete(:purchased_at) if params.present? && params[:q]
     @q = Customer.search(params[:q])
 
-    query = @q.result.includes(:address, :devices)
+    query = @q.result.includes(:devices, address: :city)
               .order(:name)
               .paginate(page: params[:page], per_page: 15)
 
