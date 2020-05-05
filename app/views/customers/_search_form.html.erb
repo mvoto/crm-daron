@@ -21,7 +21,7 @@
     </div>
 
     <div class='form-group has-feedback has-clear'>
-      <%= f.hidden_field :address_city_id_eq, placeholder: I18n.t("activerecord.attributes.city.name"), class: "form-control hiddenCityId" %>
+      <%= f.hidden_field :address_city_id_eq, class: "hiddenCityId" %>
       <input type="text" class="form-control search" placeholder="Cidade">
       <span class="form-control-clear fa fa-times form-control-feedback"></span>
       <ul class="suggestions" style="display:none"></ul>
@@ -32,6 +32,15 @@
 </div>
 
 <%= javascript_tag do %>
+  document.addEventListener("DOMContentLoaded", function() {
+    if(hiddenCityIdField.value) {
+      let city = {};
+      fetch(`/city.json?id=${hiddenCityIdField.value}`)
+        .then(blob => blob.json())
+        .then(data => searchInput.value = data.full_name);
+    }
+  });
+
   $('.form-control-clear').click(function() {
     $(this).prev('input').val('').focus()
     if ($(this).prev('input').hasClass('search')) {
@@ -89,7 +98,6 @@
   }
 
   function selectCityId() {
-    const hiddenCityIdField = document.querySelector('input.hiddenCityId');
     hiddenCityIdField.value = this.querySelector('span.cityId').innerText;
     searchInput.value = this.querySelector('span.cityName').innerText;
     suggestions.style.display = 'none';
@@ -105,6 +113,7 @@
 
   const searchInput = document.querySelector('.search');
   const suggestions = document.querySelector('.suggestions');
+  const hiddenCityIdField = document.querySelector('input.hiddenCityId');
 
   searchInput.addEventListener('change', displayMatches);
   searchInput.addEventListener('keyup', displayMatches);
