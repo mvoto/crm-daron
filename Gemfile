@@ -23,7 +23,7 @@ gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
 gem 'less-rails'
 gem 'less-rails-bootstrap'
 gem 'therubyracer', '~> 0.12.1'        # https://github.com/cowboyd/therubyracer
-gem 'carrierwave', '~> 1.0'
+gem 'carrierwave', '~> 1.3'
 gem 'fog-aws', '~> 1.3.0'
 gem 'mini_magick', '~> 4.8.0'
 gem 'sprockets', '3.6.3'
